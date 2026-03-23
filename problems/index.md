@@ -65,7 +65,7 @@ permalink: /problems/
           {% if problem.difficulty %}<span class="pill">{{ problem.difficulty }}</span>{% endif %}
           {% if problem.topic %}<span class="pill">{{ problem.topic }}</span>{% endif %}
         </div>
-        <h2 class="problem-card__title"><a href="{{ problem.url }}">{{ problem.title }}</a></h2>
+        <h2 class="problem-card__title"><a href="{{ problem.url | relative_url }}">{{ problem.title }}</a></h2>
         <p class="problem-card__description">
           {% if problem.excerpt %}
             {{ problem.excerpt | strip_html | truncate: 120 }}
@@ -75,7 +75,7 @@ permalink: /problems/
         </p>
       </div>
       <div class="problem-card__footer">
-        <a class="text-link" href="{{ problem.url }}">문제 풀러 가기 →</a>
+        <a class="text-link" href="{{ problem.url | relative_url }}">문제 풀러 가기 →</a>
       </div>
     </article>
   {% endfor %}
@@ -83,4 +83,4 @@ permalink: /problems/
 
 <div id="problem-empty" class="empty-state is-hidden">조건에 맞는 문제가 없습니다. 검색어나 필터를 바꿔보세요.</div>
 
-<script src="/assets/js/problem-filters.js" defer></script>
+<script src="{{ '/assets/js/problem-filters.js' | relative_url }}" defer></script>
