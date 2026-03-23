@@ -1,0 +1,73 @@
+---
+layout: default
+---
+
+<article class="problem-page"
+  data-problem-id="{{ page.slug | default: page.url }}"
+  data-function-name="{{ page.function_name }}"
+  data-track="{{ page.track }}"
+  data-starter-code="{{ page.starter_code | jsonify | escape }}"
+  data-test-cases="{{ page.test_cases | jsonify | escape }}"
+  data-time-limit-ms="{{ page.time_limit_ms | default: 200 }}">
+  <header class="problem-header">
+    <h1>{{ page.title }}</h1>
+    <div class="meta-row">
+      {% if page.track %}<span class="pill">{{ page.track }}</span>{% endif %}
+      {% if page.difficulty %}<span class="pill">{{ page.difficulty }}</span>{% endif %}
+      {% if page.topic %}<span class="pill">{{ page.topic }}</span>{% endif %}
+      {% if page.function_name %}<span class="pill">함수명: {{ page.function_name }}</span>{% endif %}
+      <span class="pill">제한 시간: {{ page.time_limit_ms | default: 200 }}ms</span>
+    </div>
+  </header>
+
+  <section class="problem-content">
+    {{ content }}
+  </section>
+
+  <section class="playground">
+    <div class="section-heading">
+      <h2>코드 작성</h2>
+      <p class="muted">starter code를 바탕으로 함수를 완성한 뒤 예제 테스트를 실행해보세요.</p>
+    </div>
+    <div class="editor-shell">
+      <div class="editor-shell__top">
+        <span class="editor-badge">JavaScript</span>
+        <span id="editor-mode-label" class="muted">에디터 로딩 중...</span>
+      </div>
+      <div id="editor-container" class="editor-container"></div>
+      <textarea id="editor" class="editor-fallback" spellcheck="false"></textarea>
+    </div>
+    <div class="action-row">
+      <button id="run-btn" type="button">예제 테스트 실행</button>
+      <button id="reset-btn" type="button">초기 코드로 되돌리기</button>
+    </div>
+  </section>
+
+  <section class="custom-test">
+    <div class="section-heading">
+      <h2>커스텀 테스트</h2>
+      <p class="muted">함수 인자를 JSON 배열 형태로 입력하세요. 예: <code>[3, 5]</code>, <code>[[1, 2, 3]]</code></p>
+    </div>
+    <div class="custom-test__panel">
+      <label class="filter-label" for="custom-input">입력값</label>
+      <textarea id="custom-input" class="custom-input" spellcheck="false">[]</textarea>
+      <div class="action-row compact-row">
+        <button id="custom-run-btn" type="button">커스텀 입력 실행</button>
+      </div>
+      <div id="custom-output" class="custom-output">아직 실행하지 않았습니다.</div>
+    </div>
+  </section>
+
+  <section class="results">
+    <div class="section-heading">
+      <h2>실행 결과</h2>
+      <p id="results-summary" class="muted">아직 실행하지 않았습니다.</p>
+    </div>
+    <div id="results-list" class="results-list" aria-live="polite">
+      <div class="empty-state">예제 테스트를 실행하면 여기에서 결과를 확인할 수 있습니다.</div>
+    </div>
+  </section>
+</article>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs/loader.min.js" defer></script>
+<script src="/assets/js/problem-runner.js" defer></script>
