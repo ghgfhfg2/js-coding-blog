@@ -12,9 +12,11 @@
   <header class="site-header">
     <div class="container">
       <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
-      <nav class="site-nav">
-        <a href="{{ '/' | relative_url }}">홈</a>
+      <nav class="site-nav" aria-label="주요 메뉴">
         <a href="{{ '/problems/' | relative_url }}">문제</a>
+        <a href="{{ '/#today-track' | relative_url }}">오늘의 코테</a>
+        <a href="{{ '/#algorithm-track' | relative_url }}">알고리즘별 코테</a>
+        <a href="{{ '/#js-basic-track' | relative_url }}">JS 메서드 학습</a>
       </nav>
     </div>
   </header>

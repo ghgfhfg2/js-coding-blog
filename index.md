@@ -33,7 +33,7 @@ title: 홈
 </section>
 
 <section class="dashboard-grid">
-  <article class="dashboard-card dashboard-card--today">
+  <article id="today-track" class="dashboard-card dashboard-card--today">
     <p class="dashboard-card__eyebrow">TODAY TRACK</p>
     <h2>오늘의 코테</h2>
     <p>
@@ -47,7 +47,7 @@ title: 홈
     </ul>
   </article>
 
-  <article class="dashboard-card dashboard-card--algorithm">
+  <article id="algorithm-track" class="dashboard-card dashboard-card--algorithm">
     <p class="dashboard-card__eyebrow">ALGORITHM TRACK</p>
     <h2>알고리즘별 코테</h2>
     <p>
@@ -61,7 +61,7 @@ title: 홈
     </ul>
   </article>
 
-  <article class="dashboard-card dashboard-card--learning">
+  <article id="js-basic-track" class="dashboard-card dashboard-card--learning">
     <p class="dashboard-card__eyebrow">JS BASIC TRACK</p>
     <h2>JS 메서드 학습</h2>
     <p>
