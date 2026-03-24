@@ -2,8 +2,8 @@ title: "JS Coding Blog"
 description: "정적 블로그 기반 JavaScript 코딩 연습장"
 lang: ko-KR
 timezone: Asia/Seoul
+url: "https://js-coding.sooyadev.com"
 baseurl: ""
-url: ""
 markdown: kramdown
 permalink: pretty
 
