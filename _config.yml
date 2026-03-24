@@ -23,3 +23,6 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
+
+disqus:
+  shortname: js-coding

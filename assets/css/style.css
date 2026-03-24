@@ -421,9 +421,14 @@ p, li {
 .results,
 .problem-content,
 .problem-card,
-.playground {
+.playground,
+.comments-section {
   margin-top: var(--space-6);
   padding: 20px;
+}
+
+.comments-section #disqus_thread {
+  margin-top: var(--space-4);
 }
 
 .custom-test__panel {
