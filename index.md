@@ -24,9 +24,9 @@ title: 홈
       <span class="hero-panel__label">NOW LIVE</span>
       <h2>세 가지 학습 흐름</h2>
       <ul>
-        <li>오늘의 코테 — 짧고 신선한 도전</li>
-        <li>알고리즘별 코테 — 개념과 유형 중심 학습</li>
-        <li>JS 메서드 학습 — 메서드 설명 + 연습문제</li>
+        <li><a href="{{ '/today/' | relative_url }}">오늘의 코테</a> — 짧고 신선한 도전</li>
+        <li><a href="{{ '/algorithm/' | relative_url }}">알고리즘별 코테</a> — 개념과 유형 중심 학습</li>
+        <li><a href="{{ '/js-basic/' | relative_url }}">JS 메서드 학습</a> — 메서드 설명 + 연습문제</li>
       </ul>
     </div>
   </div>
@@ -106,7 +106,7 @@ title: 홈
 
   <div class="quick-links">
     <a class="quick-link" href="{{ '/problems/' | relative_url }}">전체 문제 보기</a>
-    <a class="quick-link" href="{{ '/problems/' | relative_url }}">트랙별로 탐색하기</a>
-    <a class="quick-link" href="{{ '/problems/count-vowels/' | relative_url }}">JS 학습형 문제 예시 보기</a>
+    <a class="quick-link" href="{{ '/algorithm/' | relative_url }}">트랙별로 탐색하기</a>
+    <a class="quick-link" href="{{ '/js-basic/' | relative_url }}">JS 학습형 메뉴 보기</a>
   </div>
 </section>
