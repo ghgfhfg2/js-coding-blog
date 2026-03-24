@@ -32,6 +32,7 @@
 - `PROBLEM_AUTHORING.md` — 문제 작성 가이드
 - `CATEGORY_POSTING_GUIDE.md` — 트랙별 게시물 작성 가이드
 - `CURATION.md` — 큐레이션 구조 문서
+- `problem-catalog.json` — 문제 카탈로그 및 중복 방지 기준
 - `problems/index.md` — 문제 목록 페이지
 - `assets/js/problem-runner.js` — 실행기 + 본문 학습/토글 처리
 - `assets/js/problem-filters.js` — 문제 목록 필터/검색
@@ -48,3 +49,10 @@
 2. `js-basic` 전용 템플릿 문제 더 추가
 3. 결과 패널 표현 개선
 4. GitHub Pages 배포 준비
+가 유지됩니다.
+
+## 다음 단계
+1. `js-basic` 전용 템플릿 문제 더 추가
+2. 결과 패널 표현 개선
+3. GitHub Pages 배포 안정화
+4. 카탈로그 기반 검증 자동화 고도화

@@ -204,10 +204,29 @@ arr.includes(value)
 
 ---
 
+## 카탈로그 기반 중복 방지
+새 문제를 만들기 전에 반드시 `problem-catalog.json`을 먼저 확인합니다.
+
+### 기본 규칙
+- 기존 `slug`와 정확히 같은 값 사용 금지
+- 기존 `title`과 정확히 같은 제목 사용 금지
+- 같은 날 생성되는 다른 문제와 `topic` 중복 금지
+- 같은 날 생성되는 다른 문제와 `primaryMethod` 중복 금지
+- 최근 30일 내 `coreIdea`가 유사한 문제는 피하기
+
+### 새 문제 생성 시 함께 정리할 메타
+카탈로그에는 아래 정보까지 함께 누적하는 것을 권장합니다.
+- `primaryMethod`: 문제의 대표 메서드/풀이축 (`includes`, `map`, `iteration`, `hash-map` 등)
+- `coreIdea`: 문제의 본질을 한 줄로 요약한 설명
+- `gimmick`: 문제를 차별화하는 포인트
+- `path`: 실제 파일 경로
+
 ## 문제 추가 절차
-1. `_problems/`에 새 파일 생성
-2. front matter 작성 (`track`, `topic`, `tags` 포함)
-3. 본문 작성
-4. 로컬에서 문제 목록/상세 확인
-5. 테스트 실행 확인
-6. 커밋
+1. `problem-catalog.json`을 확인해 중복 여부를 먼저 점검
+2. `_problems/`에 새 파일 생성
+3. front matter 작성 (`track`, `topic`, `tags` 포함)
+4. 본문 작성
+5. 로컬에서 문제 목록/상세 확인
+6. 테스트 실행 확인
+7. 배포 시 `problem-catalog.json`에도 새 문제 메타를 반영
+8. 커밋

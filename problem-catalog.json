@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "updatedAt": "2026-03-24T15:20:00+09:00",
+  "rules": {
+    "disallowExactSlugDuplicate": true,
+    "disallowExactTitleDuplicate": true,
+    "disallowSameDayTopicDuplicate": true,
+    "disallowSameDayPrimaryMethodDuplicate": true,
+    "avoidSameCoreIdeaWithinDays": 30
+  },
+  "problems": [
+    {
+      "slug": "two-sum",
+      "title": "두 수 더하기",
+      "track": "today",
+      "difficulty": "easy",
+      "topic": "warmup",
+      "tags": ["daily", "beginner", "addition"],
+      "primaryMethod": "arithmetic",
+      "coreIdea": "두 개의 정수를 입력받아 합을 반환하는 가장 기본적인 warmup 문제",
+      "gimmick": "기본 함수형 입출력과 정수 합 처리",
+      "path": "_problems/two-sum.md"
+    },
+    {
+      "slug": "reverse-string",
+      "title": "문자열 뒤집기",
+      "track": "algorithm",
+      "difficulty": "easy",
+      "topic": "string",
+      "tags": ["beginner", "reverse", "string"],
+      "primaryMethod": "split-reverse-join",
+      "coreIdea": "문자열의 순서를 뒤집어 새로운 문자열을 반환하는 문자열 조작 문제",
+      "gimmick": "문자열을 배열처럼 바꿔 처리한 뒤 다시 합치기",
+      "path": "_problems/reverse-string.md"
+    },
+    {
+      "slug": "find-max",
+      "title": "배열에서 최댓값 찾기",
+      "track": "algorithm",
+      "difficulty": "easy",
+      "topic": "array",
+      "tags": ["beginner", "max", "array"],
+      "primaryMethod": "iteration",
+      "coreIdea": "배열을 순회하면서 가장 큰 값을 찾는 기본 배열 탐색 문제",
+      "gimmick": "현재 최댓값 갱신 로직과 음수 배열 처리",
+      "path": "_problems/find-max.md"
+    },
+    {
+      "slug": "count-vowels",
+      "title": "모음 개수 세기",
+      "track": "js-basic",
+      "difficulty": "easy",
+      "topic": "string-methods",
+      "tags": ["beginner", "vowel", "string", "js-method", "includes"],
+      "primaryMethod": "includes",
+      "coreIdea": "문자열을 순회하며 각 문자가 모음 목록에 포함되는지 검사해 개수를 센다",
+      "gimmick": "includes 메서드로 문자 포함 여부를 직관적으로 판별",
+      "path": "_problems/count-vowels.md"
+    }
+  ]
+}
