@@ -7,11 +7,21 @@
   const problemGrid = document.getElementById('problem-grid');
   const problemCount = document.getElementById('problem-count');
   const emptyState = document.getElementById('problem-empty');
+  const archiveSummary = document.getElementById('archive-summary');
+  const archiveSummaryCopy = document.getElementById('archive-summary-copy');
+  const archiveSolvedCount = document.getElementById('archive-solved-count');
+  const archiveLastTitle = document.getElementById('archive-last-title');
+  const archiveLastDate = document.getElementById('archive-last-date');
+  const archiveKey = 'js-coding-blog:archive';
 
   if (!searchInput || !trackFilter || !difficultyFilter || !problemGrid) return;
 
   const cards = Array.from(problemGrid.querySelectorAll('.problem-card'));
   let activeTopic = 'all';
+  const archive = readArchive();
+
+  markSolvedCards();
+  renderArchiveSummary();
 
   searchInput.addEventListener('input', applyFilters);
   trackFilter.addEventListener('change', applyFilters);
@@ -72,5 +82,73 @@
       ? `총 ${visibleCount}개 문제 표시 중`
       : `주제 '${topic}' 기준 ${visibleCount}개 문제 표시 중`;
     emptyState.classList.toggle('is-hidden', visibleCount !== 0);
+  }
+
+  function markSolvedCards() {
+    cards.forEach((card) => {
+      const problemId = card.dataset.problemId || '';
+      const solvedBadge = card.querySelector('.solved-badge');
+      const item = archive.items[problemId];
+
+      if (!solvedBadge) return;
+
+      solvedBadge.classList.toggle('is-hidden', !item);
+      if (item && item.solvedAt) {
+        solvedBadge.title = `최근 풀이: ${formatDate(item.solvedAt)}`;
+      }
+    });
+  }
+
+  function renderArchiveSummary() {
+    if (!archiveSummary || !archiveSummaryCopy || !archiveSolvedCount || !archiveLastTitle || !archiveLastDate) return;
+
+    const items = Object.values(archive.items || {}).sort((a, b) => {
+      const aTime = a && a.solvedAt ? new Date(a.solvedAt).getTime() : 0;
+      const bTime = b && b.solvedAt ? new Date(b.solvedAt).getTime() : 0;
+      return bTime - aTime;
+    });
+
+    if (items.length === 0) {
+      archiveSummary.classList.add('is-hidden');
+      return;
+    }
+
+    const lastItem = items[0];
+    archiveSummary.classList.remove('is-hidden');
+    archiveSolvedCount.textContent = String(items.length);
+    archiveLastTitle.textContent = lastItem && lastItem.title ? lastItem.title : '없음';
+    archiveLastDate.textContent = lastItem && lastItem.solvedAt ? formatDate(lastItem.solvedAt) : '-';
+    archiveSummaryCopy.textContent = `브라우저에 저장된 내 풀이 기록이에요. 지금까지 ${items.length}문제를 풀었어요.`;
+  }
+
+  function readArchive() {
+    try {
+      const raw = localStorage.getItem(archiveKey);
+      if (!raw) return { items: {}, updatedAt: null };
+
+      const parsed = JSON.parse(raw);
+      if (!parsed || typeof parsed !== 'object') return { items: {}, updatedAt: null };
+
+      return {
+        items: parsed.items && typeof parsed.items === 'object' ? parsed.items : {},
+        updatedAt: parsed.updatedAt || null,
+      };
+    } catch (error) {
+      return { items: {}, updatedAt: null };
+    }
+  }
+
+  function formatDate(value) {
+    try {
+      return new Intl.DateTimeFormat('ko-KR', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+      }).format(new Date(value));
+    } catch (error) {
+      return value;
+    }
   }
 })();

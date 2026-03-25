@@ -507,6 +507,36 @@ p, li {
   color: white;
 }
 
+.archive-summary {
+  margin-top: var(--space-6);
+}
+
+.archive-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.archive-stat {
+  padding: 18px;
+  border-radius: var(--radius-md);
+  background: #0f172a;
+  border: 1px solid rgba(51, 65, 85, 0.85);
+}
+
+.archive-stat__label {
+  display: block;
+  color: var(--color-text-muted);
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.archive-stat__value {
+  display: block;
+  color: #fff;
+  font-size: 20px;
+}
+
 .problem-count {
   margin: var(--space-4) 0 0;
 }
@@ -521,6 +551,26 @@ p, li {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.problem-card__topline {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.solved-badge {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(34, 197, 94, 0.16);
+  border: 1px solid rgba(74, 222, 128, 0.35);
+  color: #bbf7d0;
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .problem-card__title {
@@ -685,11 +735,13 @@ code,
   .dashboard-grid,
   .home-info-grid,
   .quick-links,
-  .filter-panel {
+  .filter-panel,
+  .archive-stats {
     grid-template-columns: 1fr;
   }
 
-  .topic-filter-head {
+  .topic-filter-head,
+  .problem-card__topline {
     flex-direction: column;
   }
 }

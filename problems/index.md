@@ -66,6 +66,27 @@ permalink: /problems/
   {% endif %}
 </div>
 
+<section id="archive-summary" class="archive-summary card is-hidden" aria-live="polite">
+  <div class="section-heading">
+    <h2>내 아카이브</h2>
+    <p id="archive-summary-copy" class="muted">아직 기록된 풀이가 없습니다. 문제를 하나 풀어보세요.</p>
+  </div>
+  <div class="archive-stats">
+    <article class="archive-stat">
+      <span class="archive-stat__label">푼 문제 수</span>
+      <strong id="archive-solved-count" class="archive-stat__value">0</strong>
+    </article>
+    <article class="archive-stat">
+      <span class="archive-stat__label">마지막으로 푼 문제</span>
+      <strong id="archive-last-title" class="archive-stat__value">없음</strong>
+    </article>
+    <article class="archive-stat">
+      <span class="archive-stat__label">최근 풀이 시각</span>
+      <strong id="archive-last-date" class="archive-stat__value">-</strong>
+    </article>
+  </div>
+</section>
+
 <p id="problem-count" class="muted problem-count"></p>
 
 <div id="problem-grid" class="problem-grid">
@@ -73,6 +94,9 @@ permalink: /problems/
   {% for problem in sorted_problems %}
     <article
       class="problem-card"
+      data-problem-id="{{ problem.slug | default: problem.url }}"
+      data-problem-title="{{ problem.title | escape }}"
+      data-problem-url="{{ problem.url }}"
       data-title="{{ problem.title | downcase | escape }}"
       data-description="{{ problem.excerpt | strip_html | strip_newlines | downcase | escape }}"
       data-track="{{ problem.track | downcase }}"
@@ -80,10 +104,13 @@ permalink: /problems/
       data-topic="{{ problem.topic | downcase }}"
       data-tags="{{ problem.tags | join: ' ' | downcase | escape }}">
       <div class="problem-card__body">
-        <div class="meta-row compact">
+        <div class="problem-card__topline">
+          <div class="meta-row compact">
           {% if problem.track %}<span class="pill">{{ problem.track }}</span>{% endif %}
           {% if problem.difficulty %}<span class="pill">{{ problem.difficulty }}</span>{% endif %}
           {% if problem.topic %}<span class="pill">{{ problem.topic }}</span>{% endif %}
+          </div>
+          <span class="solved-badge is-hidden">해결 완료</span>
         </div>
         <h2 class="problem-card__title"><a href="{{ problem.url }}">{{ problem.title }}</a></h2>
         <p class="problem-card__description">
