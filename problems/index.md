@@ -85,6 +85,21 @@ permalink: /problems/
       <strong id="archive-last-date" class="archive-stat__value">-</strong>
     </article>
   </div>
+
+  <div class="archive-toolbar">
+    <label class="archive-toggle">
+      <input id="solved-only-toggle" type="checkbox" />
+      <span>푼 문제만 보기</span>
+    </label>
+  </div>
+
+  <div class="recent-solved">
+    <div class="section-heading compact-heading">
+      <h3>최근 푼 문제</h3>
+      <p class="muted">최근 기록 5개까지 보여줘요.</p>
+    </div>
+    <ul id="recent-solved-list" class="recent-solved-list"></ul>
+  </div>
 </section>
 
 <p id="problem-count" class="muted problem-count"></p>

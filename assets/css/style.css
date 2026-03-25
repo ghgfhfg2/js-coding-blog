@@ -517,6 +517,61 @@ p, li {
   gap: var(--space-4);
 }
 
+.archive-toolbar {
+  margin-top: var(--space-5);
+}
+
+.archive-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-text-secondary);
+  font-size: 14px;
+}
+
+.archive-toggle input {
+  width: 16px;
+  height: 16px;
+}
+
+.recent-solved {
+  margin-top: var(--space-5);
+}
+
+.compact-heading {
+  margin-bottom: var(--space-3);
+}
+
+.recent-solved-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.recent-solved-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  background: #0f172a;
+  border: 1px solid rgba(51, 65, 85, 0.85);
+}
+
+.recent-solved-item__link {
+  color: #fff;
+  font-weight: 600;
+}
+
+.recent-solved-item__meta {
+  color: var(--color-text-muted);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
 .archive-stat {
   padding: 18px;
   border-radius: var(--radius-md);
@@ -741,8 +796,10 @@ code,
   }
 
   .topic-filter-head,
-  .problem-card__topline {
+  .problem-card__topline,
+  .recent-solved-item {
     flex-direction: column;
+    align-items: flex-start;
   }
 }
 
