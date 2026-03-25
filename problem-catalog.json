@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-03-24T15:20:00+09:00",
+  "updatedAt": "2026-03-25T14:00:00+09:00",
   "rules": {
     "disallowExactSlugDuplicate": true,
     "disallowExactTitleDuplicate": true,
@@ -15,7 +15,11 @@
       "track": "today",
       "difficulty": "easy",
       "topic": "warmup",
-      "tags": ["daily", "beginner", "addition"],
+      "tags": [
+        "daily",
+        "beginner",
+        "addition"
+      ],
       "primaryMethod": "arithmetic",
       "coreIdea": "두 개의 정수를 입력받아 합을 반환하는 가장 기본적인 warmup 문제",
       "gimmick": "기본 함수형 입출력과 정수 합 처리",
@@ -27,7 +31,11 @@
       "track": "algorithm",
       "difficulty": "easy",
       "topic": "string",
-      "tags": ["beginner", "reverse", "string"],
+      "tags": [
+        "beginner",
+        "reverse",
+        "string"
+      ],
       "primaryMethod": "split-reverse-join",
       "coreIdea": "문자열의 순서를 뒤집어 새로운 문자열을 반환하는 문자열 조작 문제",
       "gimmick": "문자열을 배열처럼 바꿔 처리한 뒤 다시 합치기",
@@ -39,7 +47,11 @@
       "track": "algorithm",
       "difficulty": "easy",
       "topic": "array",
-      "tags": ["beginner", "max", "array"],
+      "tags": [
+        "beginner",
+        "max",
+        "array"
+      ],
       "primaryMethod": "iteration",
       "coreIdea": "배열을 순회하면서 가장 큰 값을 찾는 기본 배열 탐색 문제",
       "gimmick": "현재 최댓값 갱신 로직과 음수 배열 처리",
@@ -51,11 +63,108 @@
       "track": "js-basic",
       "difficulty": "easy",
       "topic": "string-methods",
-      "tags": ["beginner", "vowel", "string", "js-method", "includes"],
+      "tags": [
+        "beginner",
+        "vowel",
+        "string",
+        "js-method",
+        "includes"
+      ],
       "primaryMethod": "includes",
       "coreIdea": "문자열을 순회하며 각 문자가 모음 목록에 포함되는지 검사해 개수를 센다",
       "gimmick": "includes 메서드로 문자 포함 여부를 직관적으로 판별",
       "path": "_problems/count-vowels.md"
+    },
+    {
+      "slug": "collapse-adjacent-pairs",
+      "title": "인접한 같은 문자 지우기",
+      "track": "algorithm",
+      "difficulty": "easy",
+      "topic": "stack-queue",
+      "tags": [
+        "beginner",
+        "stack",
+        "string",
+        "adjacent",
+        "cancellation"
+      ],
+      "primaryMethod": "stack-cancellation",
+      "coreIdea": "문자열을 왼쪽부터 보며 스택의 마지막 문자와 현재 문자가 같으면 쌍을 제거하고 다르면 쌓아 최종 문자열을 만든다",
+      "gimmick": "제거 후 새롭게 인접해진 문자까지 연쇄적으로 처리해야 한다",
+      "path": "_problems/collapse-adjacent-pairs.md"
+    },
+    {
+      "slug": "filter-words-by-min-length",
+      "title": "최소 길이 이상 단어만 고르기",
+      "track": "js-basic",
+      "difficulty": "easy",
+      "topic": "high-order-functions",
+      "tags": [
+        "beginner",
+        "array",
+        "js-method",
+        "filter",
+        "length"
+      ],
+      "primaryMethod": "filter-predicate",
+      "coreIdea": "문자열 배열에서 각 단어 길이가 최소 기준 이상인지 predicate로 검사해 조건을 만족하는 단어만 새 배열로 남긴다",
+      "gimmick": "원본 배열을 바꾸지 않고 길이 기준 필터링 감각을 익히는 메서드 학습형 구성",
+      "path": "_problems/filter-words-by-min-length.md"
+    },
+    {
+      "slug": "fit-log-batches-into-deadline",
+      "title": "로그 묶음 처리 시간 맞추기",
+      "track": "today",
+      "difficulty": "hard",
+      "topic": "binary-search",
+      "tags": [
+        "daily",
+        "hard",
+        "binary-search",
+        "parametric-search",
+        "greedy",
+        "partition"
+      ],
+      "primaryMethod": "parametric-search",
+      "coreIdea": "순서를 유지한 작업 묶음을 제한된 일수 안에 나눌 때 가능한 하루 최대 처리량을 greedy 판별 함수와 이분 탐색으로 최소화한다",
+      "gimmick": "정답을 직접 구성하지 않고 가능 여부가 단조성을 가지는 최소 한계값을 찾는다",
+      "path": "_problems/fit-log-batches-into-deadline.md"
+    },
+    {
+      "slug": "follow-elevator-buttons",
+      "title": "엘리베이터 버튼 따라가기",
+      "track": "today",
+      "difficulty": "easy",
+      "topic": "simulation",
+      "tags": [
+        "daily",
+        "beginner",
+        "simulation",
+        "array",
+        "movement"
+      ],
+      "primaryMethod": "state-simulation",
+      "coreIdea": "현재 층 상태값 하나를 유지하면서 버튼 명령을 순서대로 적용하고 0층 아래로 내려가지 않도록 제한한다",
+      "gimmick": "하한선 0을 가진 단순 상태 전이 시뮬레이션",
+      "path": "_problems/follow-elevator-buttons.md"
+    },
+    {
+      "slug": "shortest-repeat-gap",
+      "title": "가장 짧은 재등장 간격",
+      "track": "today",
+      "difficulty": "medium",
+      "topic": "hash",
+      "tags": [
+        "daily",
+        "medium",
+        "hash",
+        "map",
+        "index-tracking"
+      ],
+      "primaryMethod": "last-seen-map",
+      "coreIdea": "각 체크포인트의 마지막 등장 위치를 해시 맵에 저장해 재등장할 때마다 인덱스 차이를 계산하고 최솟값을 갱신한다",
+      "gimmick": "모든 쌍 비교 대신 최근 위치 하나만 기억해 선형 시간으로 해결한다",
+      "path": "_problems/shortest-repeat-gap.md"
     }
   ]
 }
