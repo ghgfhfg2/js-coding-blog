@@ -8,8 +8,10 @@ permalink: /problems/
 
 <p class="section-lead">트랙, 난이도, 주제를 기준으로 문제를 찾아볼 수 있습니다. 오늘의 코테, 알고리즘 학습, JS 메서드 학습 흐름에 맞춰 큐레이션합니다.</p>
 
-<div class="filter-panel filter-panel--wide">
-  <div class="filter-group">
+{% assign topics = site.problems | map: 'topic' | uniq | sort %}
+
+<div class="filter-panel">
+  <div class="filter-group filter-group--search">
     <label class="filter-label" for="problem-search">검색</label>
     <input id="problem-search" class="filter-input" type="search" placeholder="문제 제목이나 설명 검색" />
   </div>
@@ -33,17 +35,35 @@ permalink: /problems/
       <option value="hard">hard</option>
     </select>
   </div>
+</div>
 
-  <div class="filter-group">
-    <label class="filter-label" for="topic-filter">주제</label>
-    <select id="topic-filter" class="filter-select">
-      <option value="all">전체</option>
-      {% assign topics = site.problems | map: 'topic' | uniq | sort %}
-      {% for topic in topics %}
-        {% if topic %}<option value="{{ topic }}">{{ topic }}</option>{% endif %}
-      {% endfor %}
-    </select>
+<div class="topic-filter-panel card">
+  <div class="topic-filter-head">
+    <div>
+      <p class="filter-label">주제</p>
+      <p class="muted topic-filter-copy">자주 찾는 주제는 바로 누르고, 나머지는 전체 보기에서 고를 수 있어요.</p>
+    </div>
+    <button id="topic-reset" class="topic-reset-btn" type="button">주제 전체</button>
   </div>
+
+  <div id="topic-chip-list" class="topic-chip-list" aria-label="인기 주제 필터">
+    <button class="topic-chip is-active" type="button" data-topic="all">전체</button>
+    {% for topic in topics limit:8 %}
+      {% if topic %}<button class="topic-chip" type="button" data-topic="{{ topic | downcase }}">{{ topic }}</button>{% endif %}
+    {% endfor %}
+  </div>
+
+  {% assign extra_topics = topics | slice: 8, topics.size %}
+  {% if extra_topics and extra_topics.size > 0 %}
+    <details class="content-toggle topic-more">
+      <summary class="content-toggle__summary">더 많은 주제 보기</summary>
+      <div class="topic-chip-list topic-chip-list--all" aria-label="전체 주제 필터">
+        {% for topic in extra_topics %}
+          {% if topic %}<button class="topic-chip topic-chip--subtle" type="button" data-topic="{{ topic | downcase }}">{{ topic }}</button>{% endif %}
+        {% endfor %}
+      </div>
+    </details>
+  {% endif %}
 </div>
 
 <p id="problem-count" class="muted problem-count"></p>

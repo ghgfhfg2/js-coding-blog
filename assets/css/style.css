@@ -384,14 +384,68 @@ p, li {
   padding: 20px;
 }
 
-.filter-panel--wide {
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-}
-
 .filter-group {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
+}
+
+.filter-group--search {
+  grid-column: span 1;
+}
+
+.topic-filter-panel {
+  margin-top: var(--space-4);
+}
+
+.topic-filter-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.topic-filter-copy {
+  margin: 6px 0 0;
+}
+
+.topic-chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: var(--space-4);
+}
+
+.topic-chip {
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(51, 65, 85, 0.85);
+  background: #0f172a;
+  color: var(--color-text-secondary);
+}
+
+.topic-chip:hover {
+  background: rgba(37, 99, 235, 0.16);
+}
+
+.topic-chip.is-active {
+  background: rgba(37, 99, 235, 0.28);
+  color: #fff;
+  border-color: rgba(96, 165, 250, 0.7);
+}
+
+.topic-chip--subtle {
+  background: #020617;
+}
+
+.topic-reset-btn {
+  background: transparent;
+  color: var(--color-text-muted);
+  border: 1px solid rgba(51, 65, 85, 0.85);
+}
+
+.topic-more {
+  margin-top: var(--space-4);
 }
 
 .filter-label {
@@ -631,9 +685,12 @@ code,
   .dashboard-grid,
   .home-info-grid,
   .quick-links,
-  .filter-panel,
-  .filter-panel--wide {
+  .filter-panel {
     grid-template-columns: 1fr;
+  }
+
+  .topic-filter-head {
+    flex-direction: column;
   }
 }
 
@@ -659,7 +716,8 @@ code,
   .results,
   .problem-content,
   .problem-card,
-  .filter-panel {
+  .filter-panel,
+  .topic-filter-panel {
     padding: 20px;
   }
 
