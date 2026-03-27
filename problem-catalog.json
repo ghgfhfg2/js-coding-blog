@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-03-26T14:00:00+09:00",
+  "updatedAt": "2026-03-27T14:00:00+09:00",
   "rules": {
     "disallowExactSlugDuplicate": true,
     "disallowExactTitleDuplicate": true,
@@ -257,6 +257,98 @@
       "coreIdea": "최댓값 후보 인덱스만 남기는 단조 덱을 유지해 각 길이 k 구간의 최대값을 O(n)에 구한다",
       "gimmick": "덱 앞에서는 범위를 벗어난 인덱스를 제거하고 뒤에서는 더 작은 후보를 제거해 항상 맨 앞이 최댓값이 되게 유지한다",
       "path": "_problems/sliding-window-maxima.md"
+    },
+    {
+      "slug": "count-minutes-to-fill-empty-rooms",
+      "title": "빈 방이 모두 채워지는 데 걸리는 시간",
+      "track": "algorithm",
+      "difficulty": "medium",
+      "topic": "graph",
+      "tags": [
+        "bfs",
+        "graph",
+        "grid",
+        "multi-source",
+        "shortest-time"
+      ],
+      "primaryMethod": "multi-source-bfs",
+      "coreIdea": "처음부터 채워진 칸들을 모두 시작점으로 큐에 넣고 같은 시간대의 확장을 레벨 단위로 진행해 모든 빈 방이 채워지는 최소 시간을 구한다",
+      "gimmick": "시작점이 하나가 아니라 여러 개라서 가장 가까운 채워진 칸으로부터 동시에 퍼진다고 생각해야 한다",
+      "path": "_problems/count-minutes-to-fill-empty-rooms.md"
+    },
+    {
+      "slug": "count-setting-keys",
+      "title": "설정 항목 개수 세기",
+      "track": "js-basic",
+      "difficulty": "easy",
+      "topic": "object-basics",
+      "tags": [
+        "beginner",
+        "object",
+        "js-method",
+        "object-keys",
+        "count"
+      ],
+      "primaryMethod": "object-keys-length",
+      "coreIdea": "설정 객체의 키 목록을 Object.keys()로 배열로 바꾼 뒤 length로 항목 수를 센다",
+      "gimmick": "값이 아니라 객체의 key 개수를 세는 문제라서 배열 길이와 다른 객체 접근 감각이 필요하다",
+      "path": "_problems/count-setting-keys.md"
+    },
+    {
+      "slug": "maximum-active-cluster-sum-after-shutdowns",
+      "title": "셧다운 이후 가장 큰 활성 구간 합",
+      "track": "today",
+      "difficulty": "hard",
+      "topic": "union-find",
+      "tags": [
+        "daily",
+        "hard",
+        "union-find",
+        "disjoint-set",
+        "reverse-processing",
+        "interval-sum"
+      ],
+      "primaryMethod": "reverse-union-find",
+      "coreIdea": "비활성화 순서를 정방향으로 처리하면 구간 분리가 어려우므로 제거 과정을 뒤집어 인덱스를 다시 활성화하면서 인접한 활성 구간을 union-find로 합치고 매 단계 최대 구간 합을 갱신한다",
+      "gimmick": "삭제는 어렵고 추가는 쉽다는 점을 이용해 오프라인 역순 처리로 매 단계의 정답을 복원한다",
+      "path": "_problems/maximum-active-cluster-sum-after-shutdowns.md"
+    },
+    {
+      "slug": "minimize-shuttle-rides",
+      "title": "셔틀 최소 운행 횟수",
+      "track": "today",
+      "difficulty": "medium",
+      "topic": "two-pointers",
+      "tags": [
+        "daily",
+        "medium",
+        "two-pointers",
+        "greedy",
+        "sorting",
+        "pairing"
+      ],
+      "primaryMethod": "inward-two-pointers",
+      "coreIdea": "몸무게 배열을 정렬한 뒤 가장 가벼운 사람과 가장 무거운 사람을 함께 태울 수 있는지 양끝 포인터로 확인하며 최소 셔틀 수를 계산한다",
+      "gimmick": "무거운 사람은 항상 먼저 처리하되 가벼운 사람과 함께 태울 수 있을 때만 짝을 만들어 한 번의 운행을 줄인다",
+      "path": "_problems/minimize-shuttle-rides.md"
+    },
+    {
+      "slug": "wrap-clock-minutes",
+      "title": "하루를 한 바퀴 도는 시계",
+      "track": "today",
+      "difficulty": "easy",
+      "topic": "implementation",
+      "tags": [
+        "daily",
+        "beginner",
+        "implementation",
+        "time",
+        "modulo"
+      ],
+      "primaryMethod": "minute-normalization",
+      "coreIdea": "시각을 총 분으로 바꾼 뒤 이동할 분을 더하고 하루 길이 1440분 기준으로 정규화해 최종 시각을 구한다",
+      "gimmick": "자정을 넘기거나 이전 날로 돌아가는 경우까지 음수 보정을 포함한 모듈러 처리로 한 번에 해결한다",
+      "path": "_problems/wrap-clock-minutes.md"
     }
   ]
 }
