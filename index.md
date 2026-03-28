@@ -8,6 +8,10 @@ description: 카테고리 중심으로 JavaScript 코딩 문제를 탐색하고 
 {% assign algorithm_problems = site.problems | where: 'track', 'algorithm' | sort: 'order' %}
 {% assign js_basic_problems = site.problems | where: 'track', 'js-basic' | sort: 'order' %}
 {% assign total_count = site.problems | size %}
+{% assign featured = site.problems | sort: 'order' %}
+{% assign featured_today = today_problems | first %}
+{% assign featured_algorithm = algorithm_problems | first %}
+{% assign featured_basic = js_basic_problems | first %}
 
 <section class="hero-section hero-section--dashboard">
   <div class="hero-copy">
@@ -52,6 +56,40 @@ description: 카테고리 중심으로 JavaScript 코딩 문제를 탐색하고 
   </div>
 </section>
 
+<section class="home-section home-section--feature-strip">
+  <div class="section-heading">
+    <h2>오늘 바로 시작할 추천 루트</h2>
+    <p>카테고리마다 첫 문제를 하나씩 골라두었습니다. 막막할 때는 여기서 바로 시작해도 좋아요.</p>
+  </div>
+
+  <div class="featured-route-grid">
+    <article class="featured-route-card featured-route-card--today">
+      <div class="featured-route-card__icon">⚡</div>
+      <div>
+        <p class="dashboard-card__eyebrow">오늘의 코테 추천</p>
+        <h3><a href="{{ featured_today.url }}">{{ featured_today.title }}</a></h3>
+        <p>{{ featured_today.excerpt | strip_html | truncate: 90 }}</p>
+      </div>
+    </article>
+    <article class="featured-route-card featured-route-card--algorithm">
+      <div class="featured-route-card__icon">🧩</div>
+      <div>
+        <p class="dashboard-card__eyebrow">알고리즘 추천</p>
+        <h3><a href="{{ featured_algorithm.url }}">{{ featured_algorithm.title }}</a></h3>
+        <p>{{ featured_algorithm.excerpt | strip_html | truncate: 90 }}</p>
+      </div>
+    </article>
+    <article class="featured-route-card featured-route-card--learning">
+      <div class="featured-route-card__icon">📘</div>
+      <div>
+        <p class="dashboard-card__eyebrow">JS 메서드 추천</p>
+        <h3><a href="{{ featured_basic.url }}">{{ featured_basic.title }}</a></h3>
+        <p>{{ featured_basic.excerpt | strip_html | truncate: 90 }}</p>
+      </div>
+    </article>
+  </div>
+</section>
+
 <section class="home-section">
   <div class="section-heading">
     <h2>학습 흐름 선택하기</h2>
@@ -61,6 +99,7 @@ description: 카테고리 중심으로 JavaScript 코딩 문제를 탐색하고 
   <div class="category-hub-grid">
     <article class="category-card category-card--today">
       <div class="category-card__head">
+        <div class="category-card__icon">⚡</div>
         <p class="dashboard-card__eyebrow">TODAY TRACK</p>
         <h3>오늘의 코테</h3>
         <p>짧지만 감각을 깨우는 문제를 중심으로, 매일 가볍게 도전하는 트랙입니다.</p>
@@ -78,6 +117,7 @@ description: 카테고리 중심으로 JavaScript 코딩 문제를 탐색하고 
 
     <article class="category-card category-card--algorithm">
       <div class="category-card__head">
+        <div class="category-card__icon">🧩</div>
         <p class="dashboard-card__eyebrow">ALGORITHM TRACK</p>
         <h3>알고리즘별 코테</h3>
         <p>문자열, 배열, 해시, 투 포인터처럼 유형 중심으로 반복 연습하는 트랙입니다.</p>
@@ -95,6 +135,7 @@ description: 카테고리 중심으로 JavaScript 코딩 문제를 탐색하고 
 
     <article class="category-card category-card--learning">
       <div class="category-card__head">
+        <div class="category-card__icon">📘</div>
         <p class="dashboard-card__eyebrow">JS BASIC TRACK</p>
         <h3>JS 메서드 학습</h3>
         <p>문제만 푸는 대신 메서드 설명, 예시, 주의점까지 함께 익히는 학습형 트랙입니다.</p>
@@ -114,12 +155,34 @@ description: 카테고리 중심으로 JavaScript 코딩 문제를 탐색하고 
 
 <section class="home-section">
   <div class="section-heading">
+    <h2>내 학습 진행도</h2>
+    <p data-home-progress-copy>브라우저 기준 학습 기록을 바탕으로, 최근 풀이 흐름을 여기서 바로 이어갈 수 있어요.</p>
+  </div>
+
+  <div class="home-progress-grid" data-home-archive>
+    <article class="progress-summary-card">
+      <span class="progress-summary-card__label">푼 문제 수</span>
+      <strong class="progress-summary-card__value" data-home-solved-count>0</strong>
+    </article>
+    <article class="progress-summary-card">
+      <span class="progress-summary-card__label">최근 푼 문제</span>
+      <strong class="progress-summary-card__title" data-home-latest-title>아직 없음</strong>
+      <span class="progress-summary-card__meta" data-home-latest-date>-</span>
+    </article>
+    <article class="progress-summary-card progress-summary-card--list">
+      <span class="progress-summary-card__label">최근 기록</span>
+      <ul class="recent-mini-list" data-home-recent-list></ul>
+    </article>
+  </div>
+</section>
+
+<section class="home-section">
+  <div class="section-heading">
     <h2>빠르게 시작하기</h2>
     <p>지금 바로 풀어볼 만한 대표 문제를 카테고리별로 골랐어요.</p>
   </div>
 
   <div class="spotlight-grid">
-    {% assign featured = site.problems | sort: 'order' %}
     {% for problem in featured limit: 6 %}
       <article class="spotlight-card">
         <div class="meta-row compact">
@@ -148,3 +211,5 @@ description: 카테고리 중심으로 JavaScript 코딩 문제를 탐색하고 
     <a class="quick-link" href="/problems/">전체 문제 + 필터 보기</a>
   </div>
 </section>
+
+<script src="/assets/js/home-dashboard.js" defer></script>

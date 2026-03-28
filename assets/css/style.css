@@ -689,3 +689,118 @@ code,
     grid-template-columns: 1fr;
   }
 }
+
+.home-section--feature-strip {
+  background: linear-gradient(180deg, rgba(37, 99, 235, 0.08), rgba(17, 24, 39, 1));
+}
+
+.featured-route-grid,
+.home-progress-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.featured-route-card,
+.progress-summary-card {
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(51, 65, 85, 0.85);
+  background: rgba(2, 6, 23, 0.45);
+}
+
+.featured-route-card {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.featured-route-card__icon,
+.category-card__icon {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 24px;
+}
+
+.category-card__icon {
+  margin-bottom: var(--space-3);
+}
+
+.featured-route-card h3,
+.progress-summary-card__title {
+  margin: 0 0 8px;
+}
+
+.featured-route-card p:last-child {
+  margin-bottom: 0;
+}
+
+.progress-summary-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.progress-summary-card__label {
+  color: var(--color-text-muted);
+  font-size: 13px;
+}
+
+.progress-summary-card__value {
+  font-size: 34px;
+  color: #fff;
+}
+
+.progress-summary-card__meta {
+  color: var(--color-text-muted);
+  font-size: 13px;
+}
+
+.progress-summary-card--list {
+  justify-content: flex-start;
+}
+
+.recent-mini-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.recent-mini-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(51, 65, 85, 0.6);
+}
+
+.recent-mini-item a {
+  color: #fff;
+  font-weight: 600;
+}
+
+.recent-mini-item span {
+  color: var(--color-text-muted);
+  font-size: 12px;
+}
+
+@media (max-width: 820px) {
+  .featured-route-grid,
+  .home-progress-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-route-card {
+    grid-template-columns: 1fr;
+  }
+}
