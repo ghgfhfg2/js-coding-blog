@@ -21,7 +21,6 @@
   const timeLimitMs = Number(page.dataset.timeLimitMs || 200);
   const storageKey = `js-coding-blog:${problemId}`;
   const customInputKey = `${storageKey}:custom-input`;
-  const archiveKey = 'js-coding-blog:archive';
   const runTimeoutMs = Math.max(timeLimitMs * Math.max(testCases.length, 1) + 200, 1000);
 
   let currentRunId = 0;
@@ -518,10 +517,6 @@
         summary.innerHTML = allPassed
           ? `<span class="status-success">총 ${passed}/${total} 통과</span>`
           : `<span class="status-warning">총 ${passed}/${total} 통과</span>`;
-
-        if (allPassed) {
-          persistSolvedProblem();
-        }
       }
     }
 
@@ -563,47 +558,6 @@
     line.appendChild(labelEl);
     line.appendChild(valueEl);
     return line;
-  }
-
-  function persistSolvedProblem() {
-    const titleElement = page.querySelector('h1');
-    const title = titleElement ? titleElement.textContent.trim() : problemId;
-    const solvedAt = new Date().toISOString();
-    const archive = readArchive();
-    const existing = archive.items[problemId] || {};
-
-    archive.items[problemId] = {
-      ...existing,
-      id: problemId,
-      title,
-      url: window.location.pathname,
-      solvedAt,
-      track,
-    };
-    archive.updatedAt = solvedAt;
-
-    try {
-      localStorage.setItem(archiveKey, JSON.stringify(archive));
-    } catch (error) {
-      // ignore storage failures
-    }
-  }
-
-  function readArchive() {
-    try {
-      const raw = localStorage.getItem(archiveKey);
-      if (!raw) return { items: {}, updatedAt: null };
-
-      const parsed = JSON.parse(raw);
-      if (!parsed || typeof parsed !== 'object') return { items: {}, updatedAt: null };
-
-      return {
-        items: parsed.items && typeof parsed.items === 'object' ? parsed.items : {},
-        updatedAt: parsed.updatedAt || null,
-      };
-    } catch (error) {
-      return { items: {}, updatedAt: null };
-    }
   }
 
   function safeStringify(value) {
