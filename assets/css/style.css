@@ -159,7 +159,8 @@ p, li {
 .results,
 .problem-content,
 .problem-card,
-.filter-panel {
+.filter-panel,
+.comments-section {
   margin-top: var(--space-6);
   padding: 20px;
   background: var(--color-surface);
