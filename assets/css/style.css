@@ -362,7 +362,8 @@ p, li {
 
 .editor-fallback.is-hidden,
 .editor-container.is-hidden,
-.empty-state.is-hidden {
+.empty-state.is-hidden,
+.solved-badge.is-hidden {
   display: none;
 }
 
