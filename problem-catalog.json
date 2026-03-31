@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-03-30T14:00:00+09:00",
+  "updatedAt": "2026-03-31T14:00:00+09:00",
   "rules": {
     "disallowExactSlugDuplicate": true,
     "disallowExactTitleDuplicate": true,
@@ -349,6 +349,98 @@
       "coreIdea": "각 위치를 끝과 시작으로 하는 엄격 증가 연속 구간 길이를 미리 구한 뒤 원소 하나를 제거해 양옆 구간을 이어 붙일 수 있는지 검사해 최댓값을 찾는다",
       "gimmick": "제거한 값 자체를 빼는 것보다 nums[i-1] < nums[i+1] 조건이 성립할 때 끊긴 두 오르막 구간을 한 번에 연결할 수 있는지가 핵심이다",
       "path": "_problems/longest-increasing-streak-after-one-removal.md"
+    },
+    {
+      "slug": "closest-pair-to-zero",
+      "title": "0에 가장 가까운 두 수의 쌍 찾기",
+      "track": "algorithm",
+      "difficulty": "medium",
+      "topic": "two-pointers",
+      "tags": [
+        "two-pointers",
+        "sorting",
+        "array",
+        "closest-pair",
+        "intermediate"
+      ],
+      "primaryMethod": "sort-two-pointers-converge",
+      "coreIdea": "배열을 정렬한 뒤 양끝 포인터를 두고 두 수의 합이 0에 얼마나 가까운지 비교하면서 최적 쌍을 갱신하고, 합의 부호에 따라 한쪽 포인터를 움직여 탐색 범위를 줄인다",
+      "gimmick": "절댓값이 같은 후보가 여러 개면 더 작은 첫 번째 수를 우선하고, 그것도 같으면 더 작은 두 번째 수를 고르는 동률 처리 규칙이 있다",
+      "path": "_problems/closest-pair-to-zero.md"
+    },
+    {
+      "slug": "list-inventory-item-names",
+      "title": "가게 재고 이름 목록 만들기",
+      "track": "js-basic",
+      "difficulty": "easy",
+      "topic": "object-basics",
+      "tags": [
+        "beginner",
+        "object",
+        "js-method",
+        "Object.keys",
+        "keys"
+      ],
+      "primaryMethod": "Object.keys",
+      "coreIdea": "재고 객체에서 값은 무시하고 Object.keys()로 키 이름만 한 번에 배열로 꺼내 상품명 목록을 반환한다",
+      "gimmick": "수량이 0인 상품도 키 자체는 남아 있으므로 값 조건 없이 모든 key를 그대로 반환해야 한다",
+      "path": "_problems/list-inventory-item-names.md"
+    },
+    {
+      "slug": "longest-active-streak-after-toggles",
+      "title": "토글 뒤 가장 긴 연속 가동 구간",
+      "track": "today",
+      "difficulty": "hard",
+      "topic": "segment-tree",
+      "tags": [
+        "daily",
+        "hard",
+        "segment-tree",
+        "range-merge",
+        "point-update",
+        "consecutive-streak"
+      ],
+      "primaryMethod": "segment-tree-prefix-suffix-merge",
+      "coreIdea": "각 구간에 연속된 1의 prefix, suffix, best 길이를 저장한 세그먼트 트리를 만들고 점 토글이 일어날 때마다 부모 정보를 병합해 전체 최장 연속 가동 구간 길이를 즉시 갱신한다",
+      "gimmick": "단순 합계가 아니라 구간 왼쪽 prefix와 오른쪽 suffix를 합쳐 경계를 가로지르는 최적 구간이 생길 수 있어서 세 값의 병합 규칙이 핵심이다",
+      "path": "_problems/longest-active-streak-after-toggles.md"
+    },
+    {
+      "slug": "peak-concurrent-logins",
+      "title": "가장 붐비는 시간대의 동시 접속 수",
+      "track": "today",
+      "difficulty": "medium",
+      "topic": "sweep-line",
+      "tags": [
+        "daily",
+        "medium",
+        "intervals",
+        "sweep-line",
+        "events",
+        "sorting"
+      ],
+      "primaryMethod": "event-sweep-line",
+      "coreIdea": "각 접속 구간의 시작 시각에는 +1, 종료 시각에는 -1 이벤트를 만들고 시간순으로 스캔해 동시 접속 수의 최댓값과 그 최댓값이 처음 만들어지는 시각을 찾는다",
+      "gimmick": "같은 시각에 종료와 시작이 함께 있으면 종료를 먼저 처리하는 반열린 구간 [start, end) 규칙 덕분에 겹침 계산이 달라진다",
+      "path": "_problems/peak-concurrent-logins.md"
+    },
+    {
+      "slug": "safe-parenthesis-flow",
+      "title": "괄호 흐름이 끝까지 안전한지 확인하기",
+      "track": "today",
+      "difficulty": "easy",
+      "topic": "validation",
+      "tags": [
+        "daily",
+        "beginner",
+        "parentheses",
+        "validation",
+        "scan"
+      ],
+      "primaryMethod": "balance-counter-scan",
+      "coreIdea": "문자열을 왼쪽부터 한 번 훑으며 여는 괄호는 카운터를 늘리고 닫는 괄호는 줄여서, 중간 음수 여부와 최종 0 여부로 올바른 괄호 흐름을 판정한다",
+      "gimmick": "스택 전체를 저장할 필요 없이 카운터가 음수가 되는 첫 순간 즉시 실패 처리할 수 있다는 점이 핵심이다",
+      "path": "_problems/safe-parenthesis-flow.md"
     }
   ]
 }
