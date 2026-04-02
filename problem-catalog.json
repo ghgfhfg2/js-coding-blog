@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-01T14:00:00+09:00",
+  "updatedAt": "2026-04-02T14:00:00+09:00",
   "rules": {
     "disallowExactSlugDuplicate": true,
     "disallowExactTitleDuplicate": true,
@@ -533,6 +533,99 @@
       "coreIdea": "선수과목 관계를 DAG로 보고 진입 차수 기반 위상 정렬을 수행하면서 각 과목의 가장 이른 시작 가능 학기를 DP로 갱신해 전체 최소 완료 학기를 구한다",
       "gimmick": "한 학기에 여러 과목을 동시에 들을 수 있지만 각 과목은 모든 선수과목이 끝난 다음 학기에만 수강 가능하므로 단순 레벨 수가 아니라 선행 경로의 최장 길이를 추적해야 한다",
       "path": "_problems/minimum-semester-to-finish-courses.md"
+    },
+    {
+      "slug": "first-repeated-number",
+      "title": "처음 다시 나온 숫자 찾기",
+      "track": "today",
+      "difficulty": "easy",
+      "topic": "set",
+      "tags": [
+        "daily",
+        "beginner",
+        "set",
+        "array",
+        "duplicate",
+        "scan"
+      ],
+      "primaryMethod": "seen-set-first-repeat",
+      "coreIdea": "배열을 왼쪽부터 순회하며 이미 본 숫자인지 Set으로 확인해 처음으로 재등장하는 값을 즉시 반환한다",
+      "gimmick": "가장 많이 반복된 숫자가 아니라 왼쪽에서 진행할 때 가장 먼저 두 번째 등장까지 완료되는 숫자를 찾아야 하며 없으면 -1을 반환한다",
+      "path": "_problems/first-repeated-number.md"
+    },
+    {
+      "slug": "largest-equal-square",
+      "title": "가장 큰 같은 숫자 정사각형",
+      "track": "algorithm",
+      "difficulty": "medium",
+      "topic": "matrix",
+      "tags": [
+        "matrix",
+        "dp",
+        "2d-array",
+        "largest-square",
+        "intermediate"
+      ],
+      "primaryMethod": "2d-dp-largest-square",
+      "coreIdea": "각 칸을 오른쪽 아래 꼭짓점으로 하는 같은 숫자 정사각형의 최대 한 변 길이를 dp로 저장하고, 위·왼쪽·왼쪽 위 대각선이 모두 같은 숫자일 때만 min 값에 1을 더해 전체 최댓값을 구한다",
+      "gimmick": "단순히 주변 칸 값이 같다고 큰 정사각형이 되는 것이 아니라 세 방향에서 이미 만들 수 있었던 정사각형 크기의 최솟값만큼만 확장할 수 있다는 점이 핵심이다",
+      "path": "_problems/largest-equal-square.md"
+    },
+    {
+      "slug": "minimum-maximum-road-risk",
+      "title": "최대 구간 위험도가 가장 낮은 배송 경로",
+      "track": "today",
+      "difficulty": "hard",
+      "topic": "dijkstra",
+      "tags": [
+        "daily",
+        "hard",
+        "dijkstra",
+        "graph",
+        "minimax",
+        "shortest-path"
+      ],
+      "primaryMethod": "minimax-dijkstra",
+      "coreIdea": "각 경로의 비용을 간선 합이 아니라 경로 위 최대 위험도라고 정의하고, 현재까지의 최소 최대값이 가장 작은 정점부터 확장하는 다익스트라 변형으로 도착점의 최적 값을 구한다",
+      "gimmick": "다음 정점 비용이 dist[cur] + w 가 아니라 max(dist[cur], w) 로 갱신된다는 점이 일반 최단거리와 다르며, 합이 아닌 병목값을 최소화해야 한다",
+      "path": "_problems/minimum-maximum-road-risk.md"
+    },
+    {
+      "slug": "repeat-cheer-message",
+      "title": "응원 문구 여러 번 붙이기",
+      "track": "js-basic",
+      "difficulty": "easy",
+      "topic": "string-building",
+      "tags": [
+        "beginner",
+        "string",
+        "js-method",
+        "repeat",
+        "pattern"
+      ],
+      "primaryMethod": "repeat",
+      "coreIdea": "문자열 word를 repeat(count)로 같은 순서를 유지한 채 count번 이어 붙여 반복 패턴 문자열을 만든다",
+      "gimmick": "count가 0이면 에러가 아니라 빈 문자열이 반환되고, 반복문 없이도 같은 문구를 정확한 횟수만큼 만들 수 있다",
+      "path": "_problems/repeat-cheer-message.md"
+    },
+    {
+      "slug": "restore-final-ranking-from-overtakes",
+      "title": "추월 로그로 최종 순위 복원하기",
+      "track": "today",
+      "difficulty": "medium",
+      "topic": "index-map",
+      "tags": [
+        "daily",
+        "medium",
+        "simulation",
+        "swap",
+        "hashmap",
+        "ranking"
+      ],
+      "primaryMethod": "bidirectional-index-map-swaps",
+      "coreIdea": "현재 순위 배열과 선수 이름별 인덱스 맵을 함께 유지하면서 추월 로그가 들어올 때마다 바로 앞 선수와 한 칸 swap해 최종 순위를 복원한다",
+      "gimmick": "같은 선수가 여러 번 연속 추월할 수 있으므로 매번 배열만 찾으면 느려지고, 이름→인덱스와 인덱스→이름을 동시에 갱신해야 O(1)에 처리할 수 있다",
+      "path": "_problems/restore-final-ranking-from-overtakes.md"
     }
   ]
 }
