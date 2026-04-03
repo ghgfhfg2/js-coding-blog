@@ -3,7 +3,7 @@ description: "정적 블로그 기반 JavaScript 코딩 연습장"
 lang: ko-KR
 timezone: Asia/Seoul
 baseurl: ""
-url: "https://js-coding.sooyadev.com"
+url: ""
 markdown: kramdown
 permalink: pretty
 
@@ -23,6 +23,3 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
-
-disqus:
-  shortname: js-coding
