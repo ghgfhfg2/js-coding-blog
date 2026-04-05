@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-04T14:00:00+09:00",
+  "updatedAt": "2026-04-05T14:00:00+09:00",
   "rules": {
     "disallowExactSlugDuplicate": true,
     "disallowExactTitleDuplicate": true,
@@ -256,6 +256,98 @@
       "coreIdea": "왼쪽 스캔의 최대값과 오른쪽 스캔의 최소값을 이용해 전체 정렬을 위해 반드시 포함해야 하는 최소 연속 구간 경계를 찾는다",
       "gimmick": "정렬 복사본 없이도 양방향 한 번씩만 훑어 필요한 구간 길이를 계산한다",
       "path": "_problems/shortest-unsorted-window-length.md"
+    },
+    {
+      "slug": "shortest-or-threshold-window",
+      "title": "비트 OR 임계치를 넘는 가장 짧은 구간",
+      "track": "today",
+      "difficulty": "hard",
+      "topic": "bitwise-window",
+      "tags": [
+        "daily",
+        "hard",
+        "sliding-window",
+        "bitwise-or",
+        "two-pointers",
+        "bit-count"
+      ],
+      "primaryMethod": "sliding-window-bit-count",
+      "coreIdea": "현재 윈도우에서 각 비트가 살아 있는 개수를 세며 bitwise OR이 target 이상인 최소 길이 연속 구간을 투 포인터로 찾는다",
+      "gimmick": "OR은 제거가 어려우므로 비트별 빈도로 윈도우 축소 시 사라지는 비트만 정확히 끈다",
+      "path": "_problems/shortest-or-threshold-window.md"
+    },
+    {
+      "slug": "check-report-extension",
+      "title": "보고서 파일 확장자 확인하기",
+      "track": "js-basic",
+      "difficulty": "easy",
+      "topic": "string-methods",
+      "tags": [
+        "beginner",
+        "string",
+        "js-method",
+        "endsWith",
+        "suffix"
+      ],
+      "primaryMethod": "endsWith",
+      "coreIdea": "파일명이 .pdf 접미사로 끝나는지 endsWith로 판별해 확장자 조건을 간단히 검사한다",
+      "gimmick": "문자열 중간에 .pdf가 있어도 맨 끝이 아니면 false라는 점을 정확히 구분한다",
+      "path": "_problems/check-report-extension.md"
+    },
+    {
+      "slug": "first-unique-character",
+      "title": "처음으로 한 번만 나온 문자",
+      "track": "today",
+      "difficulty": "easy",
+      "topic": "hash",
+      "tags": [
+        "daily",
+        "beginner",
+        "hash",
+        "string",
+        "frequency"
+      ],
+      "primaryMethod": "two-pass-frequency-map",
+      "coreIdea": "문자 빈도를 먼저 세고 문자열을 다시 순회하며 빈도가 1인 첫 문자를 찾아 반환한다",
+      "gimmick": "등장 횟수 계산과 원래 순서 유지를 분리해 가장 먼저 나온 유일 문자를 놓치지 않는다",
+      "path": "_problems/first-unique-character.md"
+    },
+    {
+      "slug": "longest-zero-balance-window",
+      "title": "합이 0이 되는 가장 긴 구간",
+      "track": "today",
+      "difficulty": "medium",
+      "topic": "prefix-sum",
+      "tags": [
+        "daily",
+        "medium",
+        "prefix-sum",
+        "hash-map",
+        "subarray",
+        "tie-break"
+      ],
+      "primaryMethod": "prefix-sum-first-index",
+      "coreIdea": "누적합이 처음 등장한 위치를 기록해 같은 누적합이 다시 나오면 그 사이의 가장 긴 0합 구간을 찾는다",
+      "gimmick": "최장 길이 동률일 때 시작 인덱스가 더 작은 구간을 함께 비교해 정답을 안정적으로 고른다",
+      "path": "_problems/longest-zero-balance-window.md"
+    },
+    {
+      "slug": "minimum-daily-delivery-capacity",
+      "title": "정해진 날짜 안에 보내는 최소 배송 용량",
+      "track": "algorithm",
+      "difficulty": "medium",
+      "topic": "binary-search",
+      "tags": [
+        "algorithm",
+        "binary-search",
+        "parametric-search",
+        "array",
+        "capacity"
+      ],
+      "primaryMethod": "binary-search-on-answer",
+      "coreIdea": "가능한 하루 용량 범위에서 각 후보가 days일 안에 배송 가능한지 검사하며 최소 가능 용량을 이분 탐색한다",
+      "gimmick": "용량이 커질수록 항상 더 유리해지는 단조성을 이용해 정답 후보 공간 자체를 탐색한다",
+      "path": "_problems/minimum-daily-delivery-capacity.md"
     }
   ]
 }
