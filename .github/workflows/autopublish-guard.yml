@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   guard:
-    if: startsWith(github.event.head_commit.message, 'chore: publish daily coding sets')
+    if: github.event_name == 'push' && startsWith(github.event.head_commit.message, 'chore: publish daily coding sets')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
