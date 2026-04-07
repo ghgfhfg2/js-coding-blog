@@ -1,0 +1,35 @@
+name: Guard daily publish scope
+
+on:
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  guard:
+    if: startsWith(github.event.head_commit.message, 'chore: publish daily coding sets')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Validate changed files
+        run: |
+          set -euo pipefail
+          CHANGED=$(git diff --name-only HEAD^ HEAD)
+          echo "Changed files:"
+          echo "$CHANGED"
+
+          BAD=$(echo "$CHANGED" | grep -Ev '^(_problems/|problem-catalog\.json$)' || true)
+          if [ -n "$BAD" ]; then
+            echo ""
+            echo "❌ Daily publish touched forbidden files:"
+            echo "$BAD"
+            exit 1
+          fi
+
+          echo "✅ Daily publish changed only allowed files."
