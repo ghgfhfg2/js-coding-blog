@@ -1,17 +1,29 @@
 ---
 layout: default
 title: 알고리즘별 코테
-description: 문자열, 배열, 해시 등 유형 중심으로 문제를 모아본 카테고리
+seo_title: "알고리즘별 자바스크립트 코딩테스트 문제 | JS Coding Blog"
+description: "문자열, 배열, 해시, prefix sum 등 유형 중심으로 자바스크립트 알고리즘 문제를 연습할 수 있는 카테고리입니다."
 permalink: /algorithm/
 ---
 
 {% assign problems = site.problems | where: 'track', 'algorithm' | sort: 'order' %}
 {% assign topics = problems | map: 'topic' | uniq | sort %}
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "알고리즘별 코테",
+  "url": "https://js-coding.sooyadev.com/algorithm/",
+  "description": "문자열, 배열, 해시 등 유형 중심으로 자바스크립트 알고리즘 문제를 연습할 수 있는 카테고리",
+  "inLanguage": "ko-KR"
+}
+</script>
+
 <section class="category-hero category-hero--algorithm">
   <p class="eyebrow">ALGORITHM TRACK</p>
   <h1>알고리즘별 코테</h1>
-  <p class="section-lead">유형별 반복 연습에 적합한 카테고리입니다. 자주 나오는 주제를 중심으로 풀이 감각을 쌓아보세요.</p>
+  <p class="section-lead">문자열, 배열, 해시, prefix sum 같은 유형 중심으로 자바스크립트 알고리즘 문제를 반복 연습할 수 있는 카테고리입니다. 코딩테스트에서 자주 나오는 패턴을 유형별로 익히기에 좋습니다.</p>
 </section>
 
 <section class="home-section compact-section">

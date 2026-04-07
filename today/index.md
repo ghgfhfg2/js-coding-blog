@@ -1,16 +1,28 @@
 ---
 layout: default
 title: 오늘의 코테
-description: 오늘 가볍게 도전하기 좋은 문제를 모아본 카테고리
+seo_title: "오늘의 코테 · 자바스크립트 코딩테스트 문제 모음 | JS Coding Blog"
+description: "오늘 바로 풀어볼 수 있는 자바스크립트 코딩테스트 문제를 모아둔 카테고리. JS 입문자부터 코테 연습용까지 가볍게 도전할 수 있습니다."
 permalink: /today/
 ---
 
 {% assign problems = site.problems | where: 'track', 'today' | sort: 'order' %}
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "오늘의 코테",
+  "url": "https://js-coding.sooyadev.com/today/",
+  "description": "오늘 바로 풀어볼 수 있는 자바스크립트 코딩테스트 문제를 모아둔 카테고리",
+  "inLanguage": "ko-KR"
+}
+</script>
+
 <section class="category-hero category-hero--today">
   <p class="eyebrow">TODAY TRACK</p>
   <h1>오늘의 코테</h1>
-  <p class="section-lead">짧게 한 문제 풀고 감각을 깨우는 데 초점을 둔 트랙입니다. 부담 없이 매일 한 문제씩 도전해 보세요.</p>
+  <p class="section-lead">오늘 바로 풀어볼 수 있는 자바스크립트 코딩테스트 문제를 모아둔 카테고리입니다. 짧게 한 문제 풀고 감각을 깨우는 데 초점을 둔 트랙이라 부담 없이 시작하기 좋습니다.</p>
 </section>
 
 <div class="category-page-grid">

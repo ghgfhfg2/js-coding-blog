@@ -1,7 +1,8 @@
 ---
 layout: default
 title: 홈
-description: 카테고리 중심으로 JavaScript 코딩 문제를 탐색하고 바로 풀어보는 학습 대시보드
+seo_title: "JS 코딩테스트 문제 풀이 · 알고리즘 연습 · JavaScript 메서드 학습 | JS Coding Blog"
+description: "자바스크립트 코딩테스트 문제 풀이, JS 알고리즘 연습, JavaScript 메서드 학습 문제를 카테고리별로 탐색할 수 있는 학습 대시보드"
 ---
 
 {% assign today_problems = site.problems | where: 'track', 'today' | sort: 'order' %}
@@ -13,13 +14,24 @@ description: 카테고리 중심으로 JavaScript 코딩 문제를 탐색하고 
 {% assign featured_basic = js_basic_problems | first %}
 {% assign featured = site.problems | sort: 'order' %}
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "JS Coding Blog",
+  "url": "https://js-coding.sooyadev.com/",
+  "description": "자바스크립트 코딩테스트 문제 풀이, JS 알고리즘 연습, JavaScript 메서드 학습 문제를 카테고리별로 탐색할 수 있는 학습 대시보드",
+  "inLanguage": "ko-KR"
+}
+</script>
+
 <section class="hero-section hero-section--dashboard">
   <div class="hero-copy">
     <p class="eyebrow">Category-first JavaScript Practice</p>
-    <h1>카테고리별로 고르고, 바로 풀고, 자바스크립트 감각까지 함께 쌓는 코딩 대시보드</h1>
+    <h1>자바스크립트 코딩테스트 문제를 카테고리별로 풀고, 알고리즘 감각과 JS 기본기를 함께 쌓는 대시보드</h1>
     <p class="hero-lead">
-      오늘 가볍게 도전할 문제를 고르거나, 알고리즘 유형을 반복 학습하거나,
-      JS 메서드를 개념부터 익히는 흐름으로 바로 들어갈 수 있어요.
+      JS 코딩테스트 문제 풀이를 오늘의 코테, 알고리즘 연습, JavaScript 메서드 학습 흐름으로 나눠서 탐색할 수 있어요.
+      자바스크립트 입문자부터 코테 연습이 필요한 학습자까지 바로 문제를 골라 실습할 수 있습니다.
     </p>
 
     <div class="hero-actions">
@@ -102,7 +114,7 @@ description: 카테고리 중심으로 JavaScript 코딩 문제를 탐색하고 
         <div class="category-card__icon">⚡</div>
         <p class="dashboard-card__eyebrow">TODAY TRACK</p>
         <h3>오늘의 코테</h3>
-        <p>짧지만 감각을 깨우는 문제를 중심으로, 매일 가볍게 도전하는 트랙입니다.</p>
+        <p>짧지만 감각을 깨우는 JavaScript 코딩테스트 문제를 중심으로, 매일 가볍게 도전하는 트랙입니다.</p>
       </div>
       <ul class="preview-problem-list">
         {% for problem in today_problems limit: 3 %}
@@ -120,7 +132,7 @@ description: 카테고리 중심으로 JavaScript 코딩 문제를 탐색하고 
         <div class="category-card__icon">🧩</div>
         <p class="dashboard-card__eyebrow">ALGORITHM TRACK</p>
         <h3>알고리즘별 코테</h3>
-        <p>문자열, 배열, 해시, 투 포인터처럼 유형 중심으로 반복 연습하는 트랙입니다.</p>
+        <p>문자열, 배열, 해시, 투 포인터 같은 유형 중심으로 자바스크립트 알고리즘 문제를 반복 연습하는 트랙입니다.</p>
       </div>
       <ul class="preview-problem-list">
         {% for problem in algorithm_problems limit: 3 %}
@@ -138,7 +150,7 @@ description: 카테고리 중심으로 JavaScript 코딩 문제를 탐색하고 
         <div class="category-card__icon">📘</div>
         <p class="dashboard-card__eyebrow">JS BASIC TRACK</p>
         <h3>JS 메서드 학습</h3>
-        <p>문제만 푸는 대신 메서드 설명, 예시, 주의점까지 함께 익히는 학습형 트랙입니다.</p>
+        <p>JavaScript 메서드 설명, 사용 예시, 주의점까지 함께 익히는 학습형 트랙입니다.</p>
       </div>
       <ul class="preview-problem-list">
         {% for problem in js_basic_problems limit: 3 %}
@@ -178,7 +190,7 @@ description: 카테고리 중심으로 JavaScript 코딩 문제를 탐색하고 
 <section class="home-section home-section--cta">
   <div class="section-heading">
     <h2>탐색 방식도 선택할 수 있어요</h2>
-    <p>카테고리로 들어가도 좋고, 전체 문제 목록에서 검색/필터로 찾는 방식도 가능합니다.</p>
+    <p>카테고리로 들어가도 좋고, 전체 문제 목록에서 검색과 필터로 원하는 JavaScript 코딩테스트 문제를 찾을 수도 있습니다.</p>
   </div>
 
   <div class="quick-links quick-links--wide">
