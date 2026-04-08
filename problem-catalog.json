@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-07T14:00:00+09:00",
+  "updatedAt": "2026-04-08T14:00:00+09:00",
   "rules": {
     "disallowExactSlugDuplicate": true,
     "disallowExactTitleDuplicate": true,
@@ -534,6 +534,99 @@
       "coreIdea": "모든 충전소 칸을 시작점으로 동시에 BFS를 시작해 각 빈 칸이 가장 가까운 충전소까지 가는 최단 이동 거리를 한 번에 계산한다",
       "gimmick": "벽은 통과할 수 없고 어떤 빈 칸은 어느 충전소와도 연결되지 않을 수 있으므로 해당 칸은 -1로 남겨야 한다",
       "path": "_problems/nearest-charging-station-distance.md"
+    },
+    {
+      "slug": "check-all-scores-pass",
+      "title": "모든 점수가 통과선 이상인지 확인하기",
+      "track": "js-basic",
+      "difficulty": "easy",
+      "topic": "array-predicate-methods",
+      "tags": [
+        "beginner",
+        "array",
+        "js-method",
+        "every",
+        "boolean"
+      ],
+      "primaryMethod": "Array.every",
+      "coreIdea": "점수 배열의 모든 값이 기준 점수 이상인지 every 메서드로 한 번에 판별해 불리언 값을 반환한다",
+      "gimmick": "하나라도 기준 미만 점수가 있으면 즉시 false가 되고 모든 점수가 조건을 만족할 때만 true가 된다",
+      "path": "_problems/check-all-scores-pass.md"
+    },
+    {
+      "slug": "largest-neighbor-gap",
+      "title": "이웃한 수 사이 가장 큰 점프",
+      "track": "today",
+      "difficulty": "easy",
+      "topic": "adjacent-scan",
+      "tags": [
+        "daily",
+        "beginner",
+        "array",
+        "adjacent",
+        "absolute-difference"
+      ],
+      "primaryMethod": "single-pass-adjacent-diff",
+      "coreIdea": "배열을 한 번 순회하며 이웃한 두 수의 절대 차이를 계산하고 그중 최댓값을 갱신해 반환한다",
+      "gimmick": "원소가 1개뿐이면 비교할 이웃이 없으므로 0을 반환해야 하고 음수도 절대 차이로 자연스럽게 처리된다",
+      "path": "_problems/largest-neighbor-gap.md"
+    },
+    {
+      "slug": "merge-overlapping-ranges",
+      "title": "겹치는 구간 한 번에 합치기",
+      "track": "algorithm",
+      "difficulty": "medium",
+      "topic": "intervals",
+      "tags": [
+        "algorithm",
+        "intervals",
+        "sorting",
+        "merge",
+        "intermediate"
+      ],
+      "primaryMethod": "sort-and-merge-intervals",
+      "coreIdea": "구간들을 시작점 기준으로 정렬한 뒤 마지막으로 만든 병합 구간과 현재 구간이 겹치거나 맞닿아 있으면 끝점을 확장하고 아니면 새 구간을 추가한다",
+      "gimmick": "끝점과 다음 시작점이 같은 경우도 끊지 않고 하나의 연속 구간으로 합쳐야 하며 입력 순서는 정렬되어 있지 않을 수 있다",
+      "path": "_problems/merge-overlapping-ranges.md"
+    },
+    {
+      "slug": "minimum-route-cost-with-one-discount",
+      "title": "한 번 할인할 수 있는 최소 이동 비용",
+      "track": "today",
+      "difficulty": "hard",
+      "topic": "state-graph",
+      "tags": [
+        "daily",
+        "hard",
+        "graph",
+        "dijkstra",
+        "shortest-path",
+        "state-space",
+        "discount"
+      ],
+      "primaryMethod": "layered-dijkstra-single-discount",
+      "coreIdea": "정점마다 할인 미사용 상태와 사용 완료 상태를 분리한 2층 그래프로 보고 다익스트라를 수행해 출발점에서 도착점까지 할인 기회를 최대 한 번만 쓰는 최소 비용을 구한다",
+      "gimmick": "할인은 선택적으로 한 번만 사용할 수 있고 비용이 floor(cost / 2)로 줄어들기 때문에 가장 비싼 간선에 무조건 쓰는 전략이 아니라 전체 경로 기준 최적 선택이 필요하다",
+      "path": "_problems/minimum-route-cost-with-one-discount.md"
+    },
+    {
+      "slug": "rolling-kth-high-score",
+      "title": "실시간 K번째 최고 점수",
+      "track": "today",
+      "difficulty": "medium",
+      "topic": "heap",
+      "tags": [
+        "daily",
+        "medium",
+        "heap",
+        "priority-queue",
+        "streaming",
+        "kth-largest"
+      ],
+      "primaryMethod": "fixed-size-min-heap",
+      "coreIdea": "점수가 하나씩 들어올 때마다 상위 k개만 최소 힙으로 유지하면 힙의 루트가 항상 현재 K번째 최고 점수가 된다",
+      "gimmick": "아직 점수가 k개 미만이면 K번째 점수가 존재하지 않으므로 null을 넣고, 같은 점수도 서로 다른 기록으로 개수에 포함해야 한다",
+      "path": "_problems/rolling-kth-high-score.md"
     }
   ]
 }
