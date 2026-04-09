@@ -1,19 +1,12 @@
 ---
 layout: default
-title: 전체 문제
-description: 카테고리와 필터로 JavaScript 코딩 문제를 탐색하는 전체 문제 목록
+title: 문제 목록
 permalink: /problems/
 ---
 
-# 전체 문제
+# 문제 목록
 
-<p class="section-lead">카테고리별로 둘러본 뒤, 여기서 검색과 필터로 원하는 문제를 빠르게 찾을 수 있어요.</p>
-
-<div class="quick-links quick-links--mini quick-links--top">
-  <a class="quick-link" href="/today/">오늘의 코테</a>
-  <a class="quick-link" href="/algorithm/">알고리즘별 코테</a>
-  <a class="quick-link" href="/js-basic/">JS 메서드 학습</a>
-</div>
+<p class="section-lead">트랙, 난이도, 주제를 기준으로 문제를 찾아볼 수 있습니다. 오늘의 코테, 알고리즘 학습, JS 메서드 학습 흐름에 맞춰 큐레이션합니다.</p>
 
 <div class="filter-panel filter-panel--wide">
   <div class="filter-group">
@@ -22,7 +15,7 @@ permalink: /problems/
   </div>
 
   <div class="filter-group">
-    <label class="filter-label" for="track-filter">카테고리</label>
+    <label class="filter-label" for="track-filter">트랙</label>
     <select id="track-filter" class="filter-select">
       <option value="all">전체</option>
       <option value="today">오늘의 코테</option>

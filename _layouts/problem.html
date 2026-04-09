@@ -2,55 +2,6 @@
 layout: default
 ---
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "TechArticle",
-  "headline": {{ page.title | jsonify }},
-  "name": {{ page.title | jsonify }},
-  "description": {{ page.excerpt | default: page.description | strip_html | strip_newlines | jsonify }},
-  "url": {{ page.url | absolute_url | jsonify }},
-  "inLanguage": "ko-KR",
-  "author": {
-    "@type": "Organization",
-    "name": "JS Coding Blog"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "JS Coding Blog"
-  },
-  "keywords": {{ page.tags | join: ', ' | jsonify }},
-  "articleSection": {{ page.topic | jsonify }}
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "홈",
-      "item": "https://js-coding.sooyadev.com/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "전체 문제",
-      "item": "https://js-coding.sooyadev.com/problems/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": {{ page.title | jsonify }},
-      "item": {{ page.url | absolute_url | jsonify }}
-    }
-  ]
-}
-</script>
-
 <article class="problem-page"
   data-problem-id="{{ page.slug | default: page.url }}"
   data-function-name="{{ page.function_name }}"
@@ -60,7 +11,6 @@ layout: default
   data-time-limit-ms="{{ page.time_limit_ms | default: 200 }}">
   <header class="problem-header">
     <h1>{{ page.title }}</h1>
-    <p class="problem-intro">자바스크립트 코딩테스트 문제로 {{ page.topic }} 주제를 연습해보세요. 난이도는 {{ page.difficulty }}이며, 브라우저에서 바로 JavaScript로 풀이를 실행할 수 있습니다.</p>
     <div class="meta-row">
       {% if page.track %}<span class="pill">{{ page.track }}</span>{% endif %}
       {% if page.difficulty %}<span class="pill">{{ page.difficulty }}</span>{% endif %}
@@ -117,31 +67,7 @@ layout: default
       <div class="empty-state">예제 테스트를 실행하면 여기에서 결과를 확인할 수 있습니다.</div>
     </div>
   </section>
-
-  <section class="comments-section">
-    <div class="section-heading">
-      <h2>댓글</h2>
-      <p class="muted">문제 풀이 아이디어, 질문, 반례를 자유롭게 나눠보세요.</p>
-    </div>
-    <div id="disqus_thread"></div>
-  </section>
 </article>
 
-<script>
-  var disqus_config = function () {
-    this.page.url = '{{ page.url | absolute_url }}';
-    this.page.identifier = '{{ page.slug | default: page.url }}';
-    this.page.title = '{{ page.title | escape }}';
-  };
-
-  (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://{{ site.disqus.shortname }}.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    s.async = true;
-    (d.head || d.body).appendChild(s);
-  })();
-</script>
-<noscript>댓글을 보려면 JavaScript를 활성화해주세요.</noscript>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs/loader.min.js" defer></script>
-<script src="{{ '/assets/js/problem-runner.js' | relative_url }}" defer></script>
+<script src="/assets/js/problem-runner.js" defer></script>

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-08T14:00:00+09:00",
+  "updatedAt": "2026-04-09T14:00:00+09:00",
   "rules": {
     "disallowExactSlugDuplicate": true,
     "disallowExactTitleDuplicate": true,
@@ -627,6 +627,100 @@
       "coreIdea": "점수가 하나씩 들어올 때마다 상위 k개만 최소 힙으로 유지하면 힙의 루트가 항상 현재 K번째 최고 점수가 된다",
       "gimmick": "아직 점수가 k개 미만이면 K번째 점수가 존재하지 않으므로 null을 넣고, 같은 점수도 서로 다른 기록으로 개수에 포함해야 한다",
       "path": "_problems/rolling-kth-high-score.md"
+    },
+    {
+      "slug": "best-central-hub-in-weighted-tree",
+      "title": "전체 지연 합이 가장 작은 중앙 허브 찾기",
+      "track": "today",
+      "difficulty": "hard",
+      "topic": "tree-rerooting",
+      "tags": [
+        "daily",
+        "hard",
+        "tree",
+        "dp",
+        "rerooting",
+        "weighted-distance",
+        "graph"
+      ],
+      "primaryMethod": "two-pass-tree-dp-rerooting",
+      "coreIdea": "한 번의 DFS로 임의 루트에서 각 서브트리 크기와 전체 거리 합을 구한 뒤 루트를 이웃으로 옮길 때 거리 합이 어떻게 변하는지 이용해 모든 정점의 총 거리 합을 O(n)에 계산한다",
+      "gimmick": "부모에서 자식으로 루트를 옮기면 그 자식의 서브트리에 속한 정점들은 더 가까워지고 나머지 정점들은 더 멀어지므로 subtree size만 알면 합을 상수 시간에 갱신할 수 있다",
+      "path": "_problems/best-central-hub-in-weighted-tree.md"
+    },
+    {
+      "slug": "check-consecutive-seat-block",
+      "title": "빈자리 없이 이어진 좌석인지 확인하기",
+      "track": "today",
+      "difficulty": "easy",
+      "topic": "range-validation",
+      "tags": [
+        "daily",
+        "beginner",
+        "set",
+        "range",
+        "validation"
+      ],
+      "primaryMethod": "set-min-max-span-check",
+      "coreIdea": "좌석 번호들의 최솟값과 최댓값 차이가 개수와 정확히 맞는지 확인하고 중복은 Set으로 걸러 빈칸 없는 연속 구간인지 판별한다",
+      "gimmick": "최솟값과 최댓값만 맞아도 중복 좌석이 있으면 실제로는 빈자리가 생길 수 있으므로 Set 크기까지 함께 확인해야 한다",
+      "path": "_problems/check-consecutive-seat-block.md"
+    },
+    {
+      "slug": "longest-unique-circular-streak",
+      "title": "원형 진열대에서 가장 긴 중복 없는 구간",
+      "track": "today",
+      "difficulty": "medium",
+      "topic": "circular-sliding-window",
+      "tags": [
+        "daily",
+        "medium",
+        "sliding-window",
+        "circular-array",
+        "hash-set",
+        "two-pointers"
+      ],
+      "primaryMethod": "doubled-array-two-pointers-unique-window",
+      "coreIdea": "원형 배열을 두 번 이어 붙인 것처럼 보면서 길이가 n을 넘지 않는 투 포인터 윈도우를 유지하고 중복 상품이 생기면 왼쪽을 줄여 가장 긴 중복 없는 연속 구간 길이를 구한다",
+      "gimmick": "원형이라는 이유로 배열을 무한히 돌 수는 없으므로 윈도우 길이를 원래 배열 길이 이하로 강제로 제한해야 한다",
+      "path": "_problems/longest-unique-circular-streak.md"
+    },
+    {
+      "slug": "minimum-semesters-with-prerequisites",
+      "title": "선행 과목을 지키며 끝내는 최소 학기 수",
+      "track": "algorithm",
+      "difficulty": "medium",
+      "topic": "topological-sort",
+      "tags": [
+        "algorithm",
+        "topological-sort",
+        "graph",
+        "indegree",
+        "bfs",
+        "scheduling"
+      ],
+      "primaryMethod": "kahn-level-bfs-semesters",
+      "coreIdea": "각 과목의 진입 차수를 세고 이번 학기에 들을 수 있는 과목들을 큐에 모아 레벨 단위로 처리하면 선행 조건을 지키면서 모든 과목을 끝내는 최소 학기 수를 구할 수 있다",
+      "gimmick": "같은 학기에 새로 진입 차수가 0이 된 과목은 바로 이어 듣지 못하고 다음 학기로 넘어가야 하므로 큐를 레벨 단위로 끊어 세야 한다",
+      "path": "_problems/minimum-semesters-with-prerequisites.md"
+    },
+    {
+      "slug": "trim-nickname-input",
+      "title": "닉네임 앞뒤 공백 제거하기",
+      "track": "js-basic",
+      "difficulty": "easy",
+      "topic": "string-cleanup",
+      "tags": [
+        "beginner",
+        "string",
+        "js-method",
+        "trim",
+        "whitespace"
+      ],
+      "primaryMethod": "String.trim",
+      "coreIdea": "입력 문자열의 앞뒤 공백만 trim으로 제거하고 가운데 공백은 그대로 둔 정리된 닉네임을 반환한다",
+      "gimmick": "문자열 중간의 공백은 지우지 않고 맨 앞과 맨 뒤 공백만 제거해야 한다",
+      "path": "_problems/trim-nickname-input.md"
     }
   ]
 }
