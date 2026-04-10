@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-09T14:00:00+09:00",
+  "updatedAt": "2026-04-10T14:00:00+09:00",
   "rules": {
     "disallowExactSlugDuplicate": true,
     "disallowExactTitleDuplicate": true,
@@ -721,6 +721,100 @@
       "coreIdea": "입력 문자열의 앞뒤 공백만 trim으로 제거하고 가운데 공백은 그대로 둔 정리된 닉네임을 반환한다",
       "gimmick": "문자열 중간의 공백은 지우지 않고 맨 앞과 맨 뒤 공백만 제거해야 한다",
       "path": "_problems/trim-nickname-input.md"
+    },
+    {
+      "slug": "check-any-order-delayed",
+      "title": "지연된 주문이 하나라도 있는지 확인하기",
+      "track": "js-basic",
+      "difficulty": "easy",
+      "topic": "array-boolean-checks",
+      "tags": [
+        "beginner",
+        "array",
+        "js-method",
+        "some",
+        "boolean"
+      ],
+      "primaryMethod": "Array.some",
+      "coreIdea": "주문 상태 배열에서 delayed 상태가 하나라도 있는지 some 메서드로 검사해 불리언 값을 반환한다",
+      "gimmick": "조건을 만족하는 값이 하나만 있어도 true가 되고 빈 배열이나 해당 상태가 전혀 없으면 false가 된다",
+      "path": "_problems/check-any-order-delayed.md"
+    },
+    {
+      "slug": "count-target-sum-combinations",
+      "title": "목표 합을 만드는 조합 수",
+      "track": "algorithm",
+      "difficulty": "medium",
+      "topic": "backtracking",
+      "tags": [
+        "algorithm",
+        "backtracking",
+        "recursion",
+        "combination",
+        "pruning"
+      ],
+      "primaryMethod": "recursive-backtracking-pruning",
+      "coreIdea": "양의 정수 배열을 정렬한 뒤 각 수를 한 번씩만 쓰는 조합을 재귀적으로 탐색하면서 현재 합이 target을 넘으면 가지치기해 목표 합을 만드는 조합 개수를 센다",
+      "gimmick": "같은 값이 여러 번 있어도 인덱스가 다르면 서로 다른 원소로 취급하지만 조합은 인덱스 증가 방향으로만 만들어 순서만 다른 중복 경우를 세지 않는다",
+      "path": "_problems/count-target-sum-combinations.md"
+    },
+    {
+      "slug": "first-full-shelf-row",
+      "title": "모든 칸이 채워진 첫 진열 줄",
+      "track": "today",
+      "difficulty": "easy",
+      "topic": "matrix-scan",
+      "tags": [
+        "daily",
+        "beginner",
+        "matrix",
+        "scan",
+        "first-match"
+      ],
+      "primaryMethod": "row-wise-all-check",
+      "coreIdea": "2차원 배열을 위에서 아래로 순회하며 각 행의 모든 값이 1인지 확인하고 조건을 처음 만족하는 행의 인덱스를 반환한다",
+      "gimmick": "꽉 찬 행의 개수를 세는 것이 아니라 가장 먼저 조건을 만족한 행에서 즉시 멈추고 빈 배열이면 -1을 반환해야 한다",
+      "path": "_problems/first-full-shelf-row.md"
+    },
+    {
+      "slug": "minimum-laundry-machines",
+      "title": "세탁 예약을 처리하는 최소 기계 수",
+      "track": "today",
+      "difficulty": "medium",
+      "topic": "interval-partition",
+      "tags": [
+        "daily",
+        "medium",
+        "heap",
+        "interval",
+        "scheduling",
+        "resource-allocation"
+      ],
+      "primaryMethod": "min-heap-end-times",
+      "coreIdea": "예약 구간을 시작 시각 기준으로 정렬한 뒤 현재 사용 중인 기계들의 종료 시각을 최소 힙으로 관리하면 같은 기계를 재사용할 수 있는지 빠르게 판단하며 필요한 최소 기계 수를 구할 수 있다",
+      "gimmick": "어떤 예약의 시작 시각이 가장 빨리 끝나는 예약의 종료 시각과 같다면 같은 기계를 바로 이어서 재사용할 수 있다",
+      "path": "_problems/minimum-laundry-machines.md"
+    },
+    {
+      "slug": "minimum-turns-grid-route",
+      "title": "방향 전환이 가장 적은 격자 경로",
+      "track": "today",
+      "difficulty": "hard",
+      "topic": "zero-one-bfs",
+      "tags": [
+        "daily",
+        "hard",
+        "graph",
+        "grid",
+        "deque",
+        "0-1-bfs",
+        "shortest-path",
+        "direction-state"
+      ],
+      "primaryMethod": "deque-zero-one-bfs-direction-state",
+      "coreIdea": "각 칸에 어느 방향으로 도착했는지까지 상태로 확장하고 직진은 비용 0, 방향 전환은 비용 1인 그래프로 본 뒤 0-1 BFS로 최소 방향 전환 수를 구한다",
+      "gimmick": "이동 횟수가 아니라 방향이 바뀐 횟수를 최소화해야 하므로 같은 칸도 도착 방향이 다르면 서로 다른 상태로 관리해야 하고 첫 이동은 전환으로 세지 않는다",
+      "path": "_problems/minimum-turns-grid-route.md"
     }
   ]
 }
