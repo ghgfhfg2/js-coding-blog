@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-10T14:00:00+09:00",
+  "updatedAt": "2026-04-11T14:00:00+09:00",
   "rules": {
     "disallowExactSlugDuplicate": true,
     "disallowExactTitleDuplicate": true,
@@ -815,6 +815,101 @@
       "coreIdea": "각 칸에 어느 방향으로 도착했는지까지 상태로 확장하고 직진은 비용 0, 방향 전환은 비용 1인 그래프로 본 뒤 0-1 BFS로 최소 방향 전환 수를 구한다",
       "gimmick": "이동 횟수가 아니라 방향이 바뀐 횟수를 최소화해야 하므로 같은 칸도 도착 방향이 다르면 서로 다른 상태로 관리해야 하고 첫 이동은 전환으로 세지 않는다",
       "path": "_problems/minimum-turns-grid-route.md"
+    },
+    {
+      "slug": "count-words-by-prefix-query",
+      "title": "접두사별 단어 개수 빠르게 세기",
+      "track": "algorithm",
+      "difficulty": "medium",
+      "topic": "trie",
+      "tags": [
+        "algorithm",
+        "trie",
+        "string",
+        "prefix",
+        "counting",
+        "query"
+      ],
+      "primaryMethod": "trie-prefix-count",
+      "coreIdea": "단어들을 트라이에 넣으면서 각 노드를 지나는 단어 수를 누적해 두면 접두사 쿼리마다 해당 경로만 따라가 O(접두사 길이)로 개수를 구할 수 있다",
+      "gimmick": "없는 경로를 만나는 순간 바로 0을 반환할 수 있고 같은 단어가 여러 번 나오면 중복도 개수에 그대로 반영해야 한다",
+      "path": "_problems/count-words-by-prefix-query.md"
+    },
+    {
+      "slug": "filter-short-words-list",
+      "title": "짧은 단어만 골라 목록 만들기",
+      "track": "js-basic",
+      "difficulty": "easy",
+      "topic": "array-selection-methods",
+      "tags": [
+        "beginner",
+        "array",
+        "js-method",
+        "filter",
+        "length",
+        "selection"
+      ],
+      "primaryMethod": "Array.filter",
+      "coreIdea": "단어 배열에서 길이가 maxLength 이하인 요소만 filter로 골라 새 배열로 반환한다",
+      "gimmick": "조건을 만족하지 않는 단어만 빠지고 원래 순서는 유지되며 빈 결과 배열도 자연스럽게 처리된다",
+      "path": "_problems/filter-short-words-list.md"
+    },
+    {
+      "slug": "longest-lit-streak-after-toggles",
+      "title": "토글 뒤 가장 긴 점등 구간",
+      "track": "today",
+      "difficulty": "hard",
+      "topic": "segment-tree",
+      "tags": [
+        "daily",
+        "hard",
+        "segment-tree",
+        "toggle",
+        "longest-streak",
+        "range-merge"
+      ],
+      "primaryMethod": "segment-tree-prefix-suffix-best",
+      "coreIdea": "전구 상태를 세그먼트 트리로 관리하면서 각 구간의 prefix suffix 최장 점등 길이를 병합하면 토글이 일어날 때마다 전체 최장 연속 1 구간 길이를 빠르게 갱신할 수 있다",
+      "gimmick": "단순히 켜진 개수만 세면 안 되고 양쪽 자식 경계를 가로질러 이어지는 연속 구간을 계산해야 하며 같은 위치를 여러 번 토글하는 경우도 정확히 반영해야 한다",
+      "path": "_problems/longest-lit-streak-after-toggles.md"
+    },
+    {
+      "slug": "longest-uniform-streak-after-one-edit",
+      "title": "한 글자만 바꿔 만들 수 있는 가장 긴 동일 문자 구간",
+      "track": "today",
+      "difficulty": "medium",
+      "topic": "frequency-window",
+      "tags": [
+        "daily",
+        "medium",
+        "sliding-window",
+        "hash-map",
+        "frequency",
+        "string"
+      ],
+      "primaryMethod": "sliding-window-max-frequency",
+      "coreIdea": "슬라이딩 윈도우 안에서 가장 많이 나온 문자 수를 유지하면 구간 길이에서 그 값을 뺀 수가 1 이하일 때만 한 번 수정으로 모두 같은 문자로 만들 수 있다",
+      "gimmick": "윈도우 내부 최빈 문자 기준으로 바꿔야 할 문자 수를 즉시 판정해 가장 긴 유효 구간만 남긴다",
+      "path": "_problems/longest-uniform-streak-after-one-edit.md"
+    },
+    {
+      "slug": "nearest-duplicate-distance",
+      "title": "가장 가까운 같은 번호 사이의 거리",
+      "track": "today",
+      "difficulty": "easy",
+      "topic": "index-tracking",
+      "tags": [
+        "daily",
+        "beginner",
+        "hash-map",
+        "array",
+        "duplicate",
+        "distance"
+      ],
+      "primaryMethod": "last-seen-index-map",
+      "coreIdea": "각 값을 마지막으로 본 인덱스를 해시 맵에 저장해 두고 같은 값을 다시 만날 때마다 직전 등장 위치와의 거리로 최솟값을 갱신한다",
+      "gimmick": "모든 중복 쌍을 비교하지 않고도 가장 최근 같은 값과의 거리만 확인하면 전체 최소 거리를 놓치지 않는다",
+      "path": "_problems/nearest-duplicate-distance.md"
     }
   ]
 }
