@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-11T14:00:00+09:00",
+  "updatedAt": "2026-04-12T14:00:00+09:00",
   "rules": {
     "disallowExactSlugDuplicate": true,
     "disallowExactTitleDuplicate": true,
@@ -910,6 +910,99 @@
       "coreIdea": "각 값을 마지막으로 본 인덱스를 해시 맵에 저장해 두고 같은 값을 다시 만날 때마다 직전 등장 위치와의 거리로 최솟값을 갱신한다",
       "gimmick": "모든 중복 쌍을 비교하지 않고도 가장 최근 같은 값과의 거리만 확인하면 전체 최소 거리를 놓치지 않는다",
       "path": "_problems/nearest-duplicate-distance.md"
+    },
+    {
+      "slug": "add-greeting-to-name-list",
+      "title": "이름 목록에 환영 인사 붙이기",
+      "track": "js-basic",
+      "difficulty": "easy",
+      "topic": "array-transformation-methods",
+      "tags": [
+        "beginner",
+        "array",
+        "js-method",
+        "map",
+        "transformation"
+      ],
+      "primaryMethod": "Array.map",
+      "coreIdea": "이름 배열의 각 요소를 같은 순서로 순회하며 map으로 새로운 환영 인사 문자열 배열로 변환한다",
+      "gimmick": "원본 배열은 바꾸지 않고 빈 배열도 그대로 빈 결과 배열로 자연스럽게 처리된다",
+      "path": "_problems/add-greeting-to-name-list.md"
+    },
+    {
+      "slug": "first-complete-courier-loop",
+      "title": "한 바퀴 배송을 완주할 수 있는 첫 출발 지점",
+      "track": "today",
+      "difficulty": "medium",
+      "topic": "circular-greedy",
+      "tags": [
+        "daily",
+        "medium",
+        "greedy",
+        "circular-array",
+        "prefix-balance",
+        "simulation"
+      ],
+      "primaryMethod": "prefix-deficit-reset-greedy",
+      "coreIdea": "각 지점의 충전량과 다음 지점까지 필요한 소모량 차이를 누적하다가 합계가 음수가 되는 구간은 시작점 후보에서 제외하고 다음 지점부터 다시 시작해 한 바퀴를 완주할 수 있는 가장 이른 출발 지점을 찾는다",
+      "gimmick": "전체 충전량 합이 전체 소모량 합보다 작으면 어떤 지점에서도 불가능하고, 중간 누적 합이 음수가 되면 그 구간 안 어느 지점도 시작점이 될 수 없다",
+      "path": "_problems/first-complete-courier-loop.md"
+    },
+    {
+      "slug": "longest-rising-log-chain",
+      "title": "가장 길게 이어지는 오름차순 로그 체인",
+      "track": "algorithm",
+      "difficulty": "medium",
+      "topic": "lis",
+      "tags": [
+        "algorithm",
+        "lis",
+        "dynamic-programming",
+        "binary-search",
+        "sequence",
+        "intermediate"
+      ],
+      "primaryMethod": "patience-sorting-binary-search",
+      "coreIdea": "각 길이별 증가 부분 수열의 가능한 최소 끝값만 배열로 유지하고, 새 값을 이분 탐색으로 끼워 넣어 최장 증가 부분 수열 길이를 O(n log n)에 구한다",
+      "gimmick": "같은 값은 길이를 늘리지 못하므로 현재 값 이상이 처음 나오는 위치를 교체해 이후 더 긴 증가 수열이 붙기 쉬운 꼬리값만 남겨야 한다",
+      "path": "_problems/longest-rising-log-chain.md"
+    },
+    {
+      "slug": "minimum-load-gap-between-two-drone-teams",
+      "title": "두 드론 팀의 적재 차이 최소화",
+      "track": "today",
+      "difficulty": "hard",
+      "topic": "meet-in-the-middle",
+      "tags": [
+        "daily",
+        "hard",
+        "meet-in-the-middle",
+        "subset-sum",
+        "binary-search",
+        "partition"
+      ],
+      "primaryMethod": "subset-sum-half-enumeration-binary-search",
+      "coreIdea": "짐 배열을 절반으로 나눠 각 절반에서 만들 수 있는 부분합을 모두 구한 뒤 전체 합의 절반에 가장 가까운 조합을 이분 탐색으로 찾아 두 팀 적재량 차이의 최솟값을 계산한다",
+      "gimmick": "전체를 완전탐색하면 2^n이라 불가능하지만 절반씩 나누면 각 절반의 부분합만 열거해도 되고, 목표는 절반에 정확히 맞추는 값이 아니라 가장 가까운 값이라 정렬된 부분합에서 양옆 후보를 모두 비교해야 한다",
+      "path": "_problems/minimum-load-gap-between-two-drone-teams.md"
+    },
+    {
+      "slug": "mirror-coupon-check",
+      "title": "거꾸로 읽어도 같은 쿠폰인지 확인하기",
+      "track": "today",
+      "difficulty": "easy",
+      "topic": "palindrome-check",
+      "tags": [
+        "daily",
+        "beginner",
+        "string",
+        "palindrome",
+        "two-pointers"
+      ],
+      "primaryMethod": "two-end-character-check",
+      "coreIdea": "문자열의 왼쪽과 오른쪽 끝에서 동시에 안쪽으로 좁혀 오며 대응 문자가 모두 같은지 확인해 대칭 문자열 여부를 판별한다",
+      "gimmick": "가운데 문자는 따로 처리할 필요 없고 한 번이라도 불일치가 나오면 바로 false를 반환할 수 있다",
+      "path": "_problems/mirror-coupon-check.md"
     }
   ]
 }
