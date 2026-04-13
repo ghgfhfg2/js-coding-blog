@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-12T14:00:00+09:00",
+  "updatedAt": "2026-04-13T14:00:00+09:00",
   "rules": {
     "disallowExactSlugDuplicate": true,
     "disallowExactTitleDuplicate": true,
@@ -1003,6 +1003,100 @@
       "coreIdea": "문자열의 왼쪽과 오른쪽 끝에서 동시에 안쪽으로 좁혀 오며 대응 문자가 모두 같은지 확인해 대칭 문자열 여부를 판별한다",
       "gimmick": "가운데 문자는 따로 처리할 필요 없고 한 번이라도 불일치가 나오면 바로 false를 반환할 수 있다",
       "path": "_problems/mirror-coupon-check.md"
+    },
+    {
+      "slug": "check-alternating-signal",
+      "title": "교대로 깜빡이는 신호인지 확인하기",
+      "track": "today",
+      "difficulty": "easy",
+      "topic": "alternation-check",
+      "tags": [
+        "daily",
+        "beginner",
+        "string",
+        "pattern",
+        "adjacency"
+      ],
+      "primaryMethod": "adjacent-pair-validation",
+      "coreIdea": "문자열을 왼쪽부터 한 번 순회하며 인접한 두 문자가 같은 순간이 있는지만 확인해 교대 패턴 여부를 판별한다",
+      "gimmick": "시작 문자가 무엇인지는 상관없고 길이가 0 또는 1인 문자열도 자동으로 교대 패턴으로 본다",
+      "path": "_problems/check-alternating-signal.md"
+    },
+    {
+      "slug": "compress-score-ranks",
+      "title": "압축 점수 순위표 만들기",
+      "track": "today",
+      "difficulty": "medium",
+      "topic": "coordinate-compression",
+      "tags": [
+        "daily",
+        "medium",
+        "sorting",
+        "coordinate-compression",
+        "ranking",
+        "mapping"
+      ],
+      "primaryMethod": "sort-unique-rank-mapping",
+      "coreIdea": "점수 배열의 서로 다른 값만 정렬해 작은 값부터 압축 순위를 매기고, 원래 배열을 다시 보며 각 점수를 그 압축 순위로 치환한다",
+      "gimmick": "같은 점수는 같은 순위를 가져야 하고 음수나 큰 수가 섞여 있어도 원래 순서는 유지한 채 치환 결과만 반환해야 한다",
+      "path": "_problems/compress-score-ranks.md"
+    },
+    {
+      "slug": "format-ticket-number-with-padding",
+      "title": "접수 번호를 네 자리로 맞추기",
+      "track": "js-basic",
+      "difficulty": "easy",
+      "topic": "string-formatting-methods",
+      "tags": [
+        "beginner",
+        "string",
+        "js-method",
+        "padStart",
+        "formatting"
+      ],
+      "primaryMethod": "String.padStart",
+      "coreIdea": "숫자로 된 접수 번호 문자열이 목표 길이보다 짧으면 padStart로 앞쪽을 0으로 채워 일정한 자릿수 형식으로 맞춘다",
+      "gimmick": "이미 네 자리 이상인 문자열은 자르지 않고 그대로 반환되며 앞자리에만 0을 채워야 한다",
+      "path": "_problems/format-ticket-number-with-padding.md"
+    },
+    {
+      "slug": "minimum-refuel-stops-to-target",
+      "title": "목표 거리까지 가는 최소 충전 횟수",
+      "track": "today",
+      "difficulty": "hard",
+      "topic": "refuel-greedy",
+      "tags": [
+        "daily",
+        "hard",
+        "greedy",
+        "heap",
+        "priority-queue",
+        "refuel",
+        "retroactive-choice"
+      ],
+      "primaryMethod": "max-heap-retroactive-refuel",
+      "coreIdea": "현재 연료로 갈 수 있는 충전소들의 연료량만 최대 힙에 모아 두고 더 이상 전진할 수 없는 순간마다 지금까지 지나온 충전소 중 가장 많은 연료를 주는 곳을 선택해 최소 충전 횟수로 목표 거리에 도달한다",
+      "gimmick": "충전할 시점을 미리 정하지 않고 막히는 순간에만 지나온 충전소 중 최댓값을 꺼내는 역선택 greedy가 핵심이며, 도착 지점을 연료 0인 마지막 충전소처럼 함께 처리하면 구현이 깔끔해진다",
+      "path": "_problems/minimum-refuel-stops-to-target.md"
+    },
+    {
+      "slug": "palindrome-min-insertions",
+      "title": "팰린드롬으로 만드는 최소 삽입 횟수",
+      "track": "algorithm",
+      "difficulty": "medium",
+      "topic": "dynamic-programming",
+      "tags": [
+        "algorithm",
+        "dynamic-programming",
+        "string",
+        "interval-dp",
+        "palindrome",
+        "intermediate"
+      ],
+      "primaryMethod": "interval-dp-two-end-match",
+      "coreIdea": "문자열의 양 끝 문자가 같으면 안쪽 구간의 답을 그대로 쓰고 다르면 한쪽 끝에 맞춰 문자를 삽입하는 두 선택 중 더 적은 값을 택하는 구간 DP로 최소 삽입 횟수를 구한다",
+      "gimmick": "문자를 실제로 만들어 보지 않고 부분 문자열별 최소 삽입 횟수만 저장해도 전체 최적해를 구할 수 있으며 빈 문자열과 한 글자 문자열은 이미 팰린드롬이다",
+      "path": "_problems/palindrome-min-insertions.md"
     }
   ]
 }
