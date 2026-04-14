@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-13T14:00:00+09:00",
+  "updatedAt": "2026-04-14T14:00:00+09:00",
   "rules": {
     "disallowExactSlugDuplicate": true,
     "disallowExactTitleDuplicate": true,
@@ -1097,6 +1097,100 @@
       "coreIdea": "문자열의 양 끝 문자가 같으면 안쪽 구간의 답을 그대로 쓰고 다르면 한쪽 끝에 맞춰 문자를 삽입하는 두 선택 중 더 적은 값을 택하는 구간 DP로 최소 삽입 횟수를 구한다",
       "gimmick": "문자를 실제로 만들어 보지 않고 부분 문자열별 최소 삽입 횟수만 저장해도 전체 최적해를 구할 수 있으며 빈 문자열과 한 글자 문자열은 이미 팰린드롬이다",
       "path": "_problems/palindrome-min-insertions.md"
+    },
+    {
+      "slug": "first-day-reaching-target-points",
+      "title": "목표 포인트를 처음 넘긴 날",
+      "track": "today",
+      "difficulty": "easy",
+      "topic": "milestone-scan",
+      "tags": [
+        "daily",
+        "beginner",
+        "array",
+        "prefix-total",
+        "milestone"
+      ],
+      "primaryMethod": "running-sum-first-hit",
+      "coreIdea": "배열을 앞에서부터 누적 합산하며 합계가 목표 이상이 되는 첫 시점을 찾아 1일부터 시작하는 날짜 번호를 반환한다",
+      "gimmick": "목표를 끝까지 못 넘기면 -1을 반환하고 목표값이 0 이하라면 아무 날도 기다릴 필요 없이 0을 반환한다",
+      "path": "_problems/first-day-reaching-target-points.md"
+    },
+    {
+      "slug": "minimum-swaps-to-sort-labels",
+      "title": "라벨을 정렬 상태로 되돌리는 최소 교환 횟수",
+      "track": "today",
+      "difficulty": "medium",
+      "topic": "permutation-cycles",
+      "tags": [
+        "daily",
+        "medium",
+        "array",
+        "sorting",
+        "cycles",
+        "swap"
+      ],
+      "primaryMethod": "index-map-cycle-count",
+      "coreIdea": "현재 위치와 정렬 후 위치의 대응 관계를 순열 사이클로 보고 각 사이클 길이가 L일 때 필요한 교환 횟수 L-1을 합산해 전체 최소 교환 횟수를 구한다",
+      "gimmick": "이미 제자리에 있는 원소는 건너뛰고, 길이 1이 아닌 사이클만 세야 불필요한 교환을 더하지 않는다",
+      "path": "_problems/minimum-swaps-to-sort-labels.md"
+    },
+    {
+      "slug": "maximum-score-on-one-way-tour",
+      "title": "일방통행 도시 투어의 최대 점수",
+      "track": "today",
+      "difficulty": "hard",
+      "topic": "scc-dag",
+      "tags": [
+        "daily",
+        "hard",
+        "graph",
+        "scc",
+        "dag",
+        "dynamic-programming",
+        "kosaraju"
+      ],
+      "primaryMethod": "kosaraju-condensation-dag-dp",
+      "coreIdea": "서로 왕복 가능한 교차로 묶음을 SCC로 압축하면 각 묶음 점수를 한 번씩만 더하는 DAG가 되고, 그 위에서 시작점을 자유롭게 잡는 최대 경로 합 DP를 구할 수 있다",
+      "gimmick": "같은 SCC 안에서는 모든 점수를 전부 회수할 수 있지만 SCC를 한 번 벗어나면 돌아오지 못하므로 원래 그래프가 아니라 압축 DAG에서 경로 선택을 해야 한다",
+      "path": "_problems/maximum-score-on-one-way-tour.md"
+    },
+    {
+      "slug": "count-smaller-prices-to-the-right",
+      "title": "오른쪽에 있는 더 싼 가격 개수 세기",
+      "track": "algorithm",
+      "difficulty": "medium",
+      "topic": "fenwick-tree",
+      "tags": [
+        "algorithm",
+        "fenwick-tree",
+        "binary-indexed-tree",
+        "coordinate-compression",
+        "array",
+        "counting"
+      ],
+      "primaryMethod": "right-to-left-fenwick-frequency",
+      "coreIdea": "가격 배열을 오른쪽에서 왼쪽으로 보며 지금까지 나온 값들의 빈도를 Fenwick Tree에 누적하고 현재 가격보다 작은 값의 개수를 prefix sum으로 구한다",
+      "gimmick": "가격 범위가 클 수 있으므로 좌표 압축으로 순위를 만든 뒤 같은 가격은 더 싸다고 세지 않도록 현재 순위 바로 아래까지만 합산해야 한다",
+      "path": "_problems/count-smaller-prices-to-the-right.md"
+    },
+    {
+      "slug": "repeat-warning-badge",
+      "title": "경고 배지를 같은 기호로 반복 만들기",
+      "track": "js-basic",
+      "difficulty": "easy",
+      "topic": "string-generation-methods",
+      "tags": [
+        "beginner",
+        "string",
+        "js-method",
+        "repeat",
+        "formatting"
+      ],
+      "primaryMethod": "String.repeat",
+      "coreIdea": "문자 하나를 repeat로 count번 반복해 길이가 일정한 경고 배지 문자열을 만든다",
+      "gimmick": "반복 횟수가 0이면 빈 문자열이 자연스럽게 반환되고 문자 하나만 반복해야 하므로 추가 구분자를 넣지 않는다",
+      "path": "_problems/repeat-warning-badge.md"
     }
   ]
 }
