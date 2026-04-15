@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-14T14:00:00+09:00",
+  "updatedAt": "2026-04-15T14:00:00+09:00",
   "rules": {
     "disallowExactSlugDuplicate": true,
     "disallowExactTitleDuplicate": true,
@@ -1191,6 +1191,100 @@
       "coreIdea": "문자 하나를 repeat로 count번 반복해 길이가 일정한 경고 배지 문자열을 만든다",
       "gimmick": "반복 횟수가 0이면 빈 문자열이 자연스럽게 반환되고 문자 하나만 반복해야 하므로 추가 구분자를 넣지 않는다",
       "path": "_problems/repeat-warning-badge.md"
+    },
+    {
+      "slug": "find-all-pattern-starts",
+      "title": "패턴이 시작되는 모든 위치 찾기",
+      "track": "algorithm",
+      "difficulty": "medium",
+      "topic": "kmp",
+      "tags": [
+        "algorithm",
+        "string",
+        "kmp",
+        "prefix-function",
+        "pattern-matching",
+        "intermediate"
+      ],
+      "primaryMethod": "prefix-function-kmp-search",
+      "coreIdea": "패턴의 접두사이자 접미사인 길이 정보를 미리 만들어 두고, 본문 문자열을 한 번만 훑으면서 불일치 시 점프해 모든 매칭 시작 위치를 찾는다",
+      "gimmick": "매칭이 끝난 뒤에도 prefix 정보로 즉시 다음 가능한 상태로 이어 가야 겹쳐서 나타나는 패턴까지 놓치지 않는다",
+      "path": "_problems/find-all-pattern-starts.md"
+    },
+    {
+      "slug": "get-last-logged-action",
+      "title": "마지막 기록 행동 가져오기",
+      "track": "js-basic",
+      "difficulty": "easy",
+      "topic": "array-access-methods",
+      "tags": [
+        "beginner",
+        "array",
+        "js-method",
+        "at",
+        "last-item",
+        "indexing"
+      ],
+      "primaryMethod": "Array.at",
+      "coreIdea": "행동 기록 배열의 마지막 요소를 at(-1)로 간단히 읽고, 비어 있으면 null을 반환하는 배열 끝 접근 문제",
+      "gimmick": "음수 인덱스인 at(-1)를 쓰면 length - 1 계산 없이 마지막 값을 읽을 수 있고 빈 배열에서는 undefined가 나오므로 null로 바꿔야 한다",
+      "path": "_problems/get-last-logged-action.md"
+    },
+    {
+      "slug": "kth-clean-ticket-number",
+      "title": "금지 숫자를 피한 K번째 티켓 번호",
+      "track": "today",
+      "difficulty": "hard",
+      "topic": "digit-dp",
+      "tags": [
+        "daily",
+        "hard",
+        "digit-dp",
+        "binary-search",
+        "counting",
+        "number-construction"
+      ],
+      "primaryMethod": "digit-dp-count-with-binary-search",
+      "coreIdea": "x 이하에서 금지 숫자가 없는 양의 정수 개수를 digit DP로 세고, 그 개수가 k 이상이 되는 가장 작은 x를 이분 탐색으로 찾는다",
+      "gimmick": "앞자리에 0이 올 수 없고 숫자 0 자체는 양의 정수에 포함되지 않으므로 started 상태를 둔 자릿수 DP가 핵심이다",
+      "path": "_problems/kth-clean-ticket-number.md"
+    },
+    {
+      "slug": "max-divisible-pairs-by-k",
+      "title": "합이 K의 배수가 되게 만드는 최대 짝 수",
+      "track": "today",
+      "difficulty": "medium",
+      "topic": "remainder-grouping",
+      "tags": [
+        "daily",
+        "medium",
+        "array",
+        "modulo",
+        "pairing",
+        "greedy"
+      ],
+      "primaryMethod": "count-remainders-complement-pairing",
+      "coreIdea": "각 수를 k로 나눈 나머지 개수를 센 뒤 서로 보완되는 나머지 r와 k-r를 최대한 짝지어 합이 k의 배수가 되는 쌍의 개수를 계산한다",
+      "gimmick": "나머지 0 그룹과 k가 짝수일 때의 k/2 그룹은 자기들끼리만 묶을 수 있으므로 개수의 절반만 짝이 된다는 점이 핵심이다",
+      "path": "_problems/max-divisible-pairs-by-k.md"
+    },
+    {
+      "slug": "uniform-alphabet-shift-check",
+      "title": "같은 칸 수만큼 민 암호인지 확인하기",
+      "track": "today",
+      "difficulty": "easy",
+      "topic": "cyclic-shift-check",
+      "tags": [
+        "daily",
+        "beginner",
+        "string",
+        "alphabet",
+        "modulo"
+      ],
+      "primaryMethod": "single-offset-mod-check",
+      "coreIdea": "첫 글자에서 계산한 알파벳 이동 칸 수를 기준으로 모든 위치의 문자 쌍이 같은 순환 이동량을 가지는지 검사한다",
+      "gimmick": "Z 다음은 다시 A로 이어지는 원형 알파벳 규칙을 써야 하며 빈 문자열 두 개는 이동 규칙을 깨지 않았으므로 true다",
+      "path": "_problems/uniform-alphabet-shift-check.md"
     }
   ]
 }
