@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-15T14:00:00+09:00",
+  "updatedAt": "2026-04-16T14:00:00+09:00",
   "rules": {
     "disallowExactSlugDuplicate": true,
     "disallowExactTitleDuplicate": true,
@@ -1285,6 +1285,99 @@
       "coreIdea": "첫 글자에서 계산한 알파벳 이동 칸 수를 기준으로 모든 위치의 문자 쌍이 같은 순환 이동량을 가지는지 검사한다",
       "gimmick": "Z 다음은 다시 A로 이어지는 원형 알파벳 규칙을 써야 하며 빈 문자열 두 개는 이동 규칙을 깨지 않았으므로 true다",
       "path": "_problems/uniform-alphabet-shift-check.md"
+    },
+    {
+      "slug": "check-stable-parentheses-note",
+      "title": "닫는 괄호가 앞서지 않는 올바른 기록",
+      "track": "today",
+      "difficulty": "easy",
+      "topic": "balance-check",
+      "tags": [
+        "daily",
+        "beginner",
+        "string",
+        "parentheses",
+        "validation"
+      ],
+      "primaryMethod": "running-balance-no-negative",
+      "coreIdea": "문자열을 왼쪽부터 보며 여는 괄호는 1 늘리고 닫는 괄호는 1 줄이면서 중간에 음수가 되는지와 마지막 합계가 0인지 확인해 올바른 괄호열인지 판별한다",
+      "gimmick": "마지막 개수만 맞는다고 충분하지 않고 닫는 괄호가 먼저 나오는 순간 즉시 실패해야 하며 빈 문자열은 올바른 괄호열로 본다",
+      "path": "_problems/check-stable-parentheses-note.md"
+    },
+    {
+      "slug": "longest-repeated-log-snippet",
+      "title": "가장 길게 다시 나타나는 로그 조각",
+      "track": "today",
+      "difficulty": "hard",
+      "topic": "rolling-hash",
+      "tags": [
+        "daily",
+        "hard",
+        "string",
+        "rolling-hash",
+        "binary-search",
+        "substring",
+        "lexicographical-order"
+      ],
+      "primaryMethod": "binary-search-rolling-hash",
+      "coreIdea": "부분 문자열 길이를 이분 탐색하면서 각 길이에 대해 rolling hash로 같은 문자열이 두 번 이상 나오는지 빠르게 판별하고 가능한 길이 중 최장 길이의 답을 찾는다",
+      "gimmick": "반복 구간은 서로 겹쳐도 인정되며 최장 길이 후보가 여러 개면 사전순으로 가장 앞선 문자열을 골라야 해서 존재 여부만이 아니라 후보 문자열 비교까지 신중히 처리해야 한다",
+      "path": "_problems/longest-repeated-log-snippet.md"
+    },
+    {
+      "slug": "mask-banned-word-in-message",
+      "title": "메시지 속 금지어 모두 가리기",
+      "track": "js-basic",
+      "difficulty": "easy",
+      "topic": "string-replacement-methods",
+      "tags": [
+        "beginner",
+        "string",
+        "js-method",
+        "replaceAll",
+        "masking"
+      ],
+      "primaryMethod": "String.replaceAll",
+      "coreIdea": "문자열에서 금지어와 정확히 일치하는 모든 부분을 replaceAll로 한 번에 바꿔 첫 번째만이 아니라 전체 등장 위치를 마스킹한다",
+      "gimmick": "replace는 기본적으로 첫 번째만 바꿀 수 있지만 replaceAll은 같은 문자열이 여러 번 나와도 전부 바꾸며, 금지어가 없으면 원본 문자열이 그대로 반환된다",
+      "path": "_problems/mask-banned-word-in-message.md"
+    },
+    {
+      "slug": "maximum-kiosk-traffic-rectangle",
+      "title": "가장 붐비는 키오스크 직사각형 찾기",
+      "track": "algorithm",
+      "difficulty": "medium",
+      "topic": "matrix-prefix-sum",
+      "tags": [
+        "algorithm",
+        "matrix",
+        "prefix-sum",
+        "submatrix",
+        "intermediate"
+      ],
+      "primaryMethod": "two-dimensional-prefix-sum",
+      "coreIdea": "2차원 누적합을 미리 만들어 두고 모든 h x w 직사각형의 합을 O(1)에 계산해 전체 최대 합을 찾는다",
+      "gimmick": "직사각형 합을 구할 때 전체 누적합에서 위쪽과 왼쪽 영역을 빼고 겹쳐서 두 번 빠진 왼쪽 위 영역을 다시 더해야 하며 모든 값이 음수여도 가장 덜 작은 합을 골라야 한다",
+      "path": "_problems/maximum-kiosk-traffic-rectangle.md"
+    },
+    {
+      "slug": "nearby-similar-price-alert",
+      "title": "가까운 구간 안의 비슷한 가격 알림",
+      "track": "today",
+      "difficulty": "medium",
+      "topic": "bucketization",
+      "tags": [
+        "daily",
+        "medium",
+        "hash",
+        "sliding-window",
+        "buckets",
+        "proximity"
+      ],
+      "primaryMethod": "fixed-width-bucket-neighbor-check",
+      "coreIdea": "값 차이가 limit 이하인 수들은 너비가 limit + 1 인 버킷 기준으로 같은 버킷 또는 인접 버킷에만 들어갈 수 있다는 점을 이용해 최근 windowSize개 구간 안에서 조건을 만족하는 쌍이 있는지 O(n)에 판별한다",
+      "gimmick": "인덱스 차이 제한 때문에 오래된 원소를 버킷에서 즉시 제거해야 하고 음수 가격도 버킷 번호가 꼬이지 않도록 floor 기반으로 나눠야 한다",
+      "path": "_problems/nearby-similar-price-alert.md"
     }
   ]
 }
