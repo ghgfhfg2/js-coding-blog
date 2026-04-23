@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-16T14:00:00+09:00",
+  "updatedAt": "2026-04-23T14:02:05+09:00",
   "rules": {
     "disallowExactSlugDuplicate": true,
     "disallowExactTitleDuplicate": true,
@@ -1378,6 +1378,101 @@
       "coreIdea": "값 차이가 limit 이하인 수들은 너비가 limit + 1 인 버킷 기준으로 같은 버킷 또는 인접 버킷에만 들어갈 수 있다는 점을 이용해 최근 windowSize개 구간 안에서 조건을 만족하는 쌍이 있는지 O(n)에 판별한다",
       "gimmick": "인덱스 차이 제한 때문에 오래된 원소를 버킷에서 즉시 제거해야 하고 음수 가격도 버킷 번호가 꼬이지 않도록 floor 기반으로 나눠야 한다",
       "path": "_problems/nearby-similar-price-alert.md"
+    },
+    {
+      "slug": "get-product-code-prefix",
+      "title": "상품 코드 앞 세 글자 가져오기",
+      "track": "js-basic",
+      "difficulty": "easy",
+      "topic": "string-extraction-methods",
+      "tags": [
+        "beginner",
+        "string",
+        "js-method",
+        "slice",
+        "prefix"
+      ],
+      "primaryMethod": "String.slice",
+      "coreIdea": "상품 코드 문자열의 앞에서 최대 3글자를 slice로 잘라 접두 코드만 반환한다",
+      "gimmick": "길이가 3보다 짧은 문자열도 slice(0, 3) 호출만으로 전체 문자열이 자연스럽게 반환된다",
+      "path": "_problems/get-product-code-prefix.md"
+    },
+    {
+      "slug": "max-disconnected-pairs-after-relay-failure",
+      "title": "중계기 하나가 꺼질 때 끊기는 최대 통신 쌍",
+      "track": "today",
+      "difficulty": "hard",
+      "topic": "articulation-points",
+      "tags": [
+        "daily",
+        "hard",
+        "graph",
+        "dfs",
+        "articulation-point",
+        "low-link",
+        "connectivity"
+      ],
+      "primaryMethod": "tarjan-low-link-component-size-counting",
+      "coreIdea": "각 정점을 제거했을 때 분리되는 연결 컴포넌트들의 크기를 DFS low-link로 한 번에 계산하고 컴포넌트 크기들의 쌍 곱 합으로 끊기는 정점 쌍 수를 구한다",
+      "gimmick": "단절점의 각 자식 서브트리 중 low 값이 현재 정점의 발견 순서 이상인 것만 제거 후 독립 컴포넌트가 되며 나머지 정점들은 하나의 leftover 컴포넌트로 묶어 함께 계산해야 한다",
+      "path": "_problems/max-disconnected-pairs-after-relay-failure.md"
+    },
+    {
+      "slug": "minimum-adjacent-moves-for-team-photo",
+      "title": "팀 사진을 위해 모여 앉는 최소 이동 수",
+      "track": "today",
+      "difficulty": "medium",
+      "topic": "median-greedy",
+      "tags": [
+        "daily",
+        "medium",
+        "array",
+        "greedy",
+        "median",
+        "adjacent-swaps"
+      ],
+      "primaryMethod": "median-aligned-positioning",
+      "coreIdea": "1이 있는 자리의 인덱스만 모은 뒤 가운데 사람을 기준으로 연속한 목표 좌석에 맞춰 재배치하면 인접 이동 수 합이 최소가 된다",
+      "gimmick": "빈칸까지 직접 시뮬레이션하지 않고 각 사람의 원래 인덱스에서 자신의 순번을 뺀 보정값을 사용하면 연속 구간 정렬 비용을 한 번에 계산할 수 있다",
+      "path": "_problems/minimum-adjacent-moves-for-team-photo.md"
+    },
+    {
+      "slug": "minimum-cable-cost-to-connect-hubs",
+      "title": "모든 허브를 잇는 최소 케이블 비용",
+      "track": "algorithm",
+      "difficulty": "medium",
+      "topic": "minimum-spanning-tree",
+      "tags": [
+        "algorithm",
+        "graph",
+        "minimum-spanning-tree",
+        "kruskal",
+        "union-find",
+        "greedy"
+      ],
+      "primaryMethod": "kruskal-sort-union-find",
+      "coreIdea": "케이블 후보를 비용 오름차순으로 정렬한 뒤 서로 다른 연결 요소를 잇는 간선만 union 하며 선택하면 모든 허브를 연결하는 최소 비용을 구할 수 있다",
+      "gimmick": "비용이 싼 간선이라도 이미 같은 연결 요소 안을 잇는 간선이면 사이클만 만들 뿐이라 반드시 건너뛰어야 하고 끝까지 선택한 간선 수가 n - 1에 못 미치면 연결 자체가 불가능하다",
+      "path": "_problems/minimum-cable-cost-to-connect-hubs.md"
+    },
+    {
+      "slug": "minimum-circular-dial-moves",
+      "title": "원형 다이얼 최소 이동 수",
+      "track": "today",
+      "difficulty": "easy",
+      "topic": "circular-distance",
+      "tags": [
+        "daily",
+        "beginner",
+        "string",
+        "digits",
+        "circular",
+        "greedy"
+      ],
+      "primaryMethod": "per-digit-circular-min-distance",
+      "coreIdea": "같은 길이의 숫자 문자열 두 개를 각 자리별로 비교하며 시계 방향 거리와 반시계 방향 거리 중 더 작은 값을 누적해 전체 최소 이동 수를 구한다",
+      "gimmick": "0과 9가 맞닿아 있는 원형 다이얼이라 단순 차이의 절댓값이 아니라 10에서 그 차이를 뺀 우회 거리도 함께 비교해야 한다",
+      "path": "_problems/minimum-circular-dial-moves.md"
     }
   ]
 }
