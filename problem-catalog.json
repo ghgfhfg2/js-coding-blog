@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-23T14:02:05+09:00",
+  "updatedAt": "2026-04-24T14:01:52+09:00",
   "rules": {
     "disallowExactSlugDuplicate": true,
     "disallowExactTitleDuplicate": true,
@@ -1473,6 +1473,100 @@
       "coreIdea": "같은 길이의 숫자 문자열 두 개를 각 자리별로 비교하며 시계 방향 거리와 반시계 방향 거리 중 더 작은 값을 누적해 전체 최소 이동 수를 구한다",
       "gimmick": "0과 9가 맞닿아 있는 원형 다이얼이라 단순 차이의 절댓값이 아니라 10에서 그 차이를 뺀 우회 거리도 함께 비교해야 한다",
       "path": "_problems/minimum-circular-dial-moves.md"
+    },
+    {
+      "slug": "first-balanced-pivot",
+      "title": "왼쪽과 오른쪽 합이 같은 첫 분기점",
+      "track": "today",
+      "difficulty": "easy",
+      "topic": "pivot-scan",
+      "tags": [
+        "daily",
+        "beginner",
+        "array",
+        "prefix-sum",
+        "balance"
+      ],
+      "primaryMethod": "total-sum-left-accumulation",
+      "coreIdea": "배열 전체 합을 먼저 구한 뒤 왼쪽 누적합을 늘려 가면서 현재 위치를 제외한 오른쪽 합과 처음으로 같아지는 인덱스를 찾는다",
+      "gimmick": "맨 앞이나 맨 뒤도 한쪽 합이 0인 유효한 분기점이 될 수 있으며 없으면 -1을 반환해야 한다",
+      "path": "_problems/first-balanced-pivot.md"
+    },
+    {
+      "slug": "running-lower-median-alerts",
+      "title": "실시간 하위 중앙값 알림",
+      "track": "today",
+      "difficulty": "medium",
+      "topic": "two-heaps",
+      "tags": [
+        "daily",
+        "medium",
+        "heap",
+        "median",
+        "streaming",
+        "rebalance"
+      ],
+      "primaryMethod": "max-heap-min-heap-rebalancing",
+      "coreIdea": "숫자가 하나씩 들어올 때 작은 절반은 최대 힙, 큰 절반은 최소 힙에 나눠 담고 균형을 맞추면 매 단계의 하위 중앙값을 빠르게 구할 수 있다",
+      "gimmick": "원소 개수가 짝수일 때는 두 중앙값 중 작은 값인 하위 중앙값을 반환해야 하므로 최대 힙의 루트가 항상 정답이 되도록 크기 균형을 유지해야 한다",
+      "path": "_problems/running-lower-median-alerts.md"
+    },
+    {
+      "slug": "earliest-quota-day-for-range-sum",
+      "title": "누적 구간 합이 목표를 넘는 가장 빠른 날",
+      "track": "today",
+      "difficulty": "hard",
+      "topic": "parallel-binary-search",
+      "tags": [
+        "daily",
+        "hard",
+        "parallel-binary-search",
+        "fenwick-tree",
+        "range-update",
+        "prefix-sum",
+        "offline-query"
+      ],
+      "primaryMethod": "parallel-binary-search-with-dual-fenwick",
+      "coreIdea": "여러 구간 합 질의의 정답 날을 동시에 이분 탐색하면서 각 mid 날짜까지의 구간 증가 연산만 Fenwick Tree에 반영해 모든 질의를 오프라인으로 처리한다",
+      "gimmick": "각 질의를 따로 이분 탐색하면 같은 날짜의 업데이트를 반복 적용해 너무 느리므로 같은 mid를 묶어 한 번만 스캔해야 하고 target이 0 이하인 질의는 0일차가 정답이 될 수 있다",
+      "path": "_problems/earliest-quota-day-for-range-sum.md"
+    },
+    {
+      "slug": "shortest-subarray-reaching-target-sum",
+      "title": "목표 합 이상이 되는 가장 짧은 연속 구간",
+      "track": "algorithm",
+      "difficulty": "medium",
+      "topic": "monotonic-queue",
+      "tags": [
+        "algorithm",
+        "monotonic-queue",
+        "deque",
+        "prefix-sum",
+        "shortest-subarray",
+        "negative-numbers"
+      ],
+      "primaryMethod": "prefix-sum-monotonic-deque-shortest-subarray",
+      "coreIdea": "누적합 배열에서 값이 증가하는 후보 시작점만 deque로 유지하면 현재 위치까지의 합이 target 이상이 되는 가장 짧은 구간을 빠르게 갱신할 수 있다",
+      "gimmick": "음수가 섞일 수 있어 일반적인 투 포인터가 통하지 않으므로 더 큰 누적합을 가진 이전 시작점은 미래에도 불리하다는 성질로 후보를 정리해야 한다",
+      "path": "_problems/shortest-subarray-reaching-target-sum.md"
+    },
+    {
+      "slug": "normalize-tag-to-lowercase",
+      "title": "태그를 소문자로 정리하기",
+      "track": "js-basic",
+      "difficulty": "easy",
+      "topic": "string-case-methods",
+      "tags": [
+        "beginner",
+        "string",
+        "js-method",
+        "toLowerCase",
+        "normalization"
+      ],
+      "primaryMethod": "String.toLowerCase",
+      "coreIdea": "태그 문자열을 toLowerCase로 모두 소문자로 바꿔 검색이나 비교에 쓰기 쉬운 형태로 정리한다",
+      "gimmick": "공백이나 숫자처럼 대소문자가 없는 문자는 그대로 두고 알파벳만 소문자로 변환된다",
+      "path": "_problems/normalize-tag-to-lowercase.md"
     }
   ]
 }
