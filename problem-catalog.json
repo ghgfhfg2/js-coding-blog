@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-24T14:01:52+09:00",
+  "updatedAt": "2026-04-25T14:00:00+09:00",
   "rules": {
     "disallowExactSlugDuplicate": true,
     "disallowExactTitleDuplicate": true,
@@ -1567,6 +1567,99 @@
       "coreIdea": "태그 문자열을 toLowerCase로 모두 소문자로 바꿔 검색이나 비교에 쓰기 쉬운 형태로 정리한다",
       "gimmick": "공백이나 숫자처럼 대소문자가 없는 문자는 그대로 두고 알파벳만 소문자로 변환된다",
       "path": "_problems/normalize-tag-to-lowercase.md"
+    },
+    {
+      "slug": "first-repeated-badge",
+      "title": "처음 다시 등장한 배지",
+      "track": "today",
+      "difficulty": "easy",
+      "topic": "first-repeat",
+      "tags": [
+        "daily",
+        "beginner",
+        "set",
+        "duplicate",
+        "scan"
+      ],
+      "primaryMethod": "set-first-repeat-scan",
+      "coreIdea": "왼쪽부터 순회하면서 이미 본 배지가 다시 나오면 그 즉시 반환해 두 번째 등장 시점이 가장 빠른 배지를 찾는다",
+      "gimmick": "중복된 값 자체가 아니라 가장 먼저 다시 등장한 시점을 찾아야 하므로 Set을 채우다가 재등장 순간 즉시 종료하면 된다",
+      "path": "_problems/first-repeated-badge.md"
+    },
+    {
+      "slug": "shortest-all-badges-window",
+      "title": "모든 배지를 담는 가장 짧은 구간",
+      "track": "today",
+      "difficulty": "medium",
+      "topic": "cover-all-window",
+      "tags": [
+        "daily",
+        "medium",
+        "sliding-window",
+        "hash-map",
+        "distinct",
+        "interval"
+      ],
+      "primaryMethod": "sliding-window-cover-all-types",
+      "coreIdea": "전체 종류 수를 먼저 구한 뒤 현재 구간의 종류별 개수를 관리하며 모든 종류를 포함하는 가장 짧은 윈도우를 투포인터로 줄여 찾는다",
+      "gimmick": "길이가 같은 후보는 시작 인덱스가 더 작은 구간을 유지해야 하므로 윈도우 축소 시 tie-break를 함께 처리한다",
+      "path": "_problems/shortest-all-badges-window.md"
+    },
+    {
+      "slug": "minimum-route-cost-with-one-free-pass",
+      "title": "무료 패스 한 번으로 가는 최소 비용 경로",
+      "track": "today",
+      "difficulty": "hard",
+      "topic": "layered-graph",
+      "tags": [
+        "daily",
+        "hard",
+        "graph",
+        "dijkstra",
+        "shortest-path",
+        "state"
+      ],
+      "primaryMethod": "layered-dijkstra-single-free-edge",
+      "coreIdea": "도시마다 무료 패스 미사용과 사용 완료 두 상태를 분리한 뒤 한 번만 0비용 이동이 가능한 2층 상태 그래프 위에서 다익스트라를 수행한다",
+      "gimmick": "패스를 어느 간선에 쓰느냐가 전체 경로 최적해를 바꾸므로 가장 비싼 간선에 단순 적용하는 탐욕 대신 상태를 나눈 최단 경로가 필요하다",
+      "path": "_problems/minimum-route-cost-with-one-free-pass.md"
+    },
+    {
+      "slug": "kth-smallest-across-sorted-lists",
+      "title": "여러 정렬 목록에서 k번째 작은 수",
+      "track": "algorithm",
+      "difficulty": "medium",
+      "topic": "k-way-merge",
+      "tags": [
+        "algorithm",
+        "heap",
+        "priority-queue",
+        "k-way-merge",
+        "sorted-lists",
+        "intermediate"
+      ],
+      "primaryMethod": "min-heap-k-way-merge",
+      "coreIdea": "각 정렬 리스트의 현재 맨 앞 후보만 최소 힙에 넣고 가장 작은 값을 꺼낼 때마다 같은 리스트의 다음 값을 보충해 전체 k번째 값을 찾는다",
+      "gimmick": "모든 값을 합쳐 정렬하지 않고도 각 리스트의 맨 앞 원소만 후보라는 성질을 이용해 힙 크기를 리스트 수 수준으로 유지한다",
+      "path": "_problems/kth-smallest-across-sorted-lists.md"
+    },
+    {
+      "slug": "remove-first-two-queue-items",
+      "title": "대기열에서 앞의 두 사람 제외하기",
+      "track": "js-basic",
+      "difficulty": "easy",
+      "topic": "array-slicing",
+      "tags": [
+        "beginner",
+        "array",
+        "js-method",
+        "slice",
+        "queue"
+      ],
+      "primaryMethod": "slice-skip-first-two",
+      "coreIdea": "원본 배열을 건드리지 않고 slice(2)로 세 번째 요소부터 끝까지를 잘라 앞의 두 사람을 제외한 새 배열을 만든다",
+      "gimmick": "길이가 2보다 짧아도 예외 없이 빈 배열이 나와 별도 분기 없이 처리된다",
+      "path": "_problems/remove-first-two-queue-items.md"
     }
   ]
 }
