@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-25T14:00:00+09:00",
+  "updatedAt": "2026-04-26T14:00:00+09:00",
   "rules": {
     "disallowExactSlugDuplicate": true,
     "disallowExactTitleDuplicate": true,
@@ -1660,6 +1660,100 @@
       "coreIdea": "원본 배열을 건드리지 않고 slice(2)로 세 번째 요소부터 끝까지를 잘라 앞의 두 사람을 제외한 새 배열을 만든다",
       "gimmick": "길이가 2보다 짧아도 예외 없이 빈 배열이 나와 별도 분기 없이 처리된다",
       "path": "_problems/remove-first-two-queue-items.md"
+    },
+    {
+      "slug": "extract-stock-values-array",
+      "title": "재고 수량 값만 배열로 꺼내기",
+      "track": "js-basic",
+      "difficulty": "easy",
+      "topic": "object-value-methods",
+      "tags": [
+        "beginner",
+        "object",
+        "js-method",
+        "Object.values",
+        "extraction"
+      ],
+      "primaryMethod": "Object.values",
+      "coreIdea": "상품명을 키로, 재고 수량을 값으로 가진 객체에서 Object.values로 값들만 순서대로 꺼내 새 배열로 반환한다",
+      "gimmick": "키 이름은 결과에 포함하지 않고 빈 객체도 별도 예외 처리 없이 빈 배열로 자연스럽게 반환된다",
+      "path": "_problems/extract-stock-values-array.md"
+    },
+    {
+      "slug": "longest-even-badge-window",
+      "title": "모든 배지가 짝수 번 나온 가장 긴 구간",
+      "track": "today",
+      "difficulty": "medium",
+      "topic": "parity-mask",
+      "tags": [
+        "daily",
+        "medium",
+        "string",
+        "bitmask",
+        "prefix",
+        "parity"
+      ],
+      "primaryMethod": "prefix-parity-bitmask-first-index",
+      "coreIdea": "A부터 E까지 각 배지의 등장 횟수 홀짝 상태를 비트마스크로 표현하고, 같은 마스크가 다시 나온 가장 먼 두 위치 사이 구간이 모든 배지가 짝수 번 등장하는 가장 긴 구간이 된다",
+      "gimmick": "비어 있는 접두 구간도 후보가 되도록 마스크 0의 첫 등장 위치를 -1로 두고, 같은 마스크는 가장 처음 나온 위치만 저장해야 최장 길이를 얻을 수 있다",
+      "path": "_problems/longest-even-badge-window.md"
+    },
+    {
+      "slug": "longest-same-alert-streak",
+      "title": "가장 길게 이어진 같은 알림 종류",
+      "track": "today",
+      "difficulty": "easy",
+      "topic": "streak-tracking",
+      "tags": [
+        "daily",
+        "beginner",
+        "array",
+        "run-length",
+        "streak"
+      ],
+      "primaryMethod": "run-length-max-tracking",
+      "coreIdea": "배열을 한 번 순회하며 직전 알림과 같으면 현재 연속 길이를 늘리고 다르면 1로 리셋하면서 최대 연속 길이를 기록한다",
+      "gimmick": "빈 배열은 0을 반환하고 같은 값이 여러 번 이어질 때만 길이가 늘어나므로 단순 빈도 최댓값과 연속 최댓값을 구분해야 한다",
+      "path": "_problems/longest-same-alert-streak.md"
+    },
+    {
+      "slug": "minimum-escape-risk-path",
+      "title": "최대 위험도를 최소화하는 탈출 경로",
+      "track": "today",
+      "difficulty": "hard",
+      "topic": "minimax-path",
+      "tags": [
+        "daily",
+        "hard",
+        "graph",
+        "dijkstra",
+        "minimax",
+        "priority-queue",
+        "bottleneck-path"
+      ],
+      "primaryMethod": "priority-queue-minimax-relaxation",
+      "coreIdea": "경로의 비용을 간선 위험도의 합이 아니라 경로 위 최대 위험도라고 보고 각 정점까지의 최소 병목값을 우선순위 큐로 갱신하는 변형 다익스트라를 수행한다",
+      "gimmick": "더 많은 간선을 거치는 우회 경로라도 가장 위험한 간선 하나만 더 낮추면 정답이 될 수 있으므로 누적합 최단 경로처럼 처리하면 틀리고 현재 경로와 다음 간선의 최대값으로 완화해야 한다",
+      "path": "_problems/minimum-escape-risk-path.md"
+    },
+    {
+      "slug": "range-min-queries-with-sparse-table",
+      "title": "고정 배열 구간 최솟값 빠르게 찾기",
+      "track": "algorithm",
+      "difficulty": "medium",
+      "topic": "sparse-table",
+      "tags": [
+        "algorithm",
+        "sparse-table",
+        "range-minimum-query",
+        "array",
+        "preprocessing",
+        "idempotent"
+      ],
+      "primaryMethod": "sparse-table-overlapping-power-blocks",
+      "coreIdea": "변경되지 않는 배열에 대해 길이가 2의 거듭제곱인 구간들의 최솟값을 전처리해 두고 각 질의를 두 개의 겹치는 블록 최솟값으로 O(1)에 합성한다",
+      "gimmick": "합과 달리 최솟값은 같은 원소가 두 번 포함되어도 결과가 변하지 않으므로 길이 2^k 블록 두 개가 겹쳐도 그대로 합쳐 쓸 수 있다",
+      "path": "_problems/range-min-queries-with-sparse-table.md"
     }
   ]
 }
