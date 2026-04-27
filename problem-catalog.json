@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-26T14:00:00+09:00",
+  "updatedAt": "2026-04-27T14:00:00+09:00",
   "rules": {
     "disallowExactSlugDuplicate": true,
     "disallowExactTitleDuplicate": true,
@@ -1754,6 +1754,100 @@
       "coreIdea": "변경되지 않는 배열에 대해 길이가 2의 거듭제곱인 구간들의 최솟값을 전처리해 두고 각 질의를 두 개의 겹치는 블록 최솟값으로 O(1)에 합성한다",
       "gimmick": "합과 달리 최솟값은 같은 원소가 두 번 포함되어도 결과가 변하지 않으므로 길이 2^k 블록 두 개가 겹쳐도 그대로 합쳐 쓸 수 있다",
       "path": "_problems/range-min-queries-with-sparse-table.md"
+    },
+    {
+      "slug": "check-equal-three-part-sum",
+      "title": "세 구간 합이 모두 같은지 확인하기",
+      "track": "today",
+      "difficulty": "easy",
+      "topic": "partition-scan",
+      "tags": [
+        "daily",
+        "beginner",
+        "array",
+        "partition",
+        "prefix-sum"
+      ],
+      "primaryMethod": "running-sum-three-way-partition",
+      "coreIdea": "배열 전체 합이 3으로 나누어떨어지는지 먼저 확인한 뒤, 왼쪽부터 누적합이 목표값에 도달하는 지점을 두 번 찾으면 세 연속 구간의 합이 모두 같은지 판별할 수 있다",
+      "gimmick": "전체 합이 0인 경우도 포함되며 앞의 두 구간을 너무 늦게 자르면 마지막 구간이 비어 버릴 수 있으므로 마지막 원소 전까지만 두 번째 구간 종료를 찾아야 한다",
+      "path": "_problems/check-equal-three-part-sum.md"
+    },
+    {
+      "slug": "count-out-of-order-pairs",
+      "title": "앞지른 쌍 개수 세기",
+      "track": "algorithm",
+      "difficulty": "medium",
+      "topic": "inversion-count",
+      "tags": [
+        "algorithm",
+        "divide-and-conquer",
+        "merge-sort",
+        "array",
+        "counting",
+        "intermediate"
+      ],
+      "primaryMethod": "merge-sort-cross-inversion-count",
+      "coreIdea": "배열을 반으로 나눠 각 구간의 역전 쌍 수를 재귀적으로 구하고, 정렬된 두 구간을 병합할 때 왼쪽 값보다 작은 오른쪽 값이 먼저 나오면 남아 있는 왼쪽 원소 수만큼 역전 쌍을 한꺼번에 더한다",
+      "gimmick": "같은 값은 앞질렀다고 세지 않으므로 병합 시 값이 같으면 왼쪽 원소를 먼저 보내야 하고, 음수와 중복값이 섞여 있어도 같은 원리로 정확히 계산할 수 있다",
+      "path": "_problems/count-out-of-order-pairs.md"
+    },
+    {
+      "slug": "max-ad-revenue-with-cooldown-slots",
+      "title": "냉각 시간을 지키며 얻는 최대 광고 수익",
+      "track": "today",
+      "difficulty": "hard",
+      "topic": "weighted-interval-dp",
+      "tags": [
+        "daily",
+        "hard",
+        "dynamic-programming",
+        "binary-search",
+        "interval",
+        "scheduling",
+        "optimization"
+      ],
+      "primaryMethod": "binary-search-weighted-interval-dp",
+      "coreIdea": "각 광고를 종료 시각 기준으로 정렬한 뒤, 이전에 함께 선택할 수 있는 마지막 광고를 이분 탐색으로 찾아 weighted interval scheduling DP를 수행하면 광고 사이에 필요한 냉각 시간을 지키면서 최대 수익을 구할 수 있다",
+      "gimmick": "두 광고가 단순히 겹치지 않는 것만으로는 부족하고 앞 광고의 종료 시각에 cooldown을 더한 뒤에야 다음 광고를 시작할 수 있으므로 호환 여부를 찾을 때 end <= nextStart - cooldown 조건을 정확히 반영해야 한다",
+      "path": "_problems/max-ad-revenue-with-cooldown-slots.md"
+    },
+    {
+      "slug": "maximum-sticker-score-on-circle",
+      "title": "원형 진열대에서 떼어낼 수 있는 최대 스티커 점수",
+      "track": "today",
+      "difficulty": "medium",
+      "topic": "circular-dp",
+      "tags": [
+        "daily",
+        "medium",
+        "dynamic-programming",
+        "circular-array",
+        "optimization",
+        "rolling-dp"
+      ],
+      "primaryMethod": "two-case-linear-dp",
+      "coreIdea": "첫 번째 칸과 마지막 칸이 서로 이웃이라는 제약 때문에 원형 문제를 첫 칸을 제외하는 경우와 마지막 칸을 제외하는 경우 두 개의 선형 최대 비인접 합 문제로 나눠 각각 DP로 풀고 더 큰 값을 선택한다",
+      "gimmick": "원형에서는 양 끝을 동시에 고를 수 없으므로 일반적인 비인접 합 DP를 그대로 쓰면 틀리고 길이가 1 또는 2인 짧은 배열은 별도로 처리해야 한다",
+      "path": "_problems/maximum-sticker-score-on-circle.md"
+    },
+    {
+      "slug": "split-attendee-names",
+      "title": "쉼표로 적힌 참석자 이름 나누기",
+      "track": "js-basic",
+      "difficulty": "easy",
+      "topic": "string-splitting-methods",
+      "tags": [
+        "beginner",
+        "string",
+        "js-method",
+        "split",
+        "csv"
+      ],
+      "primaryMethod": "String.split",
+      "coreIdea": "쉼표로 이어진 이름 목록 문자열을 split(',')으로 나눠 원래 순서를 유지한 배열로 반환하고, 빈 문자열은 빈 배열로 처리한다",
+      "gimmick": "입력이 빈 문자열이면 split 결과가 ['']가 되기 쉬우므로 먼저 예외 처리해 실제 참가자가 없는 경우는 빈 배열을 반환해야 한다",
+      "path": "_problems/split-attendee-names.md"
     }
   ]
 }
