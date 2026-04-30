@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-29T14:00:00+09:00",
+  "updatedAt": "2026-04-30T14:00:00+09:00",
   "rules": {
     "disallowExactSlugDuplicate": true,
     "disallowExactTitleDuplicate": true,
@@ -2033,6 +2033,100 @@
       "coreIdea": "현재 점프 횟수로 도달 가능한 구간을 한 레벨처럼 보며 그 안에서 닿을 수 있는 가장 먼 위치를 갱신하고, 구간 끝에 도달할 때마다 점프 수를 늘려 마지막 칸까지의 최소 점프 수를 구한다",
       "gimmick": "각 위치에서 실제로 어느 칸으로 점프할지 선택하지 않아도 현재 구간의 최원거리만 추적하면 되고, 마지막 칸에 이미 도달 가능한 상태에서는 점프 수를 불필요하게 한 번 더 늘리지 않도록 처리해야 한다",
       "path": "_problems/minimum-jumps-to-end.md"
+    },
+    {
+      "slug": "build-stock-label-list",
+      "title": "재고 객체를 이름표 목록으로 바꾸기",
+      "track": "js-basic",
+      "difficulty": "easy",
+      "topic": "object-entry-methods",
+      "tags": [
+        "beginner",
+        "object",
+        "js-method",
+        "Object.entries",
+        "transformation"
+      ],
+      "primaryMethod": "Object.entries",
+      "coreIdea": "상품명-수량 형태의 객체를 Object.entries로 순회 가능한 쌍 배열로 바꾼 뒤 각 항목을 \"이름: 수량개\" 형식의 문자열 배열로 변환한다",
+      "gimmick": "객체의 키와 값을 동시에 써야 하므로 키만 주는 Object.keys나 값만 주는 Object.values보다 entries가 자연스럽고 빈 객체는 빈 배열이 된다",
+      "path": "_problems/build-stock-label-list.md"
+    },
+    {
+      "slug": "check-arithmetic-streak",
+      "title": "같은 간격으로 늘어선 수열인지 확인하기",
+      "track": "today",
+      "difficulty": "easy",
+      "topic": "progression-check",
+      "tags": [
+        "daily",
+        "beginner",
+        "array",
+        "sequence",
+        "difference"
+      ],
+      "primaryMethod": "first-difference-consistency-scan",
+      "coreIdea": "첫 두 수의 차이를 기준값으로 잡고 배열을 한 번 순회하며 모든 인접한 두 수의 차이가 끝까지 같은지 검사한다",
+      "gimmick": "길이가 2 이하인 배열은 자동으로 true이고 차이가 0이거나 음수여도 같은 간격이면 등차 수열로 인정해야 한다",
+      "path": "_problems/check-arithmetic-streak.md"
+    },
+    {
+      "slug": "count-safe-binary-broadcasts",
+      "title": "금지 패턴을 피하는 이진 방송 문자열 수",
+      "track": "today",
+      "difficulty": "hard",
+      "topic": "matrix-exponentiation",
+      "tags": [
+        "daily",
+        "hard",
+        "string",
+        "aho-corasick",
+        "matrix-exponentiation",
+        "automaton",
+        "counting"
+      ],
+      "primaryMethod": "aho-corasick-transition-matrix-power",
+      "coreIdea": "금지 패턴들을 Aho-Corasick 자동자로 합치고 금지 상태를 제외한 전이 행렬을 만든 뒤 길이 n만큼의 상태 이동 수를 빠른 거듭제곱으로 계산해 가능한 이진 문자열 개수를 센다",
+      "gimmick": "길이가 매우 커서 한 글자씩 DP를 돌 수 없고, 금지 패턴이 접미사로 막 완성되는 순간뿐 아니라 실패 링크를 따라 도달하는 숨은 금지 상태까지 모두 막아야 한다",
+      "path": "_problems/count-safe-binary-broadcasts.md"
+    },
+    {
+      "slug": "lowest-common-manager-queries",
+      "title": "공통 상사를 빠르게 찾기",
+      "track": "algorithm",
+      "difficulty": "medium",
+      "topic": "lowest-common-ancestor",
+      "tags": [
+        "algorithm",
+        "tree",
+        "lowest-common-ancestor",
+        "binary-lifting",
+        "query",
+        "intermediate"
+      ],
+      "primaryMethod": "binary-lifting-lca",
+      "coreIdea": "각 직원의 2^k번째 상사를 미리 저장해 두고 두 노드의 깊이를 맞춘 뒤 가장 높은 서로 다른 조상부터 함께 점프하며 최소 공통 조상을 찾는다",
+      "gimmick": "한 직원이 이미 다른 직원의 상사일 수 있으므로 깊이를 맞춘 직후 두 노드가 같아지는 경우를 바로 처리해야 하고 최고 상사 쿼리도 자연스럽게 포함된다",
+      "path": "_problems/lowest-common-manager-queries.md"
+    },
+    {
+      "slug": "max-two-nonoverlap-promo-sums",
+      "title": "겹치지 않는 두 홍보 구간의 최대 합",
+      "track": "today",
+      "difficulty": "medium",
+      "topic": "fixed-window-dp",
+      "tags": [
+        "daily",
+        "medium",
+        "array",
+        "sliding-window",
+        "prefix-best",
+        "non-overlap"
+      ],
+      "primaryMethod": "fixed-window-sums-left-best-scan",
+      "coreIdea": "길이 k인 모든 연속 구간 합을 슬라이딩 윈도우로 구한 뒤 각 위치까지의 최고 왼쪽 구간을 기록하고, 오른쪽 구간 시작점을 순회하며 겹치지 않는 두 구간 조합의 최대 합을 찾는다",
+      "gimmick": "최대 합 동률이면 왼쪽 구간 시작 인덱스가 더 작은 조합을, 그것도 같으면 오른쪽 구간 시작 인덱스가 더 작은 조합을 골라야 한다",
+      "path": "_problems/max-two-nonoverlap-promo-sums.md"
     }
   ]
 }
