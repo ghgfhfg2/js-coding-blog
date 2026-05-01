@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-30T14:00:00+09:00",
+  "updatedAt": "2026-05-01T14:00:00+09:00",
   "rules": {
     "disallowExactSlugDuplicate": true,
     "disallowExactTitleDuplicate": true,
@@ -2127,6 +2127,98 @@
       "coreIdea": "길이 k인 모든 연속 구간 합을 슬라이딩 윈도우로 구한 뒤 각 위치까지의 최고 왼쪽 구간을 기록하고, 오른쪽 구간 시작점을 순회하며 겹치지 않는 두 구간 조합의 최대 합을 찾는다",
       "gimmick": "최대 합 동률이면 왼쪽 구간 시작 인덱스가 더 작은 조합을, 그것도 같으면 오른쪽 구간 시작 인덱스가 더 작은 조합을 골라야 한다",
       "path": "_problems/max-two-nonoverlap-promo-sums.md"
+    },
+    {
+      "slug": "assign-earliest-available-seat",
+      "title": "요청한 번호 이상에서 가장 이른 빈 좌석 배정하기",
+      "track": "algorithm",
+      "difficulty": "medium",
+      "topic": "disjoint-set-successor",
+      "tags": [
+        "algorithm",
+        "union-find",
+        "disjoint-set",
+        "path-compression",
+        "successor-query"
+      ],
+      "primaryMethod": "union-find-next-available-slot",
+      "coreIdea": "요청한 번호 이상에서 가능한 가장 작은 빈 좌석을 successor query 형태의 Union-Find로 찾아 배정하고, 사용한 좌석은 다음 후보를 가리키도록 갱신한다",
+      "gimmick": "좌석이 모두 찬 상태를 maxSeat + 1 sentry로 표현해 실패 요청을 -1로 깔끔하게 처리하고 path compression으로 이미 찬 구간을 한 번에 건너뛴다",
+      "path": "_problems/assign-earliest-available-seat.md"
+    },
+    {
+      "slug": "check-direct-setting-key",
+      "title": "설정 객체에 해당 키가 직접 있는지 확인하기",
+      "track": "js-basic",
+      "difficulty": "easy",
+      "topic": "object-membership-methods",
+      "tags": [
+        "beginner",
+        "object",
+        "js-method",
+        "Object.hasOwn",
+        "key-check"
+      ],
+      "primaryMethod": "Object.hasOwn",
+      "coreIdea": "설정 객체에 특정 키가 직접 존재하는지 Object.hasOwn로 확인해 값이 false여도 키가 있으면 true를 반환한다",
+      "gimmick": "프로토타입 체인에서 물려받은 키는 제외하고 객체 자신의 키만 확인해야 하며 값이 false나 null이어도 키 존재 여부와는 별개다",
+      "path": "_problems/check-direct-setting-key.md"
+    },
+    {
+      "slug": "count-zero-crossings-in-signal",
+      "title": "신호가 음수와 양수를 넘나든 횟수 세기",
+      "track": "today",
+      "difficulty": "easy",
+      "topic": "sign-transition",
+      "tags": [
+        "daily",
+        "beginner",
+        "array",
+        "sign",
+        "transition"
+      ],
+      "primaryMethod": "adjacent-opposite-sign-scan",
+      "coreIdea": "배열을 한 번 순회하며 인접한 두 값이 하나는 양수이고 다른 하나는 음수인 경우만 세어 신호의 부호 전환 횟수를 구한다",
+      "gimmick": "값이 0인 구간은 부호를 가진 값이 아니므로 0과 붙은 변화는 전환으로 세지 않고 양수와 음수의 직접 인접만 인정해야 한다",
+      "path": "_problems/count-zero-crossings-in-signal.md"
+    },
+    {
+      "slug": "find-rotation-min-index",
+      "title": "회전된 점수판에서 최솟값이 처음 나타나는 위치",
+      "track": "today",
+      "difficulty": "medium",
+      "topic": "rotated-binary-search",
+      "tags": [
+        "daily",
+        "medium",
+        "binary-search",
+        "rotated-array",
+        "pivot"
+      ],
+      "primaryMethod": "binary-search-mid-vs-right",
+      "coreIdea": "원래 오름차순이던 배열이 한 번 회전된 상태라는 성질을 이용해 mid 값과 right 값을 비교하며 최솟값이 포함된 절반만 남기는 이분 탐색으로 최솟값의 인덱스를 찾는다",
+      "gimmick": "이미 회전되지 않은 배열은 0을 반환해야 하고 최솟값이 배열 맨 뒤 근처에 있어도 정렬이 끊기는 쪽만 좁혀 가면 된다",
+      "path": "_problems/find-rotation-min-index.md"
+    },
+    {
+      "slug": "union-area-of-promo-boards",
+      "title": "겹쳐 붙인 홍보 보드의 전체 넓이",
+      "track": "today",
+      "difficulty": "hard",
+      "topic": "geometry-sweep",
+      "tags": [
+        "daily",
+        "hard",
+        "geometry",
+        "sweep-line",
+        "segment-tree",
+        "coordinate-compression",
+        "rectangle"
+      ],
+      "primaryMethod": "x-sweep-segment-tree-covered-length",
+      "coreIdea": "직사각형의 좌우 변을 x축 이벤트로 바꾼 뒤 y축을 좌표 압축한 세그먼트 트리에서 현재 덮인 총 높이를 관리하면 인접한 두 x 이벤트 사이 넓이를 누적해 전체 합집합 넓이를 구할 수 있다",
+      "gimmick": "여러 직사각형이 겹쳐도 덮인 높이는 중복 합산하면 안 되므로 각 y구간의 덮인 개수와 실제 덮인 길이를 함께 관리해야 하고, 변만 맞닿는 경우는 겹침이 아니라는 점도 정확히 처리해야 한다",
+      "path": "_problems/union-area-of-promo-boards.md"
     }
   ]
 }
