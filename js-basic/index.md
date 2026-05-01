@@ -25,9 +25,17 @@ permalink: /js-basic/
   <p class="section-lead">includes, split, map, startsWith, endsWith 같은 JavaScript 메서드를 문제와 함께 익힐 수 있는 학습형 카테고리입니다. 메서드 설명, 사용 예시, 주의할 점까지 함께 보며 자바스크립트 기본기를 다질 수 있습니다.</p>
 </section>
 
-<div class="category-page-grid">
+<p id="problem-count" class="muted problem-count"></p>
+
+<div id="problem-grid" class="category-page-grid" data-page-size="12">
   {% for problem in problems %}
-    <article class="problem-card">
+    <article class="problem-card"
+      data-title="{{ problem.title | downcase | escape }}"
+      data-description="{{ problem.excerpt | strip_html | strip_newlines | downcase | escape }}"
+      data-track="{{ problem.track | downcase }}"
+      data-difficulty="{{ problem.difficulty | downcase }}"
+      data-topic="{{ problem.topic | downcase }}"
+      data-tags="{{ problem.tags | join: ' ' | downcase | escape }}">
       <div class="problem-card__body">
         <div class="problem-card__topline">
           <div class="meta-row compact">
@@ -45,3 +53,8 @@ permalink: /js-basic/
     </article>
   {% endfor %}
 </div>
+
+<div id="problem-empty" class="empty-state is-hidden">조건에 맞는 문제가 없습니다.</div>
+<div id="problem-pagination" class="pagination is-hidden"></div>
+
+<script src="/assets/js/problem-filters.js" defer></script>

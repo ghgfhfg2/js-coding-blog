@@ -55,7 +55,7 @@ permalink: /problems/
 
 <p id="problem-count" class="muted problem-count"></p>
 
-<div id="problem-grid" class="problem-grid">
+<div id="problem-grid" class="problem-grid" data-page-size="12">
   {% assign sorted_problems = site.problems | sort: 'order' %}
   {% for problem in sorted_problems %}
     <article
@@ -89,5 +89,6 @@ permalink: /problems/
 </div>
 
 <div id="problem-empty" class="empty-state is-hidden">조건에 맞는 문제가 없습니다. 검색어나 필터를 바꿔보세요.</div>
+<div id="problem-pagination" class="pagination is-hidden"></div>
 
 <script src="/assets/js/problem-filters.js" defer></script>

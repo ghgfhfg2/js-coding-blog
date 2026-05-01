@@ -25,9 +25,17 @@ permalink: /today/
   <p class="section-lead">오늘 바로 풀어볼 수 있는 자바스크립트 코딩테스트 문제를 모아둔 카테고리입니다. 짧게 한 문제 풀고 감각을 깨우는 데 초점을 둔 트랙이라 부담 없이 시작하기 좋습니다.</p>
 </section>
 
-<div class="category-page-grid">
+<p id="problem-count" class="muted problem-count"></p>
+
+<div id="problem-grid" class="category-page-grid" data-page-size="12">
   {% for problem in problems %}
-    <article class="problem-card">
+    <article class="problem-card"
+      data-title="{{ problem.title | downcase | escape }}"
+      data-description="{{ problem.excerpt | strip_html | strip_newlines | downcase | escape }}"
+      data-track="{{ problem.track | downcase }}"
+      data-difficulty="{{ problem.difficulty | downcase }}"
+      data-topic="{{ problem.topic | downcase }}"
+      data-tags="{{ problem.tags | join: ' ' | downcase | escape }}">
       <div class="problem-card__body">
         <div class="problem-card__topline">
           <div class="meta-row compact">
@@ -45,3 +53,8 @@ permalink: /today/
     </article>
   {% endfor %}
 </div>
+
+<div id="problem-empty" class="empty-state is-hidden">조건에 맞는 문제가 없습니다.</div>
+<div id="problem-pagination" class="pagination is-hidden"></div>
+
+<script src="/assets/js/problem-filters.js" defer></script>
