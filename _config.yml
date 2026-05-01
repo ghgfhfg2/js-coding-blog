@@ -1,9 +1,9 @@
 title: "JS Coding Blog"
-description: "정적 블로그 기반 JavaScript 코딩 연습장"
+description: "자바스크립트 코딩테스트 문제, JS 알고리즘 연습, JavaScript 메서드 학습 문제를 카테고리별로 풀어볼 수 있는 코테 로그"
 lang: ko-KR
 timezone: Asia/Seoul
 baseurl: ""
-url: ""
+url: "https://js-coding.sooyadev.com"
 markdown: kramdown
 permalink: pretty
 
@@ -23,3 +23,6 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
+
+disqus:
+  shortname: js-coding
