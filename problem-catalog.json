@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-01T14:00:00+09:00",
+  "updatedAt": "2026-05-02T14:00:00+09:00",
   "rules": {
     "disallowExactSlugDuplicate": true,
     "disallowExactTitleDuplicate": true,
@@ -2219,6 +2219,99 @@
       "coreIdea": "직사각형의 좌우 변을 x축 이벤트로 바꾼 뒤 y축을 좌표 압축한 세그먼트 트리에서 현재 덮인 총 높이를 관리하면 인접한 두 x 이벤트 사이 넓이를 누적해 전체 합집합 넓이를 구할 수 있다",
       "gimmick": "여러 직사각형이 겹쳐도 덮인 높이는 중복 합산하면 안 되므로 각 y구간의 덮인 개수와 실제 덮인 길이를 함께 관리해야 하고, 변만 맞닿는 경우는 겹침이 아니라는 점도 정확히 처리해야 한다",
       "path": "_problems/union-area-of-promo-boards.md"
+    },
+    {
+      "slug": "top-k-frequent-tags",
+      "title": "가장 자주 나온 태그 K개 찾기",
+      "track": "algorithm",
+      "difficulty": "medium",
+      "topic": "bucket-sort",
+      "tags": [
+        "algorithm",
+        "bucket-sort",
+        "hash-map",
+        "frequency",
+        "strings",
+        "top-k"
+      ],
+      "primaryMethod": "frequency-buckets-desc-scan",
+      "coreIdea": "각 태그의 등장 횟수를 해시 맵으로 센 뒤 빈도별 버킷에 태그를 모아 가장 큰 빈도부터 내려오며 K개를 수집한다",
+      "gimmick": "같은 빈도 안에서는 사전순으로 더 앞선 태그를 먼저 뽑아야 하므로 버킷 내부 정렬과 K개를 채우는 조기 종료를 함께 처리해야 한다",
+      "path": "_problems/top-k-frequent-tags.md"
+    },
+    {
+      "slug": "check-equal-diagonal-sums",
+      "title": "두 대각선 합이 같은 격자인지 확인하기",
+      "track": "today",
+      "difficulty": "easy",
+      "topic": "diagonal-check",
+      "tags": [
+        "daily",
+        "beginner",
+        "matrix",
+        "diagonal",
+        "summation"
+      ],
+      "primaryMethod": "dual-diagonal-scan",
+      "coreIdea": "정사각 행렬의 주대각선과 반대각선을 한 번씩 순회하며 각각의 합을 구한 뒤 두 합이 같은지 비교한다",
+      "gimmick": "홀수 크기 행렬의 가운데 칸은 두 대각선에 모두 속하지만 각 대각선 합에는 한 번씩 포함되는 것이 맞다",
+      "path": "_problems/check-equal-diagonal-sums.md"
+    },
+    {
+      "slug": "find-majority-badge",
+      "title": "과반 배지가 있는지 찾기",
+      "track": "today",
+      "difficulty": "medium",
+      "topic": "majority-vote",
+      "tags": [
+        "daily",
+        "medium",
+        "array",
+        "majority",
+        "voting",
+        "verification"
+      ],
+      "primaryMethod": "boyer-moore-candidate-verification",
+      "coreIdea": "배열을 한 번 훑으며 과반 후보와 균형 카운트를 압축해서 찾은 뒤 후보가 실제로 절반 초과 등장하는지 다시 세어 검증한다",
+      "gimmick": "첫 번째 순회에서 남은 후보가 항상 정답이라는 보장이 없으므로 반드시 두 번째 검증을 거쳐야 하고 과반이 없으면 null을 반환해야 한다",
+      "path": "_problems/find-majority-badge.md"
+    },
+    {
+      "slug": "maximum-mentor-slot-matches",
+      "title": "멘토와 시간대를 최대한 많이 연결하기",
+      "track": "today",
+      "difficulty": "hard",
+      "topic": "bipartite-matching",
+      "tags": [
+        "daily",
+        "hard",
+        "graph",
+        "bipartite-matching",
+        "hopcroft-karp",
+        "augmenting-path"
+      ],
+      "primaryMethod": "hopcroft-karp-layered-augmenting-path",
+      "coreIdea": "멘토와 시간대를 양쪽 정점으로 보는 이분 그래프를 만들고 BFS로 최단 증가 경로 층을 만든 뒤 DFS로 여러 증가 경로를 한 번에 흘려 최대 매칭 수를 구한다",
+      "gimmick": "단순 DFS 증가 경로를 매번 하나씩 찾으면 큰 입력에서 느리므로 같은 길이의 증가 경로를 한 라운드에 여러 개 처리해 매칭을 빠르게 늘려야 한다",
+      "path": "_problems/maximum-mentor-slot-matches.md"
+    },
+    {
+      "slug": "build-seat-number-list",
+      "title": "1번부터 N번까지 번호표 만들기",
+      "track": "js-basic",
+      "difficulty": "easy",
+      "topic": "array-creation-methods",
+      "tags": [
+        "beginner",
+        "array",
+        "js-method",
+        "Array.from",
+        "sequence"
+      ],
+      "primaryMethod": "Array.from",
+      "coreIdea": "길이가 n인 배열 비슷한 객체를 만든 뒤 Array.from과 인덱스를 활용해 1부터 n까지 증가하는 번호 배열을 생성한다",
+      "gimmick": "n이 0이면 빈 배열이 자연스럽게 반환되고 값이 아니라 인덱스를 이용해 숫자를 만들어야 한다",
+      "path": "_problems/build-seat-number-list.md"
     }
   ]
 }
