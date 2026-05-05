@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-04T14:00:00+09:00",
+  "updatedAt": "2026-05-05T14:00:00+09:00",
   "rules": {
     "disallowExactSlugDuplicate": true,
     "disallowExactTitleDuplicate": true,
@@ -2498,6 +2498,100 @@
       "coreIdea": "문자열을 왼쪽부터 한 글자씩 보며 숫자 문자만 골라 각 자리값을 누적해 전체 합을 구한다",
       "gimmick": "연속된 숫자도 하나의 큰 수로 묶지 않고 각 글자를 독립적인 자리수로 더하며 숫자가 하나도 없으면 0을 반환한다",
       "path": "_problems/sum-hidden-digits.md"
+    },
+    {
+      "slug": "count-distinct-log-snippets",
+      "title": "서로 다른 로그 조각 개수 세기",
+      "track": "today",
+      "difficulty": "hard",
+      "topic": "suffix-automaton",
+      "tags": [
+        "daily",
+        "hard",
+        "string",
+        "suffix-automaton",
+        "counting",
+        "distinct-substrings"
+      ],
+      "primaryMethod": "suffix-automaton-length-delta-sum",
+      "coreIdea": "문자열을 왼쪽부터 suffix automaton에 추가하면서 각 상태가 새로 대표하게 되는 부분 문자열 개수 len[state] - len[link[state]]를 누적해 서로 다른 부분 문자열 수를 센다",
+      "gimmick": "문자를 붙일 때 이미 있던 전이를 그대로 재사용할 수도 있고 clone 상태를 만들어 suffix link를 재배선해야 할 수도 있는데, 각 단계에서 마지막 상태가 새로 기여하는 길이 구간만 더하면 전체 distinct substring 수가 된다",
+      "path": "_problems/count-distinct-log-snippets.md"
+    },
+    {
+      "slug": "count-stable-split-points",
+      "title": "앞쪽이 모두 작거나 같은 분할 지점 개수",
+      "track": "today",
+      "difficulty": "easy",
+      "topic": "prefix-suffix",
+      "tags": [
+        "daily",
+        "beginner",
+        "array",
+        "prefix-max",
+        "suffix-min",
+        "partition"
+      ],
+      "primaryMethod": "prefix-max-suffix-min-scan",
+      "coreIdea": "각 위치까지의 최댓값과 각 위치부터의 최솟값을 미리 구한 뒤 분할선 왼쪽 최댓값이 오른쪽 최솟값 이하인 지점만 세어 안정적인 분할 개수를 구한다",
+      "gimmick": "분할선은 원소 사이에만 놓을 수 있으므로 마지막 원소 뒤는 세지 않으며 같은 값은 허용되어 leftMax <= rightMin 조건이면 유효하다",
+      "path": "_problems/count-stable-split-points.md"
+    },
+    {
+      "slug": "find-first-at-sign-position",
+      "title": "이메일에서 @ 위치 찾기",
+      "track": "js-basic",
+      "difficulty": "easy",
+      "topic": "string-position-methods",
+      "tags": [
+        "beginner",
+        "string",
+        "js-method",
+        "indexOf",
+        "position"
+      ],
+      "primaryMethod": "String.indexOf",
+      "coreIdea": "이메일 문자열에서 @ 문자가 처음 나타나는 위치를 indexOf로 찾고 없으면 자동으로 -1을 반환받는다",
+      "gimmick": "@가 여러 번 나와도 첫 번째 위치만 반환하며 맨 앞에 있으면 0이 정답이라 0과 -1을 헷갈리지 않는 것이 핵심이다",
+      "path": "_problems/find-first-at-sign-position.md"
+    },
+    {
+      "slug": "minimum-worst-pair-gap",
+      "title": "짝을 지을 때 가장 큰 실력 차이 최소화",
+      "track": "today",
+      "difficulty": "medium",
+      "topic": "pairing-greedy",
+      "tags": [
+        "daily",
+        "medium",
+        "greedy",
+        "sorting",
+        "pairing",
+        "minimax"
+      ],
+      "primaryMethod": "sort-and-adjacent-pair-greedy",
+      "coreIdea": "실력 배열을 정렬한 뒤 인접한 두 사람끼리 차례로 짝지으면 각 쌍의 차이 중 최댓값을 최소로 만들 수 있다",
+      "gimmick": "전체 합이나 평균이 아니라 가장 큰 짝 차이를 줄이는 minimax 문제라 정렬 후 멀리 떨어진 값을 섞지 말고 인접 원소끼리 묶는 것이 핵심이다",
+      "path": "_problems/minimum-worst-pair-gap.md"
+    },
+    {
+      "slug": "shortest-delivery-times-with-negative-roads",
+      "title": "음수 도로가 있어도 구하는 최소 배송 시간",
+      "track": "algorithm",
+      "difficulty": "medium",
+      "topic": "bellman-ford",
+      "tags": [
+        "algorithm",
+        "graph",
+        "bellman-ford",
+        "shortest-path",
+        "negative-weight",
+        "intermediate"
+      ],
+      "primaryMethod": "repeated-edge-relaxation-bellman-ford",
+      "coreIdea": "시작점 거리 배열을 두고 모든 단방향 도로를 최대 n-1번 반복 완화하면 음수 간선이 있어도 각 거점까지의 최단 시간을 구할 수 있다",
+      "gimmick": "어떤 라운드에서 거리 갱신이 한 번도 없으면 조기 종료할 수 있고 도달 불가 거점은 마지막에 -1로 바꿔 반환해야 한다",
+      "path": "_problems/shortest-delivery-times-with-negative-roads.md"
     }
   ]
 }
