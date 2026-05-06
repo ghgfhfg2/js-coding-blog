@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-05T14:00:00+09:00",
+  "updatedAt": "2026-05-06T14:00:00+09:00",
   "rules": {
     "disallowExactSlugDuplicate": true,
     "disallowExactTitleDuplicate": true,
@@ -2592,6 +2592,100 @@
       "coreIdea": "시작점 거리 배열을 두고 모든 단방향 도로를 최대 n-1번 반복 완화하면 음수 간선이 있어도 각 거점까지의 최단 시간을 구할 수 있다",
       "gimmick": "어떤 라운드에서 거리 갱신이 한 번도 없으면 조기 종료할 수 있고 도달 불가 거점은 마지막에 -1로 바꿔 반환해야 한다",
       "path": "_problems/shortest-delivery-times-with-negative-roads.md"
+    },
+    {
+      "slug": "final-floor-after-commands",
+      "title": "엘리베이터 명령 뒤 최종 층수",
+      "track": "today",
+      "difficulty": "easy",
+      "topic": "net-displacement",
+      "tags": [
+        "daily",
+        "beginner",
+        "string",
+        "simulation",
+        "accumulation"
+      ],
+      "primaryMethod": "signed-step-accumulation",
+      "coreIdea": "시작 층수에서 출발해 명령 문자열을 한 글자씩 읽으며 U는 1층 상승, D는 1층 하강으로 누적해 최종 층수를 구한다",
+      "gimmick": "빈 명령 문자열은 시작 층수를 그대로 반환하고 위아래 이동이 섞여도 순서대로 모두 반영한 순이동 결과만 남는다",
+      "path": "_problems/final-floor-after-commands.md"
+    },
+    {
+      "slug": "minimum-skips-for-nonnegative-battery",
+      "title": "배터리가 음수가 되지 않게 만드는 최소 스킵 수",
+      "track": "today",
+      "difficulty": "medium",
+      "topic": "prefix-feasibility",
+      "tags": [
+        "daily",
+        "medium",
+        "greedy",
+        "heap",
+        "prefix-sum",
+        "skipping"
+      ],
+      "primaryMethod": "min-heap-most-negative-skip",
+      "coreIdea": "이벤트를 왼쪽부터 모두 반영해 보다가 누적 배터리가 음수가 되는 순간 지금까지 본 음수 이벤트 중 가장 감소 폭이 큰 것을 스킵해 누적합을 되돌리면 최소 스킵 횟수를 구할 수 있다",
+      "gimmick": "현재 이벤트만 버리는 것이 아니라 과거에 지나온 더 큰 음수 이벤트를 나중에 취소하는 선택이 최적일 수 있으므로 음수들만 힙에 모아 가장 해로운 값을 즉시 되돌려야 한다",
+      "path": "_problems/minimum-skips-for-nonnegative-battery.md"
+    },
+    {
+      "slug": "maximum-signal-at-checkpoints",
+      "title": "각 체크포인트에서 받을 수 있는 최대 신호",
+      "track": "today",
+      "difficulty": "hard",
+      "topic": "li-chao-tree",
+      "tags": [
+        "daily",
+        "hard",
+        "li-chao-tree",
+        "line-container",
+        "max-query",
+        "geometry",
+        "data-structure"
+      ],
+      "primaryMethod": "dynamic-li-chao-tree-max-query",
+      "coreIdea": "여러 일차 함수 중 질의 x마다 가장 큰 값을 빠르게 찾기 위해 직선을 Li Chao 트리에 삽입하고 각 체크포인트 위치에서 최대 y값을 조회한다",
+      "gimmick": "기울기 순서도 질의 x 순서도 정렬되어 있지 않고 좌표 범위가 매우 크고 음수까지 포함될 수 있어 단순 볼록 껍질 최적화 대신 좌표축 기준 비교 구조가 필요하다",
+      "path": "_problems/maximum-signal-at-checkpoints.md"
+    },
+    {
+      "slug": "max-character-partition-lengths",
+      "title": "문자가 겹치지 않게 나누는 최대 구간 길이들",
+      "track": "algorithm",
+      "difficulty": "medium",
+      "topic": "greedy-partition",
+      "tags": [
+        "algorithm",
+        "greedy",
+        "string",
+        "partition",
+        "last-occurrence",
+        "interval"
+      ],
+      "primaryMethod": "last-occurrence-greedy-segment-cut",
+      "coreIdea": "각 문자의 마지막 등장 위치를 먼저 기록한 뒤 현재 구간에서 등장한 문자들의 마지막 위치 중 최댓값까지 확장하고 그 지점에서 잘라 서로 문자가 겹치지 않는 최대 개수의 구간 길이를 만든다",
+      "gimmick": "지금까지 본 문자 중 하나라도 뒤에서 다시 나오면 현재 구간을 더 늘려야 하므로 단순히 새로운 문자가 바뀌는 순간 자를 수 없고 구간 끝을 동적으로 갱신해야 한다",
+      "path": "_problems/max-character-partition-lengths.md"
+    },
+    {
+      "slug": "concat-attendee-lists",
+      "title": "두 참가자 목록 이어 붙이기",
+      "track": "js-basic",
+      "difficulty": "easy",
+      "topic": "array-combination-methods",
+      "tags": [
+        "beginner",
+        "array",
+        "js-method",
+        "concat",
+        "merge"
+      ],
+      "primaryMethod": "Array.concat",
+      "coreIdea": "두 참가자 이름 배열을 concat으로 앞 배열 뒤에 뒷 배열 순서대로 이어 붙여 새 배열을 만든다",
+      "gimmick": "한쪽 배열이 비어 있어도 자연스럽게 처리되고 원본 배열 두 개는 바뀌지 않아야 한다",
+      "path": "_problems/concat-attendee-lists.md"
     }
   ]
 }
