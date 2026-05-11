@@ -24,7 +24,7 @@ jobs:
           echo "Changed files:"
           echo "$CHANGED"
 
-          BAD=$(echo "$CHANGED" | grep -Ev '^(_problems/|problem-catalog\.json$)$' || true)
+          BAD=$(echo "$CHANGED" | grep -Ev '^(_problems/.*|problem-catalog\.json)$' || true)
           if [ -n "$BAD" ]; then
             echo ""
             echo "❌ Daily publish touched forbidden files:"
