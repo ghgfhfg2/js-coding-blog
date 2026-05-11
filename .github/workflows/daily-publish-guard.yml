@@ -9,7 +9,6 @@ permissions:
 
 jobs:
   guard:
-    if: github.event_name == 'push' && startsWith(github.event.head_commit.message, 'chore: publish daily coding sets')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -20,6 +19,11 @@ jobs:
       - name: Validate changed files
         run: |
           set -euo pipefail
+          if [[ "${{ github.event.head_commit.message }}" != chore:\ publish\ daily\ coding\ sets* ]]; then
+            echo "Daily publish guard skipped for non-daily commit."
+            exit 0
+          fi
+
           CHANGED=$(git diff --name-only HEAD^ HEAD)
           echo "Changed files:"
           echo "$CHANGED"
