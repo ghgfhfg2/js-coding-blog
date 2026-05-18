@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-11T14:00:00+09:00",
+  "updatedAt": "2026-05-18T14:00:00+09:00",
   "rules": {
     "disallowExactSlugDuplicate": true,
     "disallowExactTitleDuplicate": true,
@@ -2835,6 +2835,98 @@
       "coreIdea": "전달받은 값이 실제 배열인지 Array.isArray로 확인해 불리언 값을 반환한다",
       "gimmick": "빈 배열도 배열이므로 true이고 문자열이나 객체처럼 배열처럼 보일 수 있는 값은 false로 구분해야 한다",
       "path": "_problems/check-array-input.md"
+    },
+    {
+      "slug": "check-triangle-sides",
+      "title": "삼각형을 만들 수 있는지 확인하기",
+      "track": "today",
+      "difficulty": "easy",
+      "topic": "numeric-validation",
+      "tags": [
+        "daily",
+        "beginner",
+        "math",
+        "validation",
+        "sorting"
+      ],
+      "primaryMethod": "sorted-sides-triangle-inequality",
+      "coreIdea": "세 변의 길이를 오름차순으로 정렬한 뒤 가장 짧은 두 변의 합이 가장 긴 변보다 큰지 확인해 삼각형 가능 여부를 판별한다",
+      "gimmick": "변의 길이가 0 이하이면 바로 false이고, 두 짧은 변의 합이 가장 긴 변과 같은 경우도 삼각형이 될 수 없다",
+      "path": "_problems/check-triangle-sides.md"
+    },
+    {
+      "slug": "count-xor-target-subarrays",
+      "title": "XOR 값이 목표가 되는 연속 구간 개수",
+      "track": "today",
+      "difficulty": "medium",
+      "topic": "xor-prefix",
+      "tags": [
+        "daily",
+        "medium",
+        "array",
+        "bitwise-xor",
+        "prefix",
+        "hash-map"
+      ],
+      "primaryMethod": "prefix-xor-frequency-map",
+      "coreIdea": "누적 XOR 값의 빈도를 해시 맵에 저장해 현재 누적값과 target을 만족시키는 이전 누적값 개수만큼 연속 구간을 한 번에 센다",
+      "gimmick": "XOR은 같은 값을 두 번 적용하면 사라지는 성질이 있어 prefixXor ^ previousXor = target 조건을 previousXor = prefixXor ^ target으로 바꿔 찾는다",
+      "path": "_problems/count-xor-target-subarrays.md"
+    },
+    {
+      "slug": "maximum-festival-gate-flow",
+      "title": "축제 게이트가 흘려보낼 수 있는 최대 인원",
+      "track": "today",
+      "difficulty": "hard",
+      "topic": "max-flow",
+      "tags": [
+        "daily",
+        "hard",
+        "graph",
+        "max-flow",
+        "dinic",
+        "residual-graph"
+      ],
+      "primaryMethod": "dinic-level-graph-blocking-flow",
+      "coreIdea": "각 통로의 수용 인원을 용량으로 보는 유량 네트워크를 만들고 레벨 그래프와 blocking flow를 반복해 출발 게이트에서 도착 게이트까지 보낼 수 있는 최대 유량을 구한다",
+      "gimmick": "같은 두 게이트 사이에 여러 통로가 있어도 각각 독립 용량으로 더해질 수 있으며, 한 번 흘린 인원은 잔여 간선으로 되돌릴 수 있어야 이후 경로 재배치가 가능하다",
+      "path": "_problems/maximum-festival-gate-flow.md"
+    },
+    {
+      "slug": "minimum-coins-for-target-amount",
+      "title": "목표 금액을 만드는 최소 동전 수",
+      "track": "algorithm",
+      "difficulty": "medium",
+      "topic": "coin-change",
+      "tags": [
+        "algorithm",
+        "dynamic-programming",
+        "coin-change",
+        "unbounded-knapsack",
+        "minimum-count"
+      ],
+      "primaryMethod": "one-dimensional-unbounded-coin-dp",
+      "coreIdea": "금액 0부터 target까지 필요한 최소 동전 수를 dp에 저장하고 각 동전을 여러 번 사용할 수 있도록 현재 금액에서 동전 값을 뺀 이전 상태를 참고해 갱신한다",
+      "gimmick": "만들 수 없는 금액은 Infinity로 남겨 두었다가 최종적으로 -1로 바꾸며, target이 0이면 동전을 하나도 쓰지 않는 0개가 정답이다",
+      "path": "_problems/minimum-coins-for-target-amount.md"
+    },
+    {
+      "slug": "get-first-code-character",
+      "title": "코드의 첫 글자 가져오기",
+      "track": "js-basic",
+      "difficulty": "easy",
+      "topic": "string-character-methods",
+      "tags": [
+        "beginner",
+        "string",
+        "js-method",
+        "charAt",
+        "character-access"
+      ],
+      "primaryMethod": "String.charAt",
+      "coreIdea": "코드 문자열에서 charAt(0)으로 첫 번째 글자만 안전하게 꺼내고 빈 문자열이면 빈 문자열을 그대로 반환한다",
+      "gimmick": "인덱스 0의 글자를 직접 꺼내는 연습이며 문자열이 비어 있을 때도 charAt은 에러 없이 빈 문자열을 반환한다",
+      "path": "_problems/get-first-code-character.md"
     }
   ]
 }
