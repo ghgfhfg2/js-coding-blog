@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-18T14:00:00+09:00",
+  "updatedAt": "2026-05-25T14:00:00+09:00",
   "rules": {
     "disallowExactSlugDuplicate": true,
     "disallowExactTitleDuplicate": true,
@@ -2927,6 +2927,98 @@
       "coreIdea": "코드 문자열에서 charAt(0)으로 첫 번째 글자만 안전하게 꺼내고 빈 문자열이면 빈 문자열을 그대로 반환한다",
       "gimmick": "인덱스 0의 글자를 직접 꺼내는 연습이며 문자열이 비어 있을 때도 charAt은 에러 없이 빈 문자열을 반환한다",
       "path": "_problems/get-first-code-character.md"
+    },
+    {
+      "slug": "check-booking-within-business-hours",
+      "title": "영업 시간 안의 예약인지 확인하기",
+      "track": "today",
+      "difficulty": "easy",
+      "topic": "time-conversion",
+      "tags": [
+        "daily",
+        "beginner",
+        "time",
+        "validation",
+        "conversion"
+      ],
+      "primaryMethod": "hhmm-to-minutes-range-check",
+      "coreIdea": "HH:MM 형식의 예약 시작·종료 시각과 영업 시작·종료 시각을 분 단위 숫자로 바꾼 뒤 예약 구간이 영업 구간 안에 완전히 들어오는지 확인한다",
+      "gimmick": "시작 시각은 영업 시작과 같아도 되고 종료 시각은 영업 종료와 같아도 되지만, 예약 시작과 종료가 같거나 거꾸로면 유효하지 않다",
+      "path": "_problems/check-booking-within-business-hours.md"
+    },
+    {
+      "slug": "minimum-deletions-for-unique-badge-counts",
+      "title": "배지 개수를 모두 다르게 만드는 최소 삭제 수",
+      "track": "today",
+      "difficulty": "medium",
+      "topic": "frequency-greedy",
+      "tags": [
+        "daily",
+        "medium",
+        "hash-map",
+        "greedy",
+        "frequency",
+        "set"
+      ],
+      "primaryMethod": "descending-frequency-dedup-set",
+      "coreIdea": "각 배지의 등장 횟수를 센 뒤 큰 빈도부터 보며 이미 사용한 빈도와 겹치지 않을 때까지 줄여 최소 삭제 횟수를 계산한다",
+      "gimmick": "빈도는 0까지 줄어들 수 있으며 0은 남는 배지 종류가 아니므로 사용한 빈도 집합에 넣지 않는다",
+      "path": "_problems/minimum-deletions-for-unique-badge-counts.md"
+    },
+    {
+      "slug": "lexicographic-ticket-route",
+      "title": "모든 티켓을 쓰는 사전순 여행 경로",
+      "track": "today",
+      "difficulty": "hard",
+      "topic": "eulerian-trail",
+      "tags": [
+        "daily",
+        "hard",
+        "graph",
+        "eulerian-trail",
+        "dfs",
+        "lexicographical-order"
+      ],
+      "primaryMethod": "hierholzer-lexicographic-eulerian-trail",
+      "coreIdea": "출발지별 도착지를 사전순으로 꺼낼 수 있게 정렬한 뒤 DFS로 막다른 길부터 경로 앞에 붙이는 Hierholzer 알고리즘으로 모든 티켓을 정확히 한 번 쓰는 사전순 최소 경로를 만든다",
+      "gimmick": "당장 사전순으로 가장 작은 도착지를 선택해도 이후 막힐 수 있으므로 방문 순서를 바로 정답에 넣지 않고 더 이상 쓸 티켓이 없을 때 역순으로 확정해야 한다",
+      "path": "_problems/lexicographic-ticket-route.md"
+    },
+    {
+      "slug": "insert-maintenance-window-and-merge",
+      "title": "새 점검 시간을 끼워 넣고 합치기",
+      "track": "algorithm",
+      "difficulty": "medium",
+      "topic": "interval-insertion",
+      "tags": [
+        "intermediate",
+        "interval",
+        "merge",
+        "array",
+        "single-pass"
+      ],
+      "primaryMethod": "single-pass-insert-and-merge-interval",
+      "coreIdea": "시작 시각 기준으로 이미 정렬되어 서로 겹치지 않는 점검 구간들 사이에 새 구간 하나를 넣고, 새 구간과 겹치거나 맞닿는 구간만 흡수한 뒤 나머지는 순서를 유지해 반환한다",
+      "gimmick": "전체 구간을 다시 정렬하지 않고 새 구간보다 완전히 앞선 구간, 합쳐야 하는 구간, 완전히 뒤에 남는 구간의 세 단계로 나누어 한 번만 훑는다",
+      "path": "_problems/insert-maintenance-window-and-merge.md"
+    },
+    {
+      "slug": "fill-empty-slot-list",
+      "title": "빈 슬롯 목록 같은 값으로 채우기",
+      "track": "js-basic",
+      "difficulty": "easy",
+      "topic": "array-fill-methods",
+      "tags": [
+        "beginner",
+        "array",
+        "js-method",
+        "fill",
+        "initialization"
+      ],
+      "primaryMethod": "Array.fill",
+      "coreIdea": "길이가 정해진 새 배열을 만든 뒤 fill 메서드로 모든 칸을 같은 기본값으로 채운다",
+      "gimmick": "count가 0이면 빈 배열을 반환하고, 값 사이에 다른 처리를 하지 않은 채 모든 슬롯을 같은 값으로 채운다",
+      "path": "_problems/fill-empty-slot-list.md"
     }
   ]
 }
