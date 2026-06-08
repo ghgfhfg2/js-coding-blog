@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-01T14:00:00+09:00",
+  "updatedAt": "2026-06-08T14:00:00+09:00",
   "rules": {
     "disallowExactSlugDuplicate": true,
     "disallowExactTitleDuplicate": true,
@@ -3109,6 +3109,97 @@
       "coreIdea": "각 OR 규칙을 두 개의 함의 간선으로 바꾼 뒤 SCC를 구해 어떤 스위치와 그 반대 조건이 같은 컴포넌트에 들어가는지 확인한다",
       "gimmick": "규칙 하나는 단순 조건 두 개가 아니라 반대 조건이 거짓일 때 다른 조건이 반드시 참이어야 한다는 방향 간선 두 개로 해석해야 한다",
       "path": "_problems/satisfy-switch-rules-two-sat.md"
+    },
+    {
+      "slug": "count-visible-tower-pairs",
+      "title": "서로 볼 수 있는 탑 쌍 개수",
+      "track": "today",
+      "difficulty": "medium",
+      "topic": "visible-stack",
+      "tags": [
+        "daily",
+        "medium",
+        "stack",
+        "monotonic-stack",
+        "counting"
+      ],
+      "primaryMethod": "compressed-monotonic-stack-visible-pair-count",
+      "coreIdea": "높이를 왼쪽부터 보며 내림차순 스택에 같은 높이 개수를 압축해 저장하고, 현재 탑과 서로 볼 수 있는 이전 탑 묶음만 즉시 더해 전체 쌍 수를 센다",
+      "gimmick": "같은 높이 탑들은 서로 모두 볼 수 있고, 같은 높이 묶음을 합친 뒤에도 왼쪽에 더 큰 탑이 남아 있으면 그 탑 한 개와도 볼 수 있다",
+      "path": "_problems/count-visible-tower-pairs.md"
+    },
+    {
+      "slug": "count-station-pairs-within-distance",
+      "title": "거리 제한 안의 정류장 쌍 개수",
+      "track": "today",
+      "difficulty": "hard",
+      "topic": "centroid-decomposition",
+      "tags": [
+        "daily",
+        "hard",
+        "tree",
+        "centroid-decomposition",
+        "two-pointers",
+        "distance"
+      ],
+      "primaryMethod": "centroid-decomposition-distance-pair-count",
+      "coreIdea": "가중 트리를 센트로이드 기준으로 반복 분할하고 각 단계에서 센트로이드를 지나는 거리 제한 이하 정점 쌍을 정렬과 투 포인터로 센 뒤 같은 서브트리 내부 쌍을 빼서 중복 없이 누적한다",
+      "gimmick": "센트로이드에서 모은 전체 거리 목록의 유효 쌍 수에서 각 인접 서브트리별 거리 목록의 유효 쌍 수를 빼야 센트로이드를 지나지 않는 쌍의 중복 계산을 막을 수 있다",
+      "path": "_problems/count-station-pairs-within-distance.md"
+    },
+    {
+      "slug": "flatten-shelf-item-groups",
+      "title": "선반별 상품 목록 한 줄로 펼치기",
+      "track": "js-basic",
+      "difficulty": "easy",
+      "topic": "array-flattening-methods",
+      "tags": [
+        "beginner",
+        "array",
+        "js-method",
+        "flat",
+        "nested-array"
+      ],
+      "primaryMethod": "flat",
+      "coreIdea": "2차원 상품 배열을 Array.flat()으로 한 단계 펼쳐 선반 순서와 상품 순서를 유지한 1차원 배열로 만든다",
+      "gimmick": "빈 선반 배열은 결과에 아무 항목도 더하지 않으며 원본 groups 배열은 변경하지 않는다",
+      "path": "_problems/flatten-shelf-item-groups.md"
+    },
+    {
+      "slug": "count-free-shipping-orders",
+      "title": "무료 배송 기준을 넘긴 주문 수",
+      "track": "today",
+      "difficulty": "easy",
+      "topic": "threshold-count",
+      "tags": [
+        "daily",
+        "beginner",
+        "array",
+        "counting",
+        "threshold"
+      ],
+      "primaryMethod": "linear-threshold-count",
+      "coreIdea": "주문 금액 배열을 한 번 순회하며 각 금액이 무료 배송 기준 이상인지 확인해 조건을 만족하는 주문 수를 센다",
+      "gimmick": "기준 금액과 정확히 같은 주문도 포함하고 주문 목록이 비어 있으면 0을 반환해야 한다",
+      "path": "_problems/count-free-shipping-orders.md"
+    },
+    {
+      "slug": "check-difference-constraints-consistency",
+      "title": "차이 조건이 모순 없는지 확인하기",
+      "track": "algorithm",
+      "difficulty": "medium",
+      "topic": "weighted-disjoint-set",
+      "tags": [
+        "intermediate",
+        "union-find",
+        "weighted-disjoint-set",
+        "graph",
+        "consistency-check"
+      ],
+      "primaryMethod": "union-find-potential-difference-consistency",
+      "coreIdea": "각 변수의 부모까지의 누적 차이를 함께 저장하는 가중 Union-Find로 두 변수 사이의 차이 조건을 합치고, 이미 같은 집합이면 기존 차이와 새 조건이 일치하는지 확인한다",
+      "gimmick": "연결되지 않은 변수 묶음은 서로 독립적으로 둘 수 있으며, 자기 자신과의 차이는 반드시 0이어야 하므로 자기 차이 조건도 모순 검사가 필요하다",
+      "path": "_problems/check-difference-constraints-consistency.md"
     }
   ]
 }
