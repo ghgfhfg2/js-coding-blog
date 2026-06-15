@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-08T14:00:00+09:00",
+  "updatedAt": "2026-06-15T14:00:00+09:00",
   "rules": {
     "disallowExactSlugDuplicate": true,
     "disallowExactTitleDuplicate": true,
@@ -3200,6 +3200,96 @@
       "coreIdea": "각 변수의 부모까지의 누적 차이를 함께 저장하는 가중 Union-Find로 두 변수 사이의 차이 조건을 합치고, 이미 같은 집합이면 기존 차이와 새 조건이 일치하는지 확인한다",
       "gimmick": "연결되지 않은 변수 묶음은 서로 독립적으로 둘 수 있으며, 자기 자신과의 차이는 반드시 0이어야 하므로 자기 차이 조건도 모순 검사가 필요하다",
       "path": "_problems/check-difference-constraints-consistency.md"
+    },
+    {
+      "slug": "check-delivery-label-digit",
+      "title": "배송 라벨 체크 숫자 확인하기",
+      "track": "today",
+      "difficulty": "easy",
+      "topic": "checksum-validation",
+      "tags": [
+        "daily",
+        "beginner",
+        "string",
+        "digits",
+        "checksum"
+      ],
+      "primaryMethod": "prefix-digit-sum-modulo-check",
+      "coreIdea": "숫자 문자열의 마지막 자리를 체크 숫자로 분리하고 앞자리 숫자 합의 일의 자리와 같은지 비교해 라벨의 유효성을 판별한다",
+      "gimmick": "체크 숫자는 합산에서 제외해야 하며 앞자리 합이 10 이상이면 합 전체가 아니라 일의 자리만 비교해야 한다",
+      "path": "_problems/check-delivery-label-digit.md"
+    },
+    {
+      "slug": "count-bounded-price-windows",
+      "title": "가격 차이가 제한 이내인 연속 구간 개수",
+      "track": "today",
+      "difficulty": "medium",
+      "topic": "bounded-range-window",
+      "tags": [
+        "daily",
+        "medium",
+        "sliding-window",
+        "monotonic-deque",
+        "counting"
+      ],
+      "primaryMethod": "dual-monotonic-deque-sliding-window-count",
+      "coreIdea": "두 단조 deque로 현재 연속 구간의 최댓값과 최솟값을 유지하고 차이가 limit를 넘으면 왼쪽 경계를 줄인 뒤, 각 오른쪽 끝점에서 만들 수 있는 모든 유효 구간 수를 더한다",
+      "gimmick": "가장 긴 유효 구간 하나가 아니라 조건을 만족하는 모든 연속 구간을 세므로 매 오른쪽 끝점마다 windowLength를 정답에 누적해야 한다",
+      "path": "_problems/count-bounded-price-windows.md"
+    },
+    {
+      "slug": "minimum-message-edit-count",
+      "title": "두 문구를 맞추는 최소 수정 횟수",
+      "track": "algorithm",
+      "difficulty": "medium",
+      "topic": "edit-distance",
+      "tags": [
+        "intermediate",
+        "dynamic-programming",
+        "string",
+        "edit-distance",
+        "space-optimization"
+      ],
+      "primaryMethod": "two-row-levenshtein-dp",
+      "coreIdea": "두 문자열의 접두사끼리 필요한 최소 삽입·삭제·교체 횟수를 DP로 계산하되 직전 행과 현재 행만 유지해 공간 사용량을 줄인다",
+      "gimmick": "한쪽 접두사가 비어 있는 초기 상태를 길이만큼의 삽입 또는 삭제 횟수로 채우고 같은 문자를 만났을 때는 수정 비용을 더하지 않는다",
+      "path": "_problems/minimum-message-edit-count.md"
+    },
+    {
+      "slug": "minimum-squared-distance-between-drones",
+      "title": "가장 가까운 드론 두 대의 거리 제곱",
+      "track": "today",
+      "difficulty": "hard",
+      "topic": "closest-pair-geometry",
+      "tags": [
+        "daily",
+        "hard",
+        "geometry",
+        "divide-and-conquer",
+        "closest-pair"
+      ],
+      "primaryMethod": "divide-and-conquer-closest-pair-strip-scan",
+      "coreIdea": "점들을 x좌표 기준으로 나눈 뒤 양쪽의 최근접 거리와 분할선 주변 띠 안의 후보만 y좌표 순서로 비교해 가장 가까운 두 점의 거리 제곱을 구한다",
+      "gimmick": "가장 가까운 두 점이 서로 다른 절반에 있을 수 있으므로 분할선에서 현재 최솟값보다 가까운 점만 모으고 y좌표 차이가 한계를 넘는 순간 비교를 멈춰야 한다",
+      "path": "_problems/minimum-squared-distance-between-drones.md"
+    },
+    {
+      "slug": "round-average-score",
+      "title": "평균 점수를 가장 가까운 정수로 반올림하기",
+      "track": "js-basic",
+      "difficulty": "easy",
+      "topic": "number-rounding-methods",
+      "tags": [
+        "beginner",
+        "number",
+        "js-method",
+        "Math.round",
+        "average"
+      ],
+      "primaryMethod": "Math.round",
+      "coreIdea": "점수 배열의 합을 개수로 나눈 평균을 구한 뒤 Math.round로 가장 가까운 정수로 반올림한다",
+      "gimmick": "평균의 소수 부분이 정확히 0.5일 때는 더 큰 정수로 반올림하며 모든 점수는 0 이상이다",
+      "path": "_problems/round-average-score.md"
     }
   ]
 }
